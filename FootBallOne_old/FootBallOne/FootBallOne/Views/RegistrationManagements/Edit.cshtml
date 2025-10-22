@@ -1,0 +1,240 @@
+﻿@model FootBallOne.Models.RegistrationManagement
+
+@{
+    ViewData["Title"] = "Edit Player";
+    Layout = "_Layout";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    body {
+        background-color: #f2f4f8;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .edit-card {
+        max-width: 800px;
+        margin: 60px auto;
+        background: #fff;
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+        font-weight: 700;
+        color: #0d6efd;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        font-weight: 500;
+        padding: 10px 20px;
+        border-radius: 10px;
+    }
+
+        .btn i {
+            margin-right: 6px;
+        }
+
+    .toast-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1080;
+    }
+</style>
+
+<div class="edit-card">
+    <h1><i class="bi bi-pencil-square"></i> Edit Player</h1>
+    <hr />
+
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label asp-for="AcademyID" class="form-label"></label>
+            <input asp-for="AcademyID" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PhoneNo" class="form-label"></label>
+            <input asp-for="PhoneNo" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Category" class="form-label"><i class="bi bi-tags-fill"></i>Category</label>
+            <select asp-for="Category" class="form-select">
+                <option value="">-- Select Category --</option>
+                <option>Under-12</option>
+                <option>Under-14</option>
+                <option>Under-16</option>
+                <option>Under-18</option>
+                <option>Senior</option>
+            </select>
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="SubscriptionStart" class="form-label"></label>
+            <input asp-for="SubscriptionStart" type="date" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="SubscriptionEnd" class="form-label"></label>
+            <input asp-for="SubscriptionEnd" type="date" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="SubscriptionFees" class="form-label"></label>
+            <input asp-for="SubscriptionFees" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="KitFees" class="form-label"></label>
+            <input asp-for="KitFees" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="SugarFees" class="form-label"></label>
+            <input asp-for="SugarFees" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="BagFees" class="form-label"></label>
+            <input asp-for="BagFees" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="TotalFees" class="form-label"></label>
+            <input asp-for="TotalFees" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Password" class="form-label"></label>
+            <input asp-for="Password" type="password" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Address" class="form-label"></label>
+            <input asp-for="Address" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="City" class="form-label"></label>
+            <input asp-for="City" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Ground" class="form-label"></label>
+            <select asp-for="Ground" class="form-select">
+                <option>Turf 1</option>
+                <option>Turf 2</option>
+                <option>Turf 3</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="TimeSlot" class="form-label"></label>
+            <select asp-for="TimeSlot" class="form-select">
+                <option>Morning</option>
+                <option>Evening</option>
+                <option>Night</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="BirthDate" class="form-label"></label>
+            <input asp-for="BirthDate" type="date" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ImageFile" class="form-label"></label>
+            <input asp-for="ImageFile" class="form-control" />
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="CoachName" class="form-label">
+                <i class="bi bi-person-circle"></i> Coach Name
+            </label>
+            <select asp-for="CoachName" class="form-select" asp-items="ViewBag.Coaches">
+                <option value="">-- Select Coach --</option>
+            </select>
+            <span asp-validation-for="CoachName" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="WorkingHours" class="form-label"><i class="bi bi-clock-fill"></i>Working Hours</label>
+            <select asp-for="WorkingHours" class="form-select">
+                <option value="">-- Select Working Time --</option>
+                <option>1 To 3</option>
+                <option>3 To 6</option>
+                <option>6 To 9</option>
+                <option>9 To 12</option>
+            </select>
+            <span asp-validation-for="WorkingHours" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PaymentStatus" class="form-label"></label>
+            <select asp-for="PaymentStatus" class="form-select">
+                <option>Paid</option>
+                <option>Not Paid</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CreatedDate" class="form-label"></label>
+            <input asp-for="CreatedDate" type="date" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LastUpdated" class="form-label"></label>
+            <input asp-for="LastUpdated" type="date" class="form-control" />
+        </div>
+
+        <div class="form-group text-end">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save"></i> Save Changes
+            </button>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left-circle"></i> Back to List
+            </a>
+        </div>
+    </form>
+</div>
+
+@if (TempData["Updated"] != null)
+{
+    <div class="toast-container">
+        <div class="toast align-items-center text-white bg-success border-0 show">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi bi-check-circle-fill"></i> @TempData["Updated"]
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+}
+

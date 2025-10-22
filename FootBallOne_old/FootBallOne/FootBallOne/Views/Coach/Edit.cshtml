@@ -1,0 +1,91 @@
+﻿@model FootBallOne.Models.Coach
+
+@{
+    ViewData["Title"] = "Edit Coach";
+    
+    Layout = "_Layout";
+
+}
+
+<h1 class="mb-4">Edit Coach</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow-sm p-4">
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <input type="hidden" asp-for="CoachId" />
+                <input type="hidden" asp-for="PhotoURL" /> @* Keep existing photo URL if no new upload *@
+
+                <div class="mb-3">
+                    <label asp-for="FullName" class="form-label"></label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Age" class="form-label"></label>
+                    <input asp-for="Age" class="form-control" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="PhoneNumber" class="form-label"></label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Specialization" class="form-label"></label>
+                    <input asp-for="Specialization" class="form-control" />
+                    <span asp-validation-for="Specialization" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ExperienceYears" class="form-label"></label>
+                    <input asp-for="ExperienceYears" class="form-control" />
+                    <span asp-validation-for="ExperienceYears" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="WorkingHours" class="form-label"></label>
+                    <input asp-for="WorkingHours" class="form-control" />
+                    <span asp-validation-for="WorkingHours" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="AssignedPlayers" class="form-label"></label>
+                    <input asp-for="AssignedPlayers" class="form-control" />
+                    <span asp-validation-for="AssignedPlayers" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="JoiningDate" class="form-label"></label>
+                    <input asp-for="JoiningDate" class="form-control" type="date" />
+                    <span asp-validation-for="JoiningDate" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="PhotoFile" class="form-label"></label>
+                    <input asp-for="PhotoFile" class="form-control" type="file" accept="image/*" />
+                    <span asp-validation-for="PhotoFile" class="text-danger"></span>
+                    @if (!string.IsNullOrEmpty(Model.PhotoURL))
+                    {
+                        <div class="mt-2">
+                            <p>Current Photo:</p>
+                            <img src="@Model.PhotoURL" alt="Current Coach Photo" class="img-thumbnail" style="max-width: 150px; height: auto;" />
+                        </div>
+                    }
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg">Save Changes</button>
+                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

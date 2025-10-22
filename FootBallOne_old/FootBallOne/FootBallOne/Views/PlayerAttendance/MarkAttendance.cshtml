@@ -1,0 +1,123 @@
+﻿@model List<FootBallOne.Models.RegistrationManagement>
+@{
+    ViewData["Title"] = "Mark Player Attendance";
+    Layout = "_Layout";
+}
+
+<div class="container mx-auto p-4 sm:p-6 lg:p-8">
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-6 md:p-8 fade-in">
+
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800">📝 Player Attendance</h2>
+            <p class="text-gray-500 mt-2">Select a coach to view and mark player attendance.</p>
+        </div>
+
+        <!-- Coach Selector Form -->
+        <form method="get" asp-action="MarkAttendance" class="mb-8">
+            <div class="max-w-sm mx-auto">
+                <label for="coachName" class="block text-sm font-medium text-gray-700 mb-2">Select Coach</label>
+                <select name="coachName" id="coachName" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500" onchange="this.form.submit()">
+                    <option value="">-- Select a Coach --</option>
+                    @foreach (var coach in ViewBag.Coaches as SelectList)
+                    {
+                        <option value="@coach.Text" selected="@(ViewBag.SelectedCoach == coach.Text ? "selected" : null)">
+                            @coach.Text
+                        </option>
+                    }
+                </select>
+            </div>
+        </form>
+
+        @if (Model != null && Model.Count > 0)
+        {
+            <!-- Attendance Form -->
+            <form method="post" asp-action="MarkAttendance">
+                <input type="hidden" name="coachName" value="@ViewBag.SelectedCoach" />
+                <div class="overflow-x-auto rounded-lg border border-gray-200">
+                    <table class="w-full text-left text-sm text-gray-600">
+                        <thead class="bg-gray-100 text-gray-700 uppercase tracking-wider">
+                            <tr>
+                                <th class="p-4 text-center">
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" id="selectAll" onclick="toggleAllCheckboxes(this)" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </th>
+                                <th class="px-6 py-3">Player Name</th>
+                                <th class="px-6 py-3">Phone</th>
+                                <th class="px-6 py-3">City</th>
+                                <th class="px-6 py-3">Subscription End</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var (player, index) in Model.Select((value, i) => (value, i)))
+                            {
+                                <tr class="bg-white border-b hover:bg-teal-50/50 transition table-row-animate" style="animation-delay:@(index * 50)ms;">
+                                    <td class="p-4 text-center">
+                                        <label class="custom-checkbox">
+                                            <input type="checkbox" name="presentPlayerIds" value="@player.Id" class="present-checkbox" checked />
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900">@player.Name</td>
+                                    <td class="px-6 py-4">@player.PhoneNo</td>
+                                    <td class="px-6 py-4">@player.City</td>
+                                    <td class="px-6 py-4 font-semibold @(player.SubscriptionEnd < DateTime.Now ? "text-red-500" : "text-green-600")">
+                                        @player.SubscriptionEnd?.ToString("dd MMM, yyyy")
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Save Button -->
+                <div class="mt-8 text-center">
+                    <button type="submit" class="inline-flex items-center justify-center px-8 py-3 rounded-full shadow-lg text-white bg-gradient-to-r from-teal-500 to-cyan-600 hover:scale-105 transition">
+                        ✅ Save Attendance
+                    </button>
+                </div>
+            </form>
+        }
+        else if (ViewBag.SelectedCoach != null)
+        {
+            <div class="text-center p-6 bg-yellow-50 text-yellow-700 border border-yellow-200 rounded-lg fade-in">
+                <p class="font-medium">⚠️ No players found for this coach.</p>
+            </div>
+        }
+    </div>
+</div>
+
+<div id="toast" class="toast-notification"></div>
+
+@section Styles {
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        @* (Place your CSS from the earlier code here: animations, checkbox, toast etc.) *@
+    </style>
+}
+
+@section Scripts {
+    <script>
+        function toggleAllCheckboxes(masterCheckbox) {
+            const checkboxes = document.querySelectorAll(".present-checkbox");
+            checkboxes.forEach(cb => cb.checked = masterCheckbox.checked);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const message = '@(TempData["Success"] as string)';
+            if (message) {
+                showToast(message);
+            }
+        });
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = `✅ ${msg}`;
+            toast.className = 'toast-notification success show';
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+    </script>
+}

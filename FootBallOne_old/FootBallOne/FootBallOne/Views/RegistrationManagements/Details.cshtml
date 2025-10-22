@@ -1,0 +1,122 @@
+﻿@model FootBallOne.Models.RegistrationManagement
+
+@{
+    ViewData["Title"] = "Player Details";
+}
+@{
+    Layout = "_Layout";
+}
+
+<!-- Bootstrap & Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    body {
+        background-color: #f4f6f9;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .details-card {
+        max-width: 900px;
+        margin: 60px auto;
+        background: #fff;
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+        font-weight: 700;
+        color: #0d6efd;
+    }
+
+    dt {
+        font-weight: 600;
+        color: #333;
+    }
+
+    dd {
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .btn-group-custom {
+        margin-top: 30px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .btn-primary, .btn-secondary {
+        font-weight: 500;
+        padding: 10px 20px;
+    }
+
+    .icon-title {
+        font-size: 1.4rem;
+        color: #0d6efd;
+        margin-right: 10px;
+    }
+
+    img.img-thumbnail {
+        max-width: 120px;
+        border-radius: 8px;
+    }
+</style>
+
+<div class="details-card">
+    <h1><i class="bi bi-person-badge icon-title"></i> Player Details</h1>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-4">Name</dt>
+        <dd class="col-sm-8">@Model.Name</dd>
+
+        <dt class="col-sm-4">Phone No</dt>
+        <dd class="col-sm-8">@Model.PhoneNo</dd>
+
+        <dt class="col-sm-4">Category</dt>
+        <dd class="col-sm-8">@Model.Category</dd>
+
+        <dt class="col-sm-4">Subscription Start</dt>
+        <dd class="col-sm-8">@Model.SubscriptionStart?.ToShortDateString() ?? "N/A"</dd>
+        <dt class="col-sm-4">Subscription End</dt>
+        <dd class="col-sm-8">@Model.SubscriptionEnd?.ToShortDateString() ?? "N/A"</dd>
+        <dt class="col-sm-4">Subscription Fees</dt>
+        <dd class="col-sm-8">₹@Model.SubscriptionFees</dd>
+
+        <dt class="col-sm-4">Kit Fees</dt>
+        <dd class="col-sm-8">₹@Model.KitFees</dd>
+
+        <dt class="col-sm-4">Sugar Fees</dt>
+        <dd class="col-sm-8">₹@Model.SugarFees</dd>
+
+        <dt class="col-sm-4">Bag Fees</dt>
+        <dd class="col-sm-8">₹@Model.BagFees</dd>
+
+        <dt class="col-sm-4">Email</dt>
+        <dd class="col-sm-8">@Model.Email</dd>
+
+        <dt class="col-sm-4">Address</dt>
+        <dd class="col-sm-8">@Model.Address</dd>
+
+        <dt class="col-sm-4">City</dt>
+        <dd class="col-sm-8">@Model.City</dd>
+
+        <dt class="col-sm-4">Player Image</dt>
+        <dd class="col-sm-8">
+            <img src="@Model.ImageFile" alt="Player Image" class="img-thumbnail" />
+        </dd>
+    </dl>
+
+    <div class="btn-group-custom">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">
+            <i class="bi bi-pencil-square"></i> Edit
+        </a>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="bi bi-arrow-left-circle"></i> Back to List
+        </a>
+    </div>
+</div>
