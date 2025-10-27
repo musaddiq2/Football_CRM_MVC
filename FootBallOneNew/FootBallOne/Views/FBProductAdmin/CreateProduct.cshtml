@@ -1,0 +1,178 @@
+﻿@model FootBallOne.Models.FBProduct
+@{
+    ViewData["Title"] = "Create Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h2>➕ Create New Product</h2>
+        </div>
+        <div class="col-md-6 text-right">
+            <a asp-action="Products" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Back to Products
+            </a>
+        </div>
+    </div>
+
+    @if (TempData["ModelErrors"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show">
+            @TempData["ModelErrors"]
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+    }
+
+    <form asp-action="CreateProduct" method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Product Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label asp-for="ProductName" class="font-weight-bold"></label>
+                            <input asp-for="ProductName" class="form-control" placeholder="e.g., Nike Mercurial Vapor" />
+                            <span asp-validation-for="ProductName" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="CategoryId" class="font-weight-bold"></label>
+                                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Categories">
+                                        <option value="">-- Select Category --</option>
+                                    </select>
+                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="SKU" class="font-weight-bold"></label>
+                                    <input asp-for="SKU" class="form-control" placeholder="e.g., FB-001" />
+                                    <span asp-validation-for="SKU" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Description" class="font-weight-bold"></label>
+                            <textarea asp-for="Description" class="form-control" rows="4" placeholder="Product description..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Brand" class="font-weight-bold"></label>
+                            <input asp-for="Brand" class="form-control" placeholder="e.g., Nike, Adidas" />
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="BasePrice" class="font-weight-bold"></label>
+                                    <input asp-for="BasePrice" class="form-control" type="number" step="0.01" />
+                                    <span asp-validation-for="BasePrice" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="DiscountPercentage" class="font-weight-bold"></label>
+                                    <input asp-for="DiscountPercentage" class="form-control" type="number" step="0.01" />
+                                    <span asp-validation-for="DiscountPercentage" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="StockQuantity" class="font-weight-bold"></label>
+                                    <input asp-for="StockQuantity" class="form-control" type="number" />
+                                    <span asp-validation-for="StockQuantity" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="MinStockLevel" class="font-weight-bold"></label>
+                                    <input asp-for="MinStockLevel" class="form-control" type="number" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Weight" class="font-weight-bold"></label>
+                                    <input asp-for="Weight" class="form-control" type="number" step="0.01" placeholder="In kg" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Dimensions" class="font-weight-bold"></label>
+                                    <input asp-for="Dimensions" class="form-control" placeholder="e.g., 30x20x10 cm" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Tags" class="font-weight-bold"></label>
+                            <input asp-for="Tags" class="form-control" placeholder="e.g., boots, nike, soccer" />
+                            <small class="form-text text-muted">Comma-separated tags for search</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">Product Images</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Primary Image</label>
+                            <input type="file" name="primaryImage" class="form-control-file" accept="image/*" />
+                            <small class="form-text text-muted">Main product image</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold">Additional Images</label>
+                            <input type="file" name="additionalImages" class="form-control-file" accept="image/*" multiple />
+                            <small class="form-text text-muted">Select multiple images</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">Product Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-check mb-2">
+                            <input asp-for="IsActive" class="form-check-input" type="checkbox" checked />
+                            <label asp-for="IsActive" class="form-check-label font-weight-bold"></label>
+                        </div>
+
+                        <div class="form-check">
+                            <input asp-for="IsFeatured" class="form-check-input" type="checkbox" />
+                            <label asp-for="IsFeatured" class="form-check-label font-weight-bold"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-lg">
+                    <i class="fas fa-save"></i> Create Product
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

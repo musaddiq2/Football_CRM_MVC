@@ -1,0 +1,132 @@
+﻿@model List<FootBallOne.Models.RegistrationManagement>
+
+@{
+    ViewData["Title"] = "Today's Players";
+}
+
+<style>
+    h2 {
+        font-weight: bold;
+        color: #218838; /* Deep green to match the 🟢 icon */
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 10px;
+    }
+
+    form select,
+    form button {
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+        form select:hover,
+        form button:hover {
+            transform: scale(1.02);
+            cursor: pointer;
+        }
+
+    .table th {
+        background-color: #343a40; /* dark header */
+        color: #fff;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .table td {
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .table-info {
+        background-color: #d1ecf1 !important;
+    }
+
+    /* Add alternating row color */
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+
+</style>
+
+<h2 class="text-center mb-4">🟢 Today's Active Players</h2>
+
+<form method="get" class="row mb-4">
+    <div class="col-md-3">
+        <label for="coachName" class="form-label"><i class="bi bi-person-circle"></i> Coach Name</label>
+        <select name="coachName" id="coachName" class="form-select">
+            <option value="">-- Select Coach --</option>
+            @foreach (var coach in ViewBag.Coaches as List<SelectListItem>)
+            {
+                <option value="@coach.Value">@coach.Text</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <select name="category" class="form-select">
+           @*  <option value="">Select Category</option>
+            <option value="Under-12">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option> *@
+            <option value="">Select Category</option>   
+            <option value="Under-12">Under-12</option>
+            <option value="Under-14">Under-14</option>
+            <option value="Under-16">Under-16</option>
+            <option value="Under-18">Under-18</option>
+            <option value="Senior">Senior</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <select name="timeSlot" class="form-select">
+            <option value="">Select Time Slot</option>
+            <option value="1 To 3">1 To 3</option>
+            <option value="3 To 6">3 To 6</option>
+            <option value="6 To 9">6 To 9</option>
+            <option value="9 To 12">9 To 12</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <button type="submit" class="btn btn-primary w-100">
+            <i class="bi bi-funnel"></i> Filter
+        </button>
+    </div>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Time Slot</th>
+                <th>Ground</th>
+                <th>Coach</th>
+                <th>Subscription End</th>
+                <th>Last Updated</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var player in Model)
+            {
+                var isRecent = player.LastUpdated != null && (DateTime.Now - player.LastUpdated.Value).TotalHours < 24;
+                var rowClass = isRecent ? "table-info" : "";
+
+                <tr class="@rowClass">
+                    <td>@player.Name</td>
+                    <td>@player.Category</td>
+                    <td>@player.TimeSlot</td>
+                    <td>@player.Ground</td>
+                    <td>@player.CoachName</td>
+                    <td>@player.SubscriptionEnd?.ToString("dd-MM-yyyy")</td>
+                    <td>@player.LastUpdated?.ToString("g")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning text-center">
+        No players found for the selected filters.
+    </div>
+}

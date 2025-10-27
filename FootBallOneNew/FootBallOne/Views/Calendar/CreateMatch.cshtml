@@ -1,0 +1,665 @@
+﻿@model FootBallOne.ViewModel.MatchViewModel
+
+@{
+    ViewData["Title"] = "Create Match";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Match</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: ">";
+            color: #6c757d;
+        }
+
+        .breadcrumb-item a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color: #495057;
+        }
+
+        .main-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #212529;
+            margin-bottom: 2rem;
+        }
+
+        .step-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .step-navigation {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .step-item {
+            flex: 1;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+            .step-item.active {
+                background: white;
+                color: #007bff;
+            }
+
+                .step-item.active::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: 3px;
+                    background: #007bff;
+                }
+
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e9ecef;
+            color: #6c757d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .step-item.active .step-icon {
+            background: #007bff;
+            color: white;
+        }
+
+        .step-title {
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0;
+            color: #6c757d;
+        }
+
+        .step-item.active .step-title {
+            color: #007bff;
+        }
+
+        .step-content {
+            padding: 2rem;
+            min-height: 500px;
+        }
+
+        .step-pane {
+            display: none;
+        }
+
+            .step-pane.active {
+                display: block;
+            }
+
+        .form-label {
+            font-weight: 500;
+            color: #212529;
+            margin-bottom: 0.5rem;
+        }
+
+        .required {
+            color: #dc3545;
+        }
+
+        .form-control, .form-select {
+            border: 1.5px solid #e9ecef;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+            .form-control:focus, .form-select:focus {
+                border-color: #007bff;
+                box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.15);
+            }
+
+        .btn-group-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 0.65rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+            .btn-primary:hover {
+                background: #0056b3;
+                border-color: #0056b3;
+                transform: translateY(-1px);
+            }
+
+        .btn-secondary {
+            background: #6c757d;
+            border: 1px solid #6c757d;
+            border-radius: 8px;
+            padding: 0.65rem 1.5rem;
+            font-weight: 500;
+        }
+
+        .btn-success {
+            background: #28a745;
+            border: 1px solid #28a745;
+            border-radius: 8px;
+            padding: 0.65rem 1.5rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+
+        .form-section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #212529;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-text-muted {
+            color: #6c757d;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 1.5rem !important;
+        }
+
+        .text-danger {
+            color: #dc3545 !important;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid px-4 py-3">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Competitions and Teams Management</a></li>
+                <li class="breadcrumb-item"><a asp-action="Index">Matches</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Create</li>
+            </ol>
+        </nav>
+
+        <!-- Page Title -->
+        <h1 class="main-title">Create Match</h1>
+
+        <!-- Main Form Container -->
+        <div class="step-container">
+            <!-- Step Navigation -->
+            <div class="step-navigation">
+                <button type="button" class="step-item active" data-step="1">
+                    <div class="step-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="step-title">Basic Information</div>
+                </button>
+                <button type="button" class="step-item" data-step="2">
+                    <div class="step-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="step-title">Match Details</div>
+                </button>
+                <button type="button" class="step-item" data-step="3">
+                    <div class="step-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="step-title">Match Results</div>
+                </button>
+                <button type="button" class="step-item" data-step="4">
+                    <div class="step-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="step-title">Special Invitations</div>
+                </button>
+            </div>
+
+            <!-- Form Content -->
+            <form id="matchForm" asp-action="CreateMatch" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- Step 1: Basic Information -->
+                <div class="step-content">
+                    <div class="step-pane active" id="step-1">
+                        <h4 class="form-section-title">Basic Information</h4>
+
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label asp-for="Tournament" class="form-label">Tournament <span class="required">*</span></label>
+                                <select asp-for="Tournament" id="tournament" class="form-select" required>
+                                    <option value="">Select an option</option>
+                                    <option value="Premier League">Premier League</option>
+                                    <option value="Champions League">Champions League</option>
+                                    <option value="FA Cup">FA Cup</option>
+                                    <option value="League Cup">League Cup</option>
+                                    <option value="Friendly Match">Friendly Match</option>
+                                    <option value="Youth Tournament">Youth Tournament</option>
+                                </select>
+                                <span asp-validation-for="Tournament" class="text-danger" id="tournament-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="HomeTeam" class="form-label">Home Team <span class="required">*</span></label>
+                                <select asp-for="HomeTeam" id="homeTeam" class="form-select" required>
+                                    <option value="">Select an option</option>
+                                    <option value="Team A">Team A</option>
+                                    <option value="Team B">Team B</option>
+                                    <option value="Team C">Team C</option>
+                                    <option value="Team D">Team D</option>
+                                    <option value="Manchester United">Manchester United</option>
+                                    <option value="Liverpool">Liverpool</option>
+                                    <option value="Chelsea">Chelsea</option>
+                                    <option value="Arsenal">Arsenal</option>
+                                </select>
+                                <span asp-validation-for="HomeTeam" class="text-danger" id="homeTeam-error"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="AwayTeam" class="form-label">Away Team <span class="required">*</span></label>
+                                <select asp-for="AwayTeam" id="awayTeam" class="form-select" required>
+                                    <option value="">Select an option</option>
+                                    <option value="Team A">Team A</option>
+                                    <option value="Team B">Team B</option>
+                                    <option value="Team C">Team C</option>
+                                    <option value="Team D">Team D</option>
+                                    <option value="Manchester United">Manchester United</option>
+                                    <option value="Liverpool">Liverpool</option>
+                                    <option value="Chelsea">Chelsea</option>
+                                    <option value="Arsenal">Arsenal</option>
+                                </select>
+                                <span asp-validation-for="AwayTeam" class="text-danger" id="awayTeam-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="btn-group-navigation">
+                            <div></div>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">
+                                Next <i class="fas fa-arrow-right ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Match Details -->
+                    <div class="step-pane" id="step-2">
+                        <h4 class="form-section-title">Match Details</h4>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="MatchDate" class="form-label">Match Date <span class="required">*</span></label>
+                                <input asp-for="MatchDate" id="matchDate" class="form-control" type="date" required>
+                                <span asp-validation-for="MatchDate" class="text-danger" id="matchDate-error"></span>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="MatchTime" class="form-label">Match Time <span class="required">*</span></label>
+                                <input asp-for="MatchTime" id="matchTime" class="form-control" type="time" value="15:00" required>
+                                <span asp-validation-for="MatchTime" class="text-danger" id="matchTime-error"></span>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="MatchStatus" class="form-label">Status</label>
+                                <select asp-for="MatchStatus" id="matchStatus" class="form-select">
+                                    <option value="">Select Status</option>
+                                    <option value="Scheduled" selected>Scheduled</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="Postponed">Postponed</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                </select>
+                                <span asp-validation-for="MatchStatus" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Venue" class="form-label">Venue</label>
+                                <input asp-for="Venue" id="venue" class="form-control" maxlength="500" placeholder="Enter venue name">
+                                <span asp-validation-for="Venue" class="text-danger" id="venue-error"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Referee" class="form-label">Referee</label>
+                                <input asp-for="Referee" id="referee" class="form-control" maxlength="100" placeholder="Enter referee name">
+                                <span asp-validation-for="Referee" class="text-danger" id="referee-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="btn-group-navigation">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep()">
+                                <i class="fas fa-arrow-left me-1"></i> Previous
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">
+                                Next <i class="fas fa-arrow-right ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Match Results -->
+                    <div class="step-pane" id="step-3">
+                        <h4 class="form-section-title">Match Results</h4>
+                        <p class="form-text-muted">Leave scores empty if the match hasn't been played yet.</p>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="HomeScore" class="form-label">Home Team Score</label>
+                                <input asp-for="HomeScore" id="homeScore" class="form-control" type="number" min="0" value="0" placeholder="0">
+                                <span asp-validation-for="HomeScore" class="text-danger" id="homeScore-error"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="AwayScore" class="form-label">Away Team Score</label>
+                                <input asp-for="AwayScore" id="awayScore" class="form-control" type="number" min="0" value="0" placeholder="0">
+                                <span asp-validation-for="AwayScore" class="text-danger" id="awayScore-error"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label asp-for="Winner" class="form-label">Winner</label>
+                                <input asp-for="Winner" id="winner" class="form-control" maxlength="100" placeholder="Enter winner name">
+                                <span asp-validation-for="Winner" class="text-danger" id="winner-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="btn-group-navigation">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep()">
+                                <i class="fas fa-arrow-left me-1"></i> Previous
+                            </button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">
+                                Next <i class="fas fa-arrow-right ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Special Invitations -->
+                    <div class="step-pane" id="step-4">
+                        <h4 class="form-section-title">Special Invitations for this Match</h4>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="VIPGuests" class="form-label">VIP Guests</label>
+                                <textarea asp-for="VIPGuests" id="vipGuests" class="form-control" rows="3" maxlength="250" placeholder="Enter VIP guest names (comma separated)"></textarea>
+                                <span asp-validation-for="VIPGuests" class="text-danger" id="vipGuests-error"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Sponsors" class="form-label">Sponsors</label>
+                                <textarea asp-for="Sponsors" id="sponsors" class="form-control" rows="3" maxlength="250" placeholder="Enter sponsor names (comma separated)"></textarea>
+                                <span asp-validation-for="Sponsors" class="text-danger" id="sponsors-error"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="InvitationNotes" class="form-label">Invitation Notes</label>
+                            <textarea asp-for="InvitationNotes" id="invitationNotes" class="form-control" rows="4" maxlength="500" placeholder="Any special notes or instructions for this match"></textarea>
+                            <span asp-validation-for="InvitationNotes" class="text-danger" id="invitationNotes-error"></span>
+                        </div>
+
+                        <div class="btn-group-navigation">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep()">
+                                <i class="fas fa-arrow-left me-1"></i> Previous
+                            </button>
+                            <div>
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-save me-1"></i> Create Match
+                                </button>
+                                <button type="submit" name="createAnother" value="true" class="btn btn-success">
+                                    <i class="fas fa-save me-1"></i> Create and Add Another
+                                </button>
+                                <a asp-action="Index" class="btn btn-secondary">
+                                    <i class="fas fa-times me-1"></i> Cancel
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+                function showStep(step) {
+            document.querySelectorAll('.step-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            document.querySelectorAll('.step-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            document.getElementById(`step-${step}`).classList.add('active');
+            document.querySelector(`.step-item[data-step="${step}"]`).classList.add('active');
+        }
+
+        function nextStep() {
+            if (validateCurrentStep()) {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    showStep(currentStep);
+                }
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        }
+
+        function validateCurrentStep() {
+            let isValid = true;
+
+            if (currentStep === 1) {
+                const tournament = document.getElementById('tournament').value;
+                const homeTeam = document.getElementById('homeTeam').value;
+                const awayTeam = document.getElementById('awayTeam').value;
+
+                clearErrors();
+
+                if (!tournament) {
+                    showError('tournament-error', 'Tournament is required');
+                    isValid = false;
+                }
+
+                if (!homeTeam) {
+                    showError('homeTeam-error', 'Home Team is required');
+                    isValid = false;
+                }
+
+                if (!awayTeam) {
+                    showError('awayTeam-error', 'Away Team is required');
+                    isValid = false;
+                }
+
+                if (homeTeam && awayTeam && homeTeam === awayTeam) {
+                    showError('awayTeam-error', 'Away team cannot be the same as Home team');
+                    isValid = false;
+                }
+            }
+
+            if (currentStep === 2) {
+                const matchDate = document.getElementById('matchDate').value;
+                const matchTime = document.getElementById('matchTime').value;
+
+                if (!matchDate) {
+                    showError('matchDate-error', 'Match Date is required');
+                    isValid = false;
+                }
+
+                if (!matchTime) {
+                    showError('matchTime-error', 'Match Time is required');
+                    isValid = false;
+                }
+
+                if (matchDate && new Date(matchDate) < new Date().setHours(0,0,0,0)) {
+                    showError('matchDate-error', 'Match date cannot be in the past');
+                    isValid = false;
+                }
+            }
+
+            return isValid;
+        }
+
+        function showError(elementId, message) {
+            document.getElementById(elementId).textContent = message;
+        }
+
+        function clearErrors() {
+            document.querySelectorAll('.text-danger').forEach(error => {
+                error.textContent = '';
+            });
+        }
+
+        document.querySelectorAll('.step-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const targetStep = parseInt(this.dataset.step);
+                if (targetStep < currentStep || validateCurrentStep()) {
+                    currentStep = targetStep;
+                    showStep(currentStep);
+                }
+            });
+        });
+
+        document.getElementById('homeScore').addEventListener('input', updateMatchStatus);
+        document.getElementById('awayScore').addEventListener('input', updateMatchStatus);
+
+        function updateMatchStatus() {
+            const homeScore = document.getElementById('homeScore').value;
+            const awayScore = document.getElementById('awayScore').value;
+            const statusSelect = document.getElementById('matchStatus');
+
+            if (homeScore !== '' && awayScore !== '') {
+                statusSelect.value = 'Completed';
+            } else if (statusSelect.value === 'Completed') {
+                statusSelect.value = 'Scheduled';
+            }
+        }
+
+        document.getElementById('homeTeam').addEventListener('change', checkTeamConflict);
+        document.getElementById('awayTeam').addEventListener('change', checkTeamConflict);
+
+        function checkTeamConflict() {
+            const homeTeam = document.getElementById('homeTeam').value;
+            const awayTeam = document.getElementById('awayTeam').value;
+
+            if (homeTeam && awayTeam && homeTeam === awayTeam) {
+                showError('awayTeam-error', 'Away team cannot be the same as Home team');
+            } else {
+                document.getElementById('awayTeam-error').textContent = '';
+            }
+        }
+
+        $(document).ready(function() {
+            $("#matchForm").validate({
+                errorClass: "text-danger",
+                rules: {
+                    Tournament: { required: true },
+                    HomeTeam: { required: true },
+                    AwayTeam: {
+                        required: true,
+                        notEqualTo: "#homeTeam"
+                    },
+                    MatchDate: {
+                        required: true,
+                        date: true,
+                        minDate: new Date().toISOString().split('T')[0]
+                    },
+                    MatchTime: { required: true },
+                    HomeScore: { min: 0 },
+                    AwayScore: { min: 0 }
+                },
+                messages: {
+                    Tournament: "Tournament is required",
+                    HomeTeam: "Home Team is required",
+                    AwayTeam: {
+                        required: "Away Team is required",
+                        notEqualTo: "Away team cannot be the same as Home team"
+                    },
+                    MatchDate: {
+                        required: "Match Date is required",
+                        date: "Please enter a valid date",
+                        minDate: "Match date cannot be in the past"
+                    },
+                    MatchTime: "Match Time is required",
+                    HomeScore: "Score must be 0 or greater",
+                    AwayScore: "Score must be 0 or greater"
+                },
+                errorPlacement: function(error, element) {
+                    error.appendTo(element.next(".text-danger"));
+                },
+                submitHandler: function(form) {
+                    if (validateCurrentStep()) {
+                        form.submit();
+                    }
+                }
+            });
+
+            $.validator.addMethod("notEqualTo", function(value, element, param) {
+                return this.optional(element) || value !== $(param).val();
+            }, "This field must be different from the other.");
+
+            $.validator.addMethod("minDate", function(value, element) {
+                return this.optional(element) || new Date(value) >= new Date().setHours(0,0,0,0);
+            }, "Date must be today or in the future");
+
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            document.getElementById('matchDate').value = tomorrow.toISOString().split('T')[0];
+        });
+    </script>
+</body>
+</html>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

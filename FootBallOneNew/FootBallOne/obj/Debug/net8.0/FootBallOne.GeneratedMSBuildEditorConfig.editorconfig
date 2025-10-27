@@ -1,0 +1,545 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = FootBallOne
+build_property.RootNamespace = FootBallOne
+build_property.ProjectDir = C:\Users\Shaikh_Fasi\Downloads\FootBallOne-26-10-25\FootBallOneNew\FootBallOne\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Shaikh_Fasi\Downloads\FootBallOne-26-10-25\FootBallOneNew\FootBallOne
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Academy/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNhZGVteVxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Academy/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNhZGVteVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/AdminDashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5EYXNoYm9hcmRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Admin/AdminDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5EYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Admin/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Admin/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Alerts/Expired.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxlcnRzXEV4cGlyZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Alerts/ExpiringSoon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxlcnRzXEV4cGlyaW5nU29vbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Alerts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxlcnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Alerts/NotPaid.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxlcnRzXE5vdFBhaWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Alerts/Paid.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxlcnRzXFBhaWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Alerts/Pending.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxlcnRzXFBlbmRpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Alerts/_CoachTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxlcnRzXF9Db2FjaFRhYmxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Calendar/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsZW5kYXJcQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Calendar/CreateCamp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsZW5kYXJcQ3JlYXRlQ2FtcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Calendar/CreateMatch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsZW5kYXJcQ3JlYXRlTWF0Y2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Calendar/CreateTournament.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsZW5kYXJcQ3JlYXRlVG91cm5hbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Calendar/CreateTraining.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsZW5kYXJcQ3JlYXRlVHJhaW5pbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Calendar/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsZW5kYXJcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Calendar/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsZW5kYXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/CampList/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcExpc3RcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/CampList/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcExpc3RcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/CampList/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcExpc3RcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/CampList/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcExpc3RcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/CC/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/CC/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ0NcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/CoachDashboard/MarkAttendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hEYXNoYm9hcmRcTWFya0F0dGVuZGFuY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/CoachDashboard/Renew.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hEYXNoYm9hcmRcUmVuZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/CoachDashboard/Stopped.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hEYXNoYm9hcmRcU3RvcHBlZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/CoachDashboard/Today.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hEYXNoYm9hcmRcVG9kYXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Coach/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Coach/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Coach/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Coach/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29hY2hcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/EventList/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRMaXN0XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/EventList/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRMaXN0XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/EventList/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRMaXN0XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/EventList/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRMaXN0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/FBProductAdmin/Categories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRkJQcm9kdWN0QWRtaW5cQ2F0ZWdvcmllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/FBProductAdmin/CreateProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRkJQcm9kdWN0QWRtaW5cQ3JlYXRlUHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/FBProductAdmin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRkJQcm9kdWN0QWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/FBProductAdmin/EditProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRkJQcm9kdWN0QWRtaW5cRWRpdFByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/FBProductAdmin/Orders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRkJQcm9kdWN0QWRtaW5cT3JkZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/FBProductAdmin/Products.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRkJQcm9kdWN0QWRtaW5cUHJvZHVjdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/FBShop/Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRkJTaG9wXENhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/FBShop/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRkJTaG9wXENoZWNrb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/FBShop/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRkJTaG9wXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/FBShop/MyOrders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRkJTaG9wXE15T3JkZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/FBShop/OrderConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRkJTaG9wXE9yZGVyQ29uZmlybWF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/FBShop/ProductDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRkJTaG9wXFByb2R1Y3REZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/LinkInvitation/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlua0ludml0YXRpb25cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/LinkInvitation/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlua0ludml0YXRpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/LinkInvitation/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlua0ludml0YXRpb25cTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/LinkInvitation/ShowQR.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlua0ludml0YXRpb25cU2hvd1FSLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/LOGIN/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTE9HSU5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/LOGIN/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTE9HSU5cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/LOGIN/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTE9HSU5cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/LOGIN/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTE9HSU5cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/LOGIN/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTE9HSU5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/LOGIN/SignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTE9HSU5cU2lnbkluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/NotificationTemplates/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90aWZpY2F0aW9uVGVtcGxhdGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Parents/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyZW50c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Parents/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyZW50c1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Parents/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyZW50c1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Parents/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyZW50c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Parents/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFyZW50c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/PlayerAttendance/AttendanceSummary.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyQXR0ZW5kYW5jZVxBdHRlbmRhbmNlU3VtbWFyeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/PlayerAttendance/MarkAttendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyQXR0ZW5kYW5jZVxNYXJrQXR0ZW5kYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/PlayerAttendance/ViewAttendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyQXR0ZW5kYW5jZVxWaWV3QXR0ZW5kYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/PlayerRegistration/CompleteRegister.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyUmVnaXN0cmF0aW9uXENvbXBsZXRlUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/PlayerRegistration/NewRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyUmVnaXN0cmF0aW9uXE5ld1JlcXVlc3RzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/PlayerRegistration/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyUmVnaXN0cmF0aW9uXFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/PlayerRegistration/Renew.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyUmVnaXN0cmF0aW9uXFJlbmV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/ImportSubscribers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcSW1wb3J0U3Vic2NyaWJlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/Payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcUGF5bWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/RejectedRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcUmVqZWN0ZWRSZXF1ZXN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/RequestRegistration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcUmVxdWVzdFJlZ2lzdHJhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/RequestSubmitted.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcUmVxdWVzdFN1Ym1pdHRlZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/ReviewRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcUmV2aWV3UmVxdWVzdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/SearchSubscriber.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcU2VhcmNoU3Vic2NyaWJlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/Step1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcU3RlcDEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/Step2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcU3RlcDIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/Step3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcU3RlcDMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RegistrationManagements/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0cmF0aW9uTWFuYWdlbWVudHNcU3VjY2Vzcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RG/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUkdcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RG/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUkdcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RG/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUkdcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RG/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUkdcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/RG/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUkdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Security/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdXJpdHlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Security/Security.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VjdXJpdHlcU2VjdXJpdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Shared/Admin_navbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluX25hdmJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Shared/_UserLoyout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VyTG95b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TournamentsList/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5hbWVudHNMaXN0XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TournamentsList/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5hbWVudHNMaXN0XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TournamentsList/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5hbWVudHNMaXN0XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TournamentsList/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5hbWVudHNMaXN0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TournamentsList/TeamCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5hbWVudHNMaXN0XFRlYW1DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TournamentsList/TeamDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5hbWVudHNMaXN0XFRlYW1EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TournamentsList/TeamDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5hbWVudHNMaXN0XFRlYW1EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TournamentsList/TeamEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5hbWVudHNMaXN0XFRlYW1FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TournamentsList/TournamentDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5hbWVudHNMaXN0XFRvdXJuYW1lbnREZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TournamentsList/TournamentDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5hbWVudHNMaXN0XFRvdXJuYW1lbnREZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TournamentsList/TournamentEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5hbWVudHNMaXN0XFRvdXJuYW1lbnRFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TournamentsList/_MatchesListPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5hbWVudHNMaXN0XF9NYXRjaGVzTGlzdFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TournamentsList/_TeamsListPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5hbWVudHNMaXN0XF9UZWFtc0xpc3RQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TournamentsList/_TournamentsListPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5hbWVudHNMaXN0XF9Ub3VybmFtZW50c0xpc3RQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TrainingList/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5pbmdMaXN0XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TrainingList/EditTraining.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5pbmdMaXN0XEVkaXRUcmFpbmluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TrainingList/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5pbmdMaXN0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/TrainingList/TrainingDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhaW5pbmdMaXN0XFRyYWluaW5nRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/UserDashboard/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRhc2hib2FyZFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/UserDashboard/UserDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRhc2hib2FyZFxVc2VyRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/YourNotification/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWW91ck5vdGlmaWNhdGlvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Shaikh_Fasi/Downloads/FootBallOne-26-10-25/FootBallOneNew/FootBallOne/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-pfde3ualrd

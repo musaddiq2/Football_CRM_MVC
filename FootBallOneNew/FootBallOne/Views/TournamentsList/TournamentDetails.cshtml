@@ -1,0 +1,634 @@
+﻿@model FootBallOne.Models.Tournament
+
+<div class="tournament-container">
+    <!-- Hero Header -->
+    <div class="tournament-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="tournament-icon">
+                <i class="bi bi-trophy-fill"></i>
+            </div>
+            <h1 class="tournament-title">@Model.TournamentName</h1>
+            <div class="tournament-status-badge">
+                @if (Model.IsActive)
+                {
+                    <span class="status-active"><i class="bi bi-check-circle-fill"></i> Active Tournament</span>
+                }
+                else
+                {
+                    <span class="status-inactive"><i class="bi bi-pause-circle-fill"></i> Inactive</span>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="container main-content">
+        <!-- Description Card -->
+        <div class="description-card">
+            <div class="section-header">
+                <i class="bi bi-journal-text"></i>
+                <h3>About This Tournament</h3>
+            </div>
+            <p class="description-text">@Model.TournamentDescription</p>
+        </div>
+
+        <!-- Info Cards Grid -->
+        <div class="info-grid">
+            <!-- Dates Card -->
+            <div class="info-card dates-card">
+                <div class="card-icon">
+                    <i class="bi bi-calendar-range"></i>
+                </div>
+                <h4>Tournament Schedule</h4>
+                <div class="date-info">
+                    <div class="date-item">
+                        <span class="date-label">Starts</span>
+                        <span class="date-value">@Model.StartDate.ToString("MMM dd, yyyy")</span>
+                    </div>
+                    <div class="date-divider">
+                        <i class="bi bi-arrow-right"></i>
+                    </div>
+                    <div class="date-item">
+                        <span class="date-label">Ends</span>
+                        <span class="date-value">@Model.EndDate.ToString("MMM dd, yyyy")</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Details Card -->
+            <div class="info-card details-card">
+                <div class="card-icon">
+                    <i class="bi bi-info-circle"></i>
+                </div>
+                <h4>Tournament Details</h4>
+                <div class="detail-list">
+                    <div class="detail-item">
+                        <span class="detail-label">Status</span>
+                        <span class="detail-badge status-badge">@Model.Status</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Branch</span>
+                        <span class="detail-value">@Model.Branch</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Registration</span>
+                        @if (Model.OpenToEveryone)
+                        {
+                            <span class="detail-badge open-badge"><i class="bi bi-globe"></i> Open to All</span>
+                        }
+                        else
+                        {
+                            <span class="detail-badge invite-badge"><i class="bi bi-lock"></i> Invite Only</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Invited Facilities Section -->
+        <div class="facilities-section">
+            <div class="section-header">
+                <i class="bi bi-building"></i>
+                <h3>Invited Facilities</h3>
+                @if (Model.InvitedFacilities != null && Model.InvitedFacilities.Any())
+                {
+                    <span class="facility-count">@Model.InvitedFacilities.Count() Facilities</span>
+                }
+            </div>
+
+            @if (Model.InvitedFacilities != null && Model.InvitedFacilities.Any())
+            {
+                <div class="facilities-grid">
+                    @foreach (var facility in Model.InvitedFacilities)
+                    {
+                        <div class="facility-card">
+                            <div class="facility-icon">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <div class="facility-content">
+                                <div class="facility-field">
+                                    <span class="facility-label"><i class="bi bi-building"></i> Facility Name</span>
+                                    <h5 class="facility-name">@facility.Invitedfacility</h5>
+                                </div>
+                                <div class="facility-field">
+                                    <span class="facility-label"><i class="bi bi-envelope"></i> Invitation Message</span>
+                                    <div class="facility-message">
+                                        <span>@facility.InvitationMessage</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="facility-status">
+                                <i class="bi bi-envelope-check"></i>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="empty-state">
+                    <i class="bi bi-inbox"></i>
+                    <p>No facilities have been invited yet</p>
+                </div>
+            }
+        </div>
+
+
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <a asp-action="Index" class="btn-back">
+                <i class="bi bi-arrow-left"></i>
+                <span>Back to Lists</span>
+            </a>
+            <a asp-action="TournamentEdit" asp-route-id="@Model.TournamentID" class="btn-edit">
+                <i class="bi bi-pencil-square"></i>
+                <span>Edit Tournament</span>
+            </a>
+        </div>
+        <!-- Footer Info -->
+        <div class="footer-info">
+            <i class="bi bi-clock-history"></i>
+            <span>Created on @Model.CreateDate.ToString("MMMM dd, yyyy 'at' hh:mm tt")</span>
+        </div>
+    </div>
+</div>
+
+<style>
+    .tournament-container {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+        padding-bottom: 60px;
+    }
+
+    .tournament-hero {
+        position: relative;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 80px 20px;
+        text-align: center;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+        opacity: 0.3;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .tournament-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        background: rgba(255,255,255,0.2);
+        backdrop-filter: blur(10px);
+        border-radius: 50%;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+        .tournament-icon i {
+            font-size: 50px;
+            color: #fff;
+        }
+
+    .tournament-title {
+        color: #fff;
+        font-size: 48px;
+        font-weight: 700;
+        margin: 0 0 20px 0;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .tournament-status-badge span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 30px;
+        background: rgba(255,255,255,0.95);
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 16px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .status-active {
+        color: #10b981;
+    }
+
+    .status-inactive {
+        color: #6b7280;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .main-content {
+        margin-top: -40px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .description-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+        .section-header i {
+            font-size: 28px;
+            color: #667eea;
+        }
+
+        .section-header h3 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+    .facility-count {
+        margin-left: auto;
+        background: #e0e7ff;
+        color: #667eea;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .description-text {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #4b5563;
+        margin: 0;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    .info-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        border: 1px solid rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+
+    .card-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 15px;
+        margin-bottom: 20px;
+    }
+
+        .card-icon i {
+            font-size: 28px;
+            color: #fff;
+        }
+
+    .info-card h4 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #1f2937;
+        margin: 0 0 25px 0;
+    }
+
+    .date-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .date-item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+    }
+
+    .date-label {
+        font-size: 13px;
+        color: #9ca3af;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .date-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: #1f2937;
+    }
+
+    .date-divider {
+        color: #667eea;
+        font-size: 24px;
+    }
+
+    .detail-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .detail-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+        .detail-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+    .detail-label {
+        font-size: 14px;
+        color: #6b7280;
+        font-weight: 600;
+    }
+
+    .detail-value {
+        font-size: 16px;
+        color: #1f2937;
+        font-weight: 600;
+    }
+
+    .detail-badge {
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .status-badge {
+        background: #dbeafe;
+        color: #1e40af;
+    }
+
+    .open-badge {
+        background: #d1fae5;
+        color: #065f46;
+    }
+
+    .invite-badge {
+        background: #fef3c7;
+        color: #92400e;
+    }
+
+    .facilities-section {
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        border: 1px solid rgba(0,0,0,0.05);
+        margin-bottom: 30px;
+    }
+
+    .facilities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+    }
+
+    .facility-card {
+        background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        border-radius: 15px;
+        padding: 25px;
+        display: flex;
+        gap: 20px;
+        border: 2px solid #e5e7eb;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .facility-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .facility-card:hover {
+            border-color: #667eea;
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+        }
+
+            .facility-card:hover::before {
+                transform: scaleY(1);
+            }
+
+    .facility-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 12px;
+        flex-shrink: 0;
+    }
+
+        .facility-icon i {
+            font-size: 24px;
+            color: #fff;
+        }
+
+    .facility-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .facility-field {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .facility-label {
+        font-size: 12px;
+        color: #9ca3af;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .facility-name {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1f2937;
+        margin: 0;
+    }
+
+    .facility-message {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        color: #6b7280;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+        .facility-message i {
+            font-size: 16px;
+            color: #9ca3af;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+    .facility-status {
+        display: flex;
+        align-items: flex-start;
+        color: #10b981;
+        font-size: 20px;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+        .empty-state i {
+            font-size: 64px;
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+
+        .empty-state p {
+            font-size: 18px;
+            color: #9ca3af;
+            margin: 0;
+        }
+
+    .footer-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 20px;
+        color: #6b7280;
+        font-size: 14px;
+    }
+
+        .footer-info i {
+            font-size: 18px;
+            color: #9ca3af;
+        }
+
+    /* Action Buttons */
+    .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+
+    .btn-back,
+    .btn-edit {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 32px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        cursor: pointer;
+    }
+
+    .btn-back {
+        background: #fff;
+        color: #6b7280;
+        border: 2px solid #e5e7eb;
+    }
+
+        .btn-back:hover {
+            background: #f9fafb;
+            color: #1f2937;
+            border-color: #d1d5db;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        .btn-back i {
+            font-size: 18px;
+        }
+
+    .btn-edit {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+        border: 2px solid transparent;
+    }
+
+        .btn-edit:hover {
+            background: linear-gradient(135deg, #5568d3 0%, #6a3f92 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-edit i {
+            font-size: 18px;
+        }
+
+</style>

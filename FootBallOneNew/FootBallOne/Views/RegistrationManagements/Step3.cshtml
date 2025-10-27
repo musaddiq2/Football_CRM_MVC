@@ -1,0 +1,20 @@
+﻿@model FootBallOne.Models.RegistrationManagement
+@{
+    ViewData["Title"] = "Step 3 - Confirm Details";
+}
+<h2>Step 3 - Confirm Details</h2>
+
+<table class="table table-bordered">
+    <tr><th>Name</th><td>@Model.Name</td></tr>
+    <tr><th>Email</th><td>@Model.Email</td></tr>
+    <tr><th>Phone Number</th><td>@Model.PhoneNo</td></tr>
+    <tr><th>Address</th><td>@Model.Address</td></tr>
+    <tr><th>City</th><td>@Model.City</td></tr>
+    <tr><th>Coach Name</th><td>@Model.CoachName</td></tr>
+    <tr><th>Payment Status</th><td>@Model.PaymentStatus</td></tr>
+    <tr><th>Subscription End</th><td>@Model.SubscriptionEnd?.ToString("yyyy-MM-dd")</td></tr>
+</table>
+
+<form asp-action="Submit" method="post">
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>

@@ -1,0 +1,77 @@
+﻿@model FootBallOne.Models.Coach
+
+@{
+    ViewData["Title"] = "Coach Details";
+    
+    Layout = "_Layout";
+}
+
+<h1 class="mb-4">Coach Details</h1>
+
+<div class="card shadow-sm p-4">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            @if (!string.IsNullOrEmpty(Model.PhotoURL))
+            {
+                <img src="@Model.PhotoURL" alt="Coach Photo" class="img-fluid rounded-circle mb-3" style="width: 200px; height: 200px; object-fit: cover;" />
+            }
+            else
+            {
+                <img src="https://placehold.co/200x200/cccccc/333333?text=No+Photo" alt="No Photo" class="img-fluid rounded-circle mb-3" style="width: 200px; height: 200px; object-fit: cover;" />
+            }
+            <h3 class="mt-2">@Html.DisplayFor(model => model.FullName)</h3>
+            <p class="text-muted">@Html.DisplayFor(model => model.Specialization) Coach</p>
+        </div>
+        <div class="col-md-8">
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Age)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Age)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.ExperienceYears)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.ExperienceYears) years
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.WorkingHours)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.WorkingHours)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.AssignedPlayers)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.AssignedPlayers)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.JoiningDate)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.JoiningDate)
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4">
+    <a asp-action="Edit" asp-route-id="@Model?.CoachId" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Back to List</a>
+</div>
