@@ -1,0 +1,100 @@
+﻿@model FootBallOne.Models.CreateEventViewModel
+
+@{
+    ViewData["Title"] = "Confirm Delete Event";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-danger text-white text-center">
+                    <h4>
+                        <i class="fas fa-exclamation-triangle me-2"></i> Confirm Deletion
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <p class="mb-3 text-center">
+                        Are you sure you want to delete the event:
+                        <strong>@Model.Title</strong>?
+                    </p>
+                    <p class="text-muted text-center mb-4">
+                        This action is permanent and cannot be undone.
+                    </p>
+
+                    <!-- Event Details -->
+                    <div class="mb-3">
+                        <h5>Details</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Type:</strong> @Model.EventType</li>
+                            <li class="list-group-item"><strong>Start Date:</strong> @Model.StartDate.ToString("dd-MMM-yyyy")</li>
+                            <li class="list-group-item"><strong>End Date:</strong> @Model.EndDate.ToString("dd-MMM-yyyy")</li>
+                            <li class="list-group-item"><strong>Branch:</strong> @Model.Branch</li>
+                            <li class="list-group-item"><strong>City:</strong> @Model.City</li>
+                            <li class="list-group-item"><strong>Address:</strong> @Model.Adress</li>
+                            <li class="list-group-item"><strong>Ticket Price:</strong> $@Model.TicketPrice.ToString("F2")</li>
+                            <li class="list-group-item"><strong>Available Capacity:</strong> @Model.AvailableCapacity</li>
+                            @if (!string.IsNullOrEmpty(Model.Description))
+                            {
+                                <li class="list-group-item"><strong>Description:</strong> @Html.Raw(Model.Description)</li>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.InvitedFacility))
+                            {
+                                <li class="list-group-item"><strong>Invited Facility:</strong> @Model.InvitedFacility</li>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.InvitationMessage))
+                            {
+                                <li class="list-group-item"><strong>Invitation Message:</strong> @Html.Raw(Model.InvitationMessage)</li>
+                            }
+                            @if (Model.Latitude != 0 || Model.Longitude != 0)
+                            {
+                                <li class="list-group-item"><strong>Location:</strong> Lat: @Model.Latitude, Lng: @Model.Longitude</li>
+                            }
+                        </ul>
+                    </div>
+
+                    <!-- Event Schedules (Optional: Uncomment if CreateEventViewModel has List<Schedule> property) -->
+                    @* @if (Model.Schedules != null && Model.Schedules.Any())
+                    {
+                        <div class="mb-3">
+                            <h5>Event Schedules</h5>
+                            <table class="table table-bordered table-striped text-center">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Day</th>
+                                        <th>Start Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var schedule in Model.Schedules)
+                                    {
+                                        <tr>
+                                            <td>@schedule.Day</td>
+                                            <td>@schedule.StartTime.ToString(@"hh\:mm")</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    } *@
+
+                    <!-- Delete Form -->
+                    <form asp-action="Delete" method="post" class="text-center">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" asp-for="Id" />
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="submit" class="btn btn-danger btn-lg">
+                                <i class="fas fa-trash-alt me-2"></i> Delete
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary btn-lg">
+                                <i class="fas fa-times-circle me-2"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

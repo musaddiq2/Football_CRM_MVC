@@ -1,0 +1,445 @@
+﻿@model List<PlayerRequest>
+@{
+    ViewData["Title"] = "Player Registration Requests";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Registration Requests</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: var(--dark);
+        }
+
+        .dashboard-header {
+            background: var(--primary);
+            color: white;
+            border-radius: 15px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .dashboard-header::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+                transform: rotate(30deg);
+            }
+
+        .card-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .card-header {
+            background: var(--secondary);
+            color: white;
+            padding: 1.2rem 1.5rem;
+            border-bottom: 3px solid var(--primary);
+        }
+
+            .card-header h4 {
+                margin: 0;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .search-filter-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .status-filter {
+            width: 180px;
+        }
+
+        .table {
+            margin: 0;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+            .table thead th {
+                background: var(--primary);
+                color: white;
+                font-weight: 600;
+                padding: 1rem 1.5rem;
+                border: none;
+                text-transform: uppercase;
+                font-size: 0.85rem;
+                letter-spacing: 0.5px;
+                position: sticky;
+                top: 0;
+            }
+
+            .table tbody tr {
+                transition: all 0.2s ease;
+                border-bottom: 1px solid #eee;
+            }
+
+                .table tbody tr:hover {
+                    background-color: #f8f9fa;
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    cursor: pointer;
+                }
+
+            .table tbody td {
+                padding: 1.2rem 1.5rem;
+                vertical-align: middle;
+                border: none;
+            }
+
+        .status-badge {
+            padding: 0.5rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .badge-pending {
+            background: var(--warning);
+            color: #5d4037;
+        }
+
+        .badge-approved {
+            background: var(--success);
+            color: white;
+        }
+
+        .badge-rejected {
+            background: var(--danger);
+            color: white;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .action-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-accept {
+            background: var(--success);
+            border: none;
+            color : black;
+            text-decoration:none;
+        }
+
+            .btn-accept:hover {
+                background: #27ae60;
+                transform: translateY(-2px);
+            }
+
+        .btn-reject {
+            background: var(--danger);
+            border: none;
+            color : black;
+            text-decoration: none;
+
+        }
+
+            .btn-reject:hover {
+                background: #c0392b;
+                transform: translateY(-2px);
+            }
+
+        .btn-view {
+            background: var(--secondary);
+            border: none;
+        }
+
+            .btn-view:hover {
+                background: #2980b9;
+                transform: translateY(-2px);
+            }
+
+        .pagination {
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .page-link {
+            background: white;
+            border: 1px solid #dee2e6;
+            color: var(--primary);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+            .page-link:hover, .page-link:focus {
+                background: var(--secondary);
+                color: white;
+                border-color: var(--secondary);
+            }
+
+        .page-item.active .page-link {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: white;
+        }
+
+        /* Responsive adjustments */
+        @@media (max-width: 768px) {
+            .dashboard-header
+
+        {
+            padding: 1rem;
+        }
+
+        .search-filter-bar {
+            flex-direction: column;
+        }
+
+        .search-box,
+        .status-filter {
+            width: 100%;
+        }
+
+        .table thead th,
+        .table tbody td {
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .action-buttons {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .action-btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                <div>
+                    <h1 class="h3 mb-1"><i class="bi bi-person-plus-fill"></i> Player Registration Requests</h1>
+                    <p class="mb-0 text-white-50">Manage player registration requests</p>
+                </div>
+                <div class="d-flex gap-2 mt-3 mt-md-0">
+                    <button class="btn btn-light btn-sm">
+                        <i class="bi bi-download"></i> Export
+                    </button>
+                    <button class="btn btn-outline-light btn-sm">
+                        <i class="bi bi-refresh"></i> Refresh
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card-container">
+            <div class="card-header">
+                <h4><i class="bi bi-list-nested"></i> Registration Requests</h4>
+            </div>
+
+            <div class="card-body">
+                <!-- Search and Filter Bar -->
+                <div class="search-filter-bar">
+                    <div class="search-box">
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-0">
+                                <i class="bi bi-search"></i>
+                            </span>
+                            <input type="text" class="form-control border-0"
+                                   placeholder="Search by name, email, or phone..."
+                                   id="searchInput">
+                        </div>
+                    </div>
+
+                    <div class="status-filter">
+                        <select class="form-select" id="statusFilter">
+                            <option value="">All Statuses</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Rejected">Rejected</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover align-middle">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Status</th>
+                                <th>Registered Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var req in Model)
+                            {
+                                <tr data-status="@req.Status">
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar me-3" style="width: 40px; height: 40px;
+                                                    background: #e3f2fd; border-radius: 50%;
+                                                    display: flex; align-items: center; justify-content: center;
+                                                    color: var(--primary); font-weight: bold;">
+                                                @((req.Name.First().ToString() + req.Name.Last().ToString()).ToUpper())
+                                            </div>
+                                            @req.Name
+                                        </div>
+                                    </td>
+                                    <td>@req.Email</td>
+                                    <td>@req.PhoneNo</td>
+                                    <td>
+                                        <span class="status-badge badge-@(req.Status.ToLower() == "pending" ? "pending" :
+                                                                                          (req.Status.ToLower() == "approved" ? "approved" : "rejected"))">
+                                        @req.Status
+                                    </span>
+                                </td>
+                                <td>@req.RequestedDate.ToString("MMM dd, yyyy")</td>
+                                <td class="action-buttons">
+                                    @* <a asp-action="Details" asp-route-id="@req.Id"
+                                       class="action-btn btn-view">
+                                        <i class="bi bi-eye"></i> View
+                                    </a> *@
+                                    <a asp-action="AcceptRequest" asp-route-id="@req.Id"
+                                       class="action-btn btn-accept"
+                                       onclick="return confirm('Are you sure you want to approve this request?')">
+                                        <i class="bi bi-check-circle"></i> Approve
+                                    </a>
+                                    <a asp-action="RejectRequest" asp-route-id="@req.Id"
+                                       class="action-btn btn-reject"
+                                       onclick="return confirm('Are you sure you want to reject this request?')">
+                                        <i class="bi bi-x-circle"></i> Reject
+                                    </a>
+                                </td>
+                            </tr>
+                                                        }
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Table navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('tbody tr');
+
+            rows.forEach(row => {
+                const name = row.cells[0].textContent.toLowerCase();
+                const email = row.cells[1].textContent.toLowerCase();
+                const phone = row.cells[2].textContent.toLowerCase();
+
+                if (name.includes(searchTerm) || email.includes(searchTerm) || phone.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Status filter functionality
+        document.getElementById('statusFilter').addEventListener('change', function() {
+            const status = this.value;
+            const rows = document.querySelectorAll('tbody tr');
+
+            rows.forEach(row => {
+                if (status === '' || row.dataset.status.toLowerCase() === status.toLowerCase()) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

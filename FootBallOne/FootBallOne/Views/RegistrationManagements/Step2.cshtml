@@ -1,0 +1,161 @@
+﻿@model FootBallOne.Models.RegistrationManagement
+@{
+    ViewData["Title"] = "Step 2 - Player Details";
+}
+
+<h2 class="mb-4">Step 2 - Player Details</h2>
+
+<form asp-action="Step2" method="post" enctype="multipart/form-data">
+    @* Hidden fields from Step 1 *@
+    <input type="hidden" asp-for="Email" />
+    <input type="hidden" asp-for="PhoneNo" />
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" required />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Category" class="form-label"></label>
+                <select asp-for="Category" class="form-control">
+                    <option value="">-- Select Category --</option>
+                    <option>Under-12</option>
+                    <option>Under-14</option>
+                    <option>Under-16</option>
+                    <option>Under-18</option>
+                    <option>Senior</option>
+                </select>
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="SubscriptionStart" class="form-label"></label>
+                <input asp-for="SubscriptionStart" type="date" class="form-control" />
+                <span asp-validation-for="SubscriptionStart" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="SubscriptionEnd" class="form-label"></label>
+                <input asp-for="SubscriptionEnd" type="date" class="form-control" />
+                <span asp-validation-for="SubscriptionEnd" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="SubscriptionFees" class="form-label"></label>
+                <input asp-for="SubscriptionFees" type="number" class="form-control" step="0.01" />
+                <span asp-validation-for="SubscriptionFees" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="KitFees" class="form-label"></label>
+                <input asp-for="KitFees" type="number" class="form-control" step="0.01" />
+                <span asp-validation-for="KitFees" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="SugarFees" class="form-label"></label>
+                <input asp-for="SugarFees" type="number" class="form-control" step="0.01" />
+                <span asp-validation-for="SugarFees" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="BagFees" class="form-label"></label>
+                <input asp-for="BagFees" type="number" class="form-control" step="0.01" />
+                <span asp-validation-for="BagFees" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="TotalFees" class="form-label"></label>
+                <input asp-for="TotalFees" type="number" class="form-control" readonly />
+                <span asp-validation-for="TotalFees" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                <label asp-for="Address" class="form-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="City" class="form-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+
+          
+
+            <div class="form-group mb-3">
+                <label asp-for="ImageFile" class="form-label"></label>
+                <input asp-for="ImageFile" type="file" class="form-control" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="CoachName" class="form-label"></label>
+                <input asp-for="CoachName" class="form-control" />
+                <span asp-validation-for="CoachName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="WorkingHours" class="form-label"></label>
+                <select asp-for="WorkingHours" class="form-control">
+                    <option value="">-- Select Hours --</option>
+                    <option>1 To 3</option>
+                    <option>3 To 6</option>
+                    <option>6 To 9</option>
+                    <option>9 To 12</option>
+                </select>
+                <span asp-validation-for="WorkingHours" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="PaymentStatus" class="form-label"></label>
+                <select asp-for="PaymentStatus" class="form-control">
+                    <option value="Paid">Paid</option>
+                    <option value="Unpaid">Unpaid</option>
+                    <option value="Pending">Pending</option>
+                </select>
+                <span asp-validation-for="PaymentStatus" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Ground" class="form-label"></label>
+                <select asp-for="Ground" class="form-control">
+                    <option>Turf 1</option>
+                    <option>Turf 2</option>
+                    <option>Turf 3</option>
+                </select>
+                <span asp-validation-for="Ground" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="TimeSlot" class="form-label"></label>
+                <select asp-for="TimeSlot" class="form-control">
+                    <option>Morning</option>
+                    <option>Evening</option>
+                    <option>Night</option>
+                </select>
+                <span asp-validation-for="TimeSlot" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="BirthDate" class="form-label"></label>
+                <input asp-for="BirthDate" type="date" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Next</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

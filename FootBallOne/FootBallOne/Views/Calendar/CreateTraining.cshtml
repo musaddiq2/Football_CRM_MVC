@@ -1,0 +1,1143 @@
+﻿    @model FootBallOne.Models.TrainingViewModel
+
+    @{
+        ViewData["Title"] = "Create Training";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create Training Activity</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                background-color: #f8f9fa;
+                color: #333;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .breadcrumb {
+                color: #6c757d;
+                margin-bottom: 10px;
+                font-size: 14px;
+            }
+
+                .breadcrumb a {
+                    color: #6c757d;
+                    text-decoration: none;
+                }
+
+            .page-title {
+                font-size: 24px;
+                font-weight: 600;
+                margin-bottom: 30px;
+            }
+
+            .step-navigation {
+                display: flex;
+                margin-bottom: 30px;
+                border-bottom: 1px solid #e9ecef;
+                flex-wrap: wrap;
+            }
+
+            .step-item {
+                display: flex;
+                align-items: center;
+                padding: 15px 20px;
+                cursor: pointer;
+                border-bottom: 3px solid transparent;
+                transition: all 0.3s ease;
+                color: #6c757d;
+                min-width: 150px;
+                justify-content: center;
+            }
+
+                .step-item.active {
+                    color: #20c997;
+                    border-bottom-color: #20c997;
+                    background-color: rgba(32, 201, 151, 0.1);
+                }
+
+                .step-item.completed {
+                    color: #20c997;
+                }
+
+            .step-icon {
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 10px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+
+            .step-item.active .step-icon,
+            .step-item.completed .step-icon {
+                background-color: #20c997;
+                color: white;
+            }
+
+            .step-item:not(.active):not(.completed) .step-icon {
+                background-color: #e9ecef;
+                color: #6c757d;
+            }
+
+            .form-content {
+                background: white;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+            .form-group {
+                margin-bottom: 25px;
+            }
+
+                .form-group label {
+                    display: block;
+                    margin-bottom: 8px;
+                    font-weight: 500;
+                    color: #495057;
+                }
+
+            .form-control {
+                width: 100%;
+                padding: 12px 15px;
+                border: 1px solid #ced4da;
+                border-radius: 4px;
+                font-size: 14px;
+                transition: border-color 0.3s ease;
+            }
+
+                .form-control:focus {
+                    outline: none;
+                    border-color: #20c997;
+                    box-shadow: 0 0 0 3px rgba(32, 201, 151, 0.1);
+                }
+
+            .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .form-row-three {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 20px;
+            }
+
+            .step-content {
+                display: none;
+            }
+
+                .step-content.active {
+                    display: block;
+                }
+
+            .navigation-buttons {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 30px;
+                padding-top: 20px;
+                border-top: 1px solid #e9ecef;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                border: none;
+                border-radius: 4px;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .btn-secondary {
+                background-color: #6c757d;
+                color: white;
+            }
+
+                .btn-secondary:hover {
+                    background-color: #5a6268;
+                }
+
+            .btn-primary {
+                background-color: #20c997;
+                color: white;
+            }
+
+                .btn-primary:hover {
+                    background-color: #1ea085;
+                }
+
+            .text-danger {
+                color: #dc3545;
+                font-size: 12px;
+                margin-top: 5px;
+                display: block;
+            }
+
+            .gender-options {
+                display: flex;
+                gap: 15px;
+            }
+
+            .gender-option {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+                .gender-option input[type="radio"] {
+                    margin: 0;
+                }
+
+            .schedule-item {
+                border: 1px solid #e9ecef;
+                border-radius: 8px;
+                padding: 20px;
+                margin-bottom: 15px;
+                background: #f8f9fa;
+            }
+
+            .schedule-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+
+            .schedule-actions {
+                display: flex;
+                gap: 10px;
+            }
+
+            .btn-icon {
+                background: none;
+                border: none;
+                padding: 8px;
+                cursor: pointer;
+                border-radius: 4px;
+                color: #6c757d;
+            }
+
+                .btn-icon:hover {
+                    background-color: #e9ecef;
+                }
+
+                .btn-icon.delete:hover {
+                    color: #dc3545;
+                    background-color: rgba(220, 53, 69, 0.1);
+                }
+
+            .add-day-btn {
+                background: none;
+                border: 1px dashed #20c997;
+                color: #20c997;
+                padding: 12px 20px;
+                border-radius: 4px;
+                cursor: pointer;
+                width: 100%;
+                margin-top: 15px;
+                font-size: 14px;
+            }
+
+                .add-day-btn:hover {
+                    background-color: rgba(32, 201, 151, 0.1);
+                }
+
+            .rich-text-toolbar {
+                border: 1px solid #ced4da;
+                border-bottom: none;
+                padding: 8px;
+                background: #f8f9fa;
+                border-radius: 4px 4px 0 0;
+            }
+
+                .rich-text-toolbar button {
+                    background: none;
+                    border: none;
+                    padding: 5px 8px;
+                    margin-right: 5px;
+                    cursor: pointer;
+                    border-radius: 3px;
+                }
+
+                    .rich-text-toolbar button:hover {
+                        background-color: #e9ecef;
+                    }
+
+            .rich-text-area {
+                min-height: 120px;
+                border-radius: 0 0 4px 4px;
+                resize: vertical;
+            }
+
+            .pricing-section {
+                background: #f8f9fa;
+                border: 1px solid #e9ecef;
+                border-radius: 8px;
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .pricing-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+                margin-top: 20px;
+            }
+
+            .pricing-option {
+                background: white;
+                border: 1px solid #e9ecef;
+                border-radius: 8px;
+                padding: 15px;
+                position: relative;
+            }
+
+            .price-display {
+                font-size: 18px;
+                font-weight: bold;
+                color: #20c997;
+                margin-bottom: 8px;
+            }
+
+            .pricing-description {
+                font-size: 12px;
+                color: #6c757d;
+                margin-bottom: 10px;
+            }
+
+            /* Image Upload Styles */
+            .image-upload-container {
+                border: 2px dashed #ced4da;
+                border-radius: 8px;
+                padding: 20px;
+                text-align: center;
+                background: #f8f9fa;
+                position: relative;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+
+                .image-upload-container:hover {
+                    border-color: #20c997;
+                    background: rgba(32, 201, 151, 0.05);
+                }
+
+                .image-upload-container.has-image {
+                    border-color: #20c997;
+                    background: white;
+                }
+
+            .image-preview {
+                max-width: 200px;
+                max-height: 200px;
+                border-radius: 8px;
+                margin-bottom: 10px;
+            }
+
+            .upload-text {
+                color: #6c757d;
+                margin-bottom: 10px;
+            }
+
+            .file-input {
+                display: none;
+            }
+
+            .remove-image {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: #dc3545;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+                font-size: 12px;
+            }
+
+            /* Highlight invalid fields */
+            .form-control.invalid,
+            input[type="radio"].invalid {
+                border-color: #dc3545;
+                box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+            }
+
+            /* Step-wide error message */
+            .step-error {
+                margin-bottom: 15px;
+                font-weight: 500;
+                padding: 10px;
+                background: rgba(220, 53, 69, 0.1);
+                border-radius: 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#">Training Activities</a> > <span>Create</span>
+            </div>
+
+            <h1 class="page-title">Create Training Activity</h1>
+
+            <div class="step-navigation">
+                <div class="step-item active" data-step="1">
+                    <div class="step-icon">1</div>
+                    <span>Basic Info</span>
+                </div>
+                <div class="step-item" data-step="2">
+                    <div class="step-icon">2</div>
+                    <span>Schedule</span>
+                </div>
+                <div class="step-item" data-step="3">
+                    <div class="step-icon">3</div>
+                    <span>Details</span>
+                </div>
+                <div class="step-item" data-step="4">
+                    <div class="step-icon">4</div>
+                    <span>Trainers</span>
+                </div>
+                <div class="step-item" data-step="5">
+                    <div class="step-icon">5</div>
+                    <span>Pricing</span>
+                </div>
+            </div>
+
+            <form asp-action="CreateTraining" method="post" id="trainingForm" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- Step 1: Basic Information -->
+                <div class="step-content active" id="step1">
+                    <div class="form-content">
+                        <!-- Image Upload (Optional) -->
+                        <div class="form-group">
+                            <label>Activity Image</label>
+                            <div class="image-upload-container" id="imageUploadContainer">
+                                <img id="imagePreview" class="image-preview" style="display: none;" />
+                                <button type="button" class="remove-image" id="removeImage" style="display: none;">×</button>
+                                <div class="upload-text" id="uploadText">
+                                    <div style="margin-bottom: 10px; font-size: 24px;">📷</div>
+                                    <div>Click to upload or drag and drop</div>
+                                    <div style="font-size: 11px; margin-top: 5px;">PNG, JPG, GIF up to 10MB</div>
+                                </div>
+                                <input type="file" id="activityImage" class="file-input" accept="image/*" name="ActivityImage">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="ActivityName">Activity Name*</label>
+                            <input asp-for="ActivityName" class="form-control" placeholder="Enter activity name" required />
+                            <span asp-validation-for="ActivityName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label asp-for="ActivityType">Activity Type*</label>
+                                <select asp-for="ActivityType" class="form-control" required>
+                                    <option value="">Select activity type</option>
+                                    <option value="training">Training</option>
+                                    <option value="workshop">Workshop</option>
+                                    <option value="seminar">Seminar</option>
+                                </select>
+                                <span asp-validation-for="ActivityType" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="TrainingLevel">Training Level*</label>
+                                <select asp-for="TrainingLevel" class="form-control" required>
+                                    <option value="">Select level</option>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                                <span asp-validation-for="TrainingLevel" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label asp-for="AgeGroup">Age Group*</label>
+                                <select asp-for="AgeGroup" class="form-control" required>
+                                    <option value="">Select age group</option>
+                                    <option value="child">Children (6-12)</option>
+                                    <option value="teen">Teenagers (13-17)</option>
+                                    <option value="adult">Adults (18+)</option>
+                                </select>
+                                <span asp-validation-for="AgeGroup" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Branch">Branch*</label>
+                                <select asp-for="Branch" class="form-control" required>
+                                    <option value="">Select branch</option>
+                                    <option value="football">Football</option>
+                                    <option value="basketball">Basketball</option>
+                                    <option value="tennis">Tennis</option>
+                                </select>
+                                <span asp-validation-for="Branch" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Gender">Subscribers Gender*</label>
+                            <div class="gender-options">
+                                <div class="gender-option">
+                                    <input asp-for="Gender" type="radio" value="male" id="male" name="Gender" required />
+                                    <label for="male">Males</label>
+                                </div>
+                                <div class="gender-option">
+                                    <input asp-for="Gender" type="radio" value="female" id="female" name="Gender" />
+                                    <label for="female">Females</label>
+                                </div>
+                                <div class="gender-option">
+                                    <input asp-for="Gender" type="radio" value="mixed" id="mixed" name="Gender" />
+                                    <label for="mixed">Males & Females</label>
+                                </div>
+                            </div>
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Description">Activity Description*</label>
+                            <div class="rich-text-toolbar">
+                                <button type="button" title="Bold"><strong>B</strong></button>
+                                <button type="button" title="Italic"><em>I</em></button>
+                                <button type="button" title="Underline"><u>U</u></button>
+                                <button type="button" title="Link">🔗</button>
+                                <button type="button" title="Bullet List">•</button>
+                            </div>
+                            <textarea asp-for="Description" class="form-control rich-text-area" placeholder="Enter activity description..." required></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Course Schedules -->
+                <div class="step-content" id="step2">
+                    <div class="form-content">
+                        <div class="form-group">
+                            <label>Course Schedule</label>
+                            <div id="scheduleContainer">
+                                @if (Model?.CourseSchedules != null && Model.CourseSchedules.Any())
+                                {
+                                    @for (int i = 0; i < Model.CourseSchedules.Count; i++)
+                                    {
+                                        <div class="schedule-item">
+                                            <div class="schedule-header">
+                                                <div class="schedule-actions">
+                                                    <button type="button" class="btn-icon" title="Duplicate" onclick="duplicateSchedule(this)">📋</button>
+                                                    <button type="button" class="btn-icon delete" title="Delete" onclick="removeScheduleDay(this)">🗑️</button>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group">
+                                                    <label asp-for="@Model.CourseSchedules[i].Day">Day*</label>
+                                                    <select asp-for="@Model.CourseSchedules[i].Day" class="form-control" required>
+                                                        <option value="">Select a day</option>
+                                                        <option value="Sunday">Sunday</option>
+                                                        <option value="Monday">Monday</option>
+                                                        <option value="Tuesday">Tuesday</option>
+                                                        <option value="Wednesday">Wednesday</option>
+                                                        <option value="Thursday">Thursday</option>
+                                                        <option value="Friday">Friday</option>
+                                                        <option value="Saturday">Saturday</option>
+                                                    </select>
+                                                    <span asp-validation-for="@Model.CourseSchedules[i].Day" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label asp-for="@Model.CourseSchedules[i].StartTime">Start Time*</label>
+                                                    <input asp-for="@Model.CourseSchedules[i].StartTime" class="form-control" type="time" required />
+                                                    <span asp-validation-for="@Model.CourseSchedules[i].StartTime" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="schedule-item">
+                                        <div class="schedule-header">
+                                            <div class="schedule-actions">
+                                                <button type="button" class="btn-icon" title="Duplicate" onclick="duplicateSchedule(this)">📋</button>
+                                                <button type="button" class="btn-icon delete" title="Delete" onclick="removeScheduleDay(this)">🗑️</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label>Day*</label>
+                                                <select name="CourseSchedules[0].Day" class="form-control" required>
+                                                    <option value="">Select a day</option>
+                                                    <option value="Sunday">Sunday</option>
+                                                    <option value="Monday">Monday</option>
+                                                    <option value="Tuesday">Tuesday</option>
+                                                    <option value="Wednesday">Wednesday</option>
+                                                    <option value="Thursday">Thursday</option>
+                                                    <option value="Friday">Friday</option>
+                                                    <option value="Saturday">Saturday</option>
+                                                </select>
+                                                <span class="text-danger"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Start Time*</label>
+                                                <input name="CourseSchedules[0].StartTime" class="form-control" type="time" required />
+                                                <span class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <button type="button" class="add-day-btn" onclick="addScheduleDay()">Add Another Day</button>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label asp-for="StartDate">Start Date*</label>
+                                <input asp-for="StartDate" class="form-control" type="date" required />
+                                <span asp-validation-for="StartDate" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="EndDate">End Date*</label>
+                                <input asp-for="EndDate" class="form-control" type="date" required />
+                                <span asp-validation-for="EndDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Additional Details -->
+                <div class="step-content" id="step3">
+                    <div class="form-content">
+                        <div class="form-group">
+                            <label asp-for="Facilities">Facilities*</label>
+                            <select asp-for="Facilities" class="form-control" required>
+                                <option value="">Select facility</option>
+                                <option value="gym">Gymnasium</option>
+                                <option value="pool">Swimming Pool</option>
+                                <option value="field">Sports Field</option>
+                            </select>
+                            <span asp-validation-for="Facilities" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label asp-for="MaximumCapacity">Maximum Capacity*</label>
+                                <input asp-for="MaximumCapacity" class="form-control" type="number" min="0" required />
+                                <span asp-validation-for="MaximumCapacity" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="TermsConditions">Terms and Conditions*</label>
+                            <div class="rich-text-toolbar">
+                                <button type="button" title="Bold"><strong>B</strong></button>
+                                <button type="button" title="Italic"><em>I</em></button>
+                                <button type="button" title="Underline"><u>U</u></button>
+                                <button type="button" title="Link">🔗</button>
+                                <button type="button" title="Bullet List">•</button>
+                            </div>
+                            <textarea asp-for="TermsConditions" class="form-control rich-text-area" placeholder="Enter course terms and conditions..." required></textarea>
+                            <span asp-validation-for="TermsConditions" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Trainers -->
+                <div class="step-content" id="step4">
+                    <div class="form-content">
+                        <div class="form-group">
+                            <label asp-for="Trainers">Trainers*</label>
+                            <select asp-for="Trainers" class="form-control" required>
+                                <option value="">Select trainer(s)</option>
+                                <option value="trainer1">John Smith</option>
+                                <option value="trainer2">Sarah Johnson</option>
+                                <option value="trainer3">Mike Wilson</option>
+                            </select>
+                            <span asp-validation-for="Trainers" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Pricing -->
+                <div class="step-content" id="step5">
+                    <div class="form-content">
+                        <div class="pricing-section">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label asp-for="CostType">Cost Type*</label>
+                                    <select asp-for="CostType" class="form-control" id="costType" required>
+                                        <option value="">Select cost type</option>
+                                        <option value="full_course">Full Course Cost</option>
+                                        <option value="per_session">Per Session</option>
+                                        <option value="per_month">Per Month</option>
+                                    </select>
+                                    <span asp-validation-for="CostType" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="TotalCourseCost">Total Course Cost*</label>
+                                    <input asp-for="TotalCourseCost" class="form-control" type="number" step="0.01" min="0" id="totalCourseCost" required />
+                                    <span asp-validation-for="TotalCourseCost" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label asp-for="MinimumSubscribers">Minimum Subscribers*</label>
+                                    <input asp-for="MinimumSubscribers" class="form-control" type="number" min="1" value="1" id="minimumSubscribers" required />
+                                    <span asp-validation-for="MinimumSubscribers" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="ProfitMargin">Profit Margin (%)*</label>
+                                    <input asp-for="ProfitMargin" class="form-control" type="number" step="0.01" min="0" max="100" value="20" id="profitMargin" required />
+                                    <span asp-validation-for="ProfitMargin" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="pricing-grid" id="calculatedPrices">
+                                <!-- Calculated prices will be displayed here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button type="button" class="btn btn-secondary" id="backBtn" onclick="previousStep()" style="display: none;">Back</button>
+                    <div>
+                        <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextStep()">Next</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">Create Training</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 5;
+        let scheduleIndex = @(Model?.CourseSchedules?.Count ?? 1);
+
+        // Image upload functionality
+        function initializeImageUpload() {
+            const uploadContainer = document.getElementById('imageUploadContainer');
+            const fileInput = document.getElementById('activityImage');
+            const imagePreview = document.getElementById('imagePreview');
+            const uploadText = document.getElementById('uploadText');
+            const removeButton = document.getElementById('removeImage');
+
+            uploadContainer.addEventListener('click', (e) => {
+                if (e.target !== removeButton) {
+                    fileInput.click();
+                }
+            });
+
+            uploadContainer.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadContainer.style.borderColor = '#20c997';
+            });
+
+            uploadContainer.addEventListener('dragleave', (e) => {
+                e.preventDefault();
+                uploadContainer.style.borderColor = '#ced4da';
+            });
+
+            uploadContainer.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadContainer.style.borderColor = '#ced4da';
+
+                const files = e.dataTransfer.files;
+                if (files.length > 0 && files[0].type.startsWith('image/')) {
+                    handleImageFile(files[0]);
+                }
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    handleImageFile(e.target.files[0]);
+                }
+            });
+
+            removeButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                removeImage();
+            });
+
+            function handleImageFile(file) {
+                if (file.size > 10 * 1024 * 1024) {
+                    const errorContainer = uploadContainer.querySelector('.text-danger') || document.createElement('span');
+                    errorContainer.className = 'text-danger';
+                    errorContainer.textContent = 'File size must be less than 10MB';
+                    uploadContainer.appendChild(errorContainer);
+                    return;
+                } else {
+                    const existingError = uploadContainer.querySelector('.text-danger');
+                    if (existingError) existingError.remove();
+                }
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                    uploadText.style.display = 'none';
+                    removeButton.style.display = 'block';
+                    uploadContainer.classList.add('has-image');
+                };
+                reader.readAsDataURL(file);
+            }
+
+            function removeImage() {
+                imagePreview.style.display = 'none';
+                uploadText.style.display = 'block';
+                removeButton.style.display = 'none';
+                uploadContainer.classList.remove('has-image');
+                fileInput.value = '';
+                const existingError = uploadContainer.querySelector('.text-danger');
+                if (existingError) existingError.remove();
+            }
+        }
+
+        // Pricing calculator
+        function calculatePrices() {
+            const totalCost = parseFloat(document.getElementById('totalCourseCost').value) || 0;
+            const minSubscribers = parseInt(document.getElementById('minimumSubscribers').value) || 1;
+            const profitMargin = parseFloat(document.getElementById('profitMargin').value) || 0;
+
+            if (totalCost === 0) return;
+
+            const costPerSubscriber = totalCost / minSubscribers;
+            const priceWithProfit = costPerSubscriber * (1 + profitMargin / 100);
+
+            const prices = {
+                perSession: priceWithProfit / 52 / 3,
+                perWeek: priceWithProfit / 52,
+                perMonth: priceWithProfit / 12,
+                per3Months: (priceWithProfit / 12) * 3,
+                per6Months: (priceWithProfit / 12) * 6,
+                perYear: priceWithProfit
+            };
+
+            updatePricingDisplay(prices);
+        }
+
+        function updatePricingDisplay(prices) {
+            const container = document.getElementById('calculatedPrices');
+            container.innerHTML = `
+                <div class="pricing-option">
+                    <h4>Per Session</h4>
+                    <div class="price-display">$${prices.perSession.toFixed(2)}</div>
+                    <div class="pricing-description">Flexible payment per session</div>
+                </div>
+                <div class="pricing-option">
+                    <h4>Per Week</h4>
+                    <div class="price-display">$${prices.perWeek.toFixed(2)}</div>
+                    <div class="pricing-description">Weekly subscription</div>
+                </div>
+                <div class="pricing-option">
+                    <h4>Per Month</h4>
+                    <div class="price-display">${prices.perMonth.toFixed(2)}</div>
+                    <div class="pricing-description">Monthly subscription</div>
+                </div>
+                <div class="pricing-option">
+                    <h4>Per 3 Months</h4>
+                    <div class="price-display">${prices.per3Months.toFixed(2)}</div>
+                    <div class="pricing-description">Quarterly subscription</div>
+                </div>
+                <div class="pricing-option">
+                    <h4>Per 6 Months</h4>
+                    <div class="price-display">${prices.per6Months.toFixed(2)}</div>
+                    <div class="pricing-description">Semi-annual subscription</div>
+                </div>
+                <div class="pricing-option">
+                    <h4>Per Year</h4>
+                    <div class="price-display">${prices.perYear.toFixed(2)}</div>
+                    <div class="pricing-description">Annual subscription</div>
+                </div>
+            `;
+        }
+
+        // Schedule management
+        function addScheduleDay() {
+            const container = document.getElementById('scheduleContainer');
+            const newSchedule = document.createElement('div');
+            newSchedule.className = 'schedule-item';
+            newSchedule.innerHTML = `
+                <div class="schedule-header">
+                    <div class="schedule-actions">
+                        <button type="button" class="btn-icon" title="Duplicate" onclick="duplicateSchedule(this)">📋</button>
+                        <button type="button" class="btn-icon delete" title="Delete" onclick="removeScheduleDay(this)">🗑️</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Day*</label>
+                        <select name="CourseSchedules[${scheduleIndex}].Day" class="form-control" required>
+                            <option value="">Select a day</option>
+                            <option value="Sunday">Sunday</option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                        </select>
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Start Time*</label>
+                        <input name="CourseSchedules[${scheduleIndex}].StartTime" class="form-control" type="time" required />
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+            `;
+            container.appendChild(newSchedule);
+            scheduleIndex++;
+        }
+
+        function removeScheduleDay(button) {
+            const scheduleItem = button.closest('.schedule-item');
+            const container = document.getElementById('scheduleContainer');
+
+            if (container.children.length > 1) {
+                scheduleItem.remove();
+                updateScheduleIndices();
+            } else {
+                const errorContainer = container.querySelector('.step-error') || document.createElement('div');
+                errorContainer.className = 'text-danger step-error';
+                errorContainer.textContent = 'At least one schedule day is required.';
+                container.prepend(errorContainer);
+                setTimeout(() => errorContainer.remove(), 3000);
+            }
+        }
+
+        function duplicateSchedule(button) {
+            const scheduleItem = button.closest('.schedule-item');
+            const daySelect = scheduleItem.querySelector('select');
+            const timeInput = scheduleItem.querySelector('input[type="time"]');
+
+            addScheduleDay();
+
+            const newSchedule = document.getElementById('scheduleContainer').lastElementChild;
+            const newDaySelect = newSchedule.querySelector('select');
+            const newTimeInput = newSchedule.querySelector('input[type="time"]');
+
+            newDaySelect.value = daySelect.value;
+            newTimeInput.value = timeInput.value;
+        }
+
+        function updateScheduleIndices() {
+            const schedules = document.querySelectorAll('#scheduleContainer .schedule-item');
+            schedules.forEach((schedule, index) => {
+                const daySelect = schedule.querySelector('select');
+                const timeInput = schedule.querySelector('input[type="time"]');
+
+                daySelect.name = `CourseSchedules[${index}].Day`;
+                timeInput.name = `CourseSchedules[${index}].StartTime`;
+            });
+            scheduleIndex = schedules.length;
+        }
+
+        // Step navigation
+        function updateStepNavigation() {
+            document.querySelectorAll('.step-item').forEach((item, index) => {
+                const stepNumber = index + 1;
+                item.classList.remove('active', 'completed');
+
+                if (stepNumber === currentStep) {
+                    item.classList.add('active');
+                } else if (stepNumber < currentStep) {
+                    item.classList.add('completed');
+                    item.querySelector('.step-icon').innerHTML = '✓';
+                } else {
+                    item.querySelector('.step-icon').innerHTML = stepNumber;
+                }
+            });
+
+            document.querySelectorAll('.step-content').forEach((content, index) => {
+                content.classList.remove('active');
+                if (index + 1 === currentStep) {
+                    content.classList.add('active');
+                }
+            });
+
+            const backBtn = document.getElementById('backBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+
+            backBtn.style.display = currentStep > 1 ? 'block' : 'none';
+
+            if (currentStep === totalSteps) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'block';
+            } else {
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+            }
+        }
+
+        function nextStep() {
+            if (validateCurrentStep()) {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    updateStepNavigation();
+
+                    if (currentStep === 5) {
+                        calculatePrices();
+                    }
+                }
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStepNavigation();
+            }
+        }
+
+        function validateCurrentStep() {
+            const currentStepElement = document.getElementById(`step${currentStep}`);
+            const requiredFields = currentStepElement.querySelectorAll('[required]');
+            let isValid = true;
+
+            // Clear previous step-wide error messages
+            const existingStepError = currentStepElement.querySelector('.step-error');
+            if (existingStepError) existingStepError.remove();
+
+            // Validate required fields
+            for (let field of requiredFields) {
+                const formGroup = field.closest('.form-group');
+                let errorSpan = formGroup.querySelector('.text-danger');
+
+                // Create error span if it doesn't exist
+                if (!errorSpan) {
+                    errorSpan = document.createElement('span');
+                    errorSpan.className = 'text-danger';
+                    formGroup.appendChild(errorSpan);
+                }
+
+                if (!field.value.trim()) {
+                    isValid = false;
+                    errorSpan.textContent = `${formGroup.querySelector('label').textContent} is required.`;
+                    field.classList.add('invalid');
+                } else {
+                    errorSpan.textContent = ''; // Clear error if field is valid
+                    field.classList.remove('invalid');
+                }
+            }
+
+            // Custom validation for Gender radio buttons
+            if (currentStep === 1) {
+                const genderInputs = currentStepElement.querySelectorAll('input[name="Gender"]');
+                const genderSelected = Array.from(genderInputs).some(input => input.checked);
+                const genderValidation = currentStepElement.querySelector('span[data-valmsg-for="Gender"]');
+                if (!genderSelected) {
+                    genderValidation.textContent = 'Please select a gender option.';
+                    isValid = false;
+                } else {
+                    genderValidation.textContent = '';
+                }
+            }
+
+            // Display step-wide error message if validation fails
+            if (!isValid) {
+                const errorContainer = document.createElement('div');
+                errorContainer.className = 'text-danger step-error';
+                errorContainer.textContent = `Please fill in all required fields in Step ${currentStep} before proceeding.`;
+                currentStepElement.prepend(errorContainer);
+                setTimeout(() => errorContainer.remove(), 5000);
+            }
+
+            return isValid;
+        }
+
+        // Allow clicking on step items to navigate
+        document.querySelectorAll('.step-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                if (index + 1 > currentStep && !validateCurrentStep()) {
+                    return;
+                }
+                currentStep = index + 1;
+                updateStepNavigation();
+
+                if (currentStep === 5) {
+                    calculatePrices();
+                }
+            });
+        });
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeImageUpload();
+            updateStepNavigation();
+
+            // Add event listeners for price calculation
+            document.getElementById('totalCourseCost').addEventListener('input', calculatePrices);
+            document.getElementById('minimumSubscribers').addEventListener('input', calculatePrices);
+            document.getElementById('profitMargin').addEventListener('input', calculatePrices);
+
+            // Real-time validation for required fields
+            document.querySelectorAll('[required]').forEach(field => {
+                field.addEventListener('input', () => {
+                    const formGroup = field.closest('.form-group');
+                    let errorSpan = formGroup.querySelector('.text-danger');
+
+                    if (!errorSpan) {
+                        errorSpan = document.createElement('span');
+                        errorSpan.className = 'text-danger';
+                        formGroup.appendChild(errorSpan);
+                    }
+
+                    if (field.value.trim()) {
+                        errorSpan.textContent = '';
+                        field.classList.remove('invalid');
+                    } else {
+                        errorSpan.textContent = `${formGroup.querySelector('label').textContent} is required.`;
+                        field.classList.add('invalid');
+                    }
+                });
+            });
+
+            // Real-time validation for Gender radio buttons
+            document.querySelectorAll('input[name="Gender"]').forEach(input => {
+                input.addEventListener('change', () => {
+                    const genderValidation = document.querySelector('span[data-valmsg-for="Gender"]');
+                    if (Array.from(document.querySelectorAll('input[name="Gender"]')).some(input => input.checked)) {
+                        genderValidation.textContent = '';
+                    }
+                });
+            });
+
+            // Form validation on submit
+            document.getElementById('trainingForm').addEventListener('submit', function(e) {
+                if (!validateCurrentStep()) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+        });
+    </script>
+    </body>
+    </html>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }

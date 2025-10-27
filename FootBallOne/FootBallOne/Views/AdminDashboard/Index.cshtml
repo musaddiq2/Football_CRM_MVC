@@ -1,0 +1,437 @@
+﻿@using Newtonsoft.Json
+
+@model FootBallOne.ViewModel.DashboardViewModelnew
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .dashboard-card {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 20px;
+            height: 160px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .dashboard-title {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+
+        .dashboard-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #212529;
+        }
+
+        .dashboard-subtext {
+            font-size: 0.9rem;
+        }
+    </style>
+
+</head>
+<body >
+
+    <div class="container py-4">
+        <h2 class="mb-4">Dashboard</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <!-- Active Subscriptions -->
+            <div class="col">
+                <div class="dashboard-card">
+                    <div class="dashboard-title">Active Subscriptions</div>
+                    <div class="dashboard-value">@Model.ActiveSubscriptions</div>
+                    <div class="dashboard-subtext text-success">All Branches <span style="font-size:1em;">👥 </span></div>
+                </div>
+            </div>
+
+            <!-- Active Courses -->
+            <div class="col">
+                <div class="dashboard-card">
+                    <div class="dashboard-title">Active Courses</div>
+                    <div class="dashboard-value">@Model.ActiveCourses</div>
+
+                    <div class="dashboard-subtext text-primary">
+                        <span id="activeCoursePopover"
+                              data-bs-toggle="popover"
+                              data-bs-placement="bottom"
+                              data-bs-html="true"
+                              data-bs-trigger="hover focus"
+                              title="Active Categories"
+                              data-bs-content="@string.Join("<br>", Model.ActiveCourseList)">
+                            Currently Running <span style="font-size:1.05em;">🎓</span>
+                        </span>
+                    </div>
+
+                </div>
+               <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var popoverTrigger = document.getElementById('activeCoursePopover');
+        new bootstrap.Popover(popoverTrigger);
+    });
+</script>
+
+
+            </div>
+
+
+            <!-- Active Subscribers -->
+            <div class="col">
+                <div class="dashboard-card">
+                    <div class="dashboard-title">Active Subscribers</div>
+                    <div class="dashboard-value">@Model.ActiveSubscriptions</div>
+                    <div class="dashboard-subtext text-info">Unique users with active subscriptions <span style="font-size:1.05em;">🧑‍💻 </span> </div>
+                </div>
+            </div>
+
+            <!-- New This Month -->
+            <div class="col">
+                <div class="dashboard-card">
+                    <div class="dashboard-title">New This Month</div>
+                    <div class="dashboard-value">@Model.NewThisMonth</div>
+                    <div class="dashboard-subtext text-success">
+                        @if (Model.ProfitChangePercentage > 0)
+                        {
+                            <span>+@Model.ProfitChangePercentage% from last month <span style="font-size:1.1em;">📈</span></span>
+                        }
+                        else if (Model.ProfitChangePercentage < 0)
+                        {
+                            <span>@Model.ProfitChangePercentage% drop from last month <span style="font-size:1.1em;">📉</span></span>
+                        }
+                        else
+                        {
+                            <span>No change from last month <span style="font-size:1.1em;">➖</span></span>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suspended -->
+            <div class="col">
+                <div class="dashboard-card">
+                    <div class="dashboard-title">Suspended</div>
+                    <div class="dashboard-value">@Model.Suspended</div>
+                    <div class="dashboard-subtext text-danger">Temporarily Suspended <span style="font-size:1.15em;">⏸</span> </div>
+                </div>
+            </div>
+
+            <!-- Expiring Soon -->
+            <div class="col">
+                <div class="dashboard-card">
+                    <div class="dashboard-title">Subscription Expiring Soon</div>
+                    <div class="dashboard-value">@Model.ExpiringSoon</div>
+                    <div class="dashboard-subtext text-warning">Need Attention <span style="font-size:1.12em;">⚠️</span></div>
+                </div>
+            </div>
+
+            <!-- Current Month Income -->
+            <div class="col">
+                <div class="dashboard-card">
+                    <div class="dashboard-title">Current Month Income</div>
+                    <span class="dashboard-currency">₮</span>
+                    <div class="dashboard-value">₦@Model.CurrentMonthIncome.ToString("N2")</div>
+
+                    <div class="dashboard-subtext text-success">Yearly Total: ₦0.00</div>
+                </div>
+            </div>
+
+            <!-- Current Month Expenses -->
+            <div class="col">
+                <div class="dashboard-card">
+                    <div class="dashboard-title">Current Month Expenses</div>
+                    <span class="dashboard-currency">₮</span>
+                    <div class="dashboard-value">₦@Model.CurrentMonthExpenses.ToString("N2")</div>
+                    <div class="dashboard-subtext text-danger">Yearly Total: ₦@Model.YearlyExpenses.ToString("N2")</div>
+                </div>
+            </div>
+
+            <!-- Net Profit -->
+            <div class="col">
+                <div class="dashboard-card">
+                    <div class="dashboard-title">Current Month Net Profit</div>
+                    <div class="dashboard-value">₦@Model.CurrentMonthNetProfit.ToString("N2")</div>
+                    <div class="dashboard-subtext text-success">
+                        @if (Model.ProfitChangePercentage > 0)
+                        {
+                            <span>Increased by @Model.ProfitChangePercentage% <span style="font-size:1.1em;">📈</span></span>
+                        }
+                        else if (Model.ProfitChangePercentage < 0)
+                        {
+                            <span>Dropped by @Math.Abs(Model.ProfitChangePercentage)% <span style="font-size:1.1em;">📉</span></span>
+                        }
+                        else
+                        {
+                            <span>No change from last month <span style="font-size:1.1em;">➖</span></span>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        @* <div class="container mt-5"> *@
+        @*     <h4 class="mb-3">Financial Trends</h4> *@
+        @*     <div class="card p-4 shadow-sm"> *@
+        @*         <div class="d-flex justify-content-between align-items-center mb-3"> *@
+        @*             <div> *@
+        @*                 <span class="me-3"><span class="badge bg-success">&nbsp;</span> Income</span> *@
+        @*                 <span class="me-3"><span class="badge bg-danger">&nbsp;</span> Expenses</span> *@
+        @*                 <span><span class="badge bg-primary">&nbsp;</span> Net Profit</span> *@
+        @*             </div> *@
+        @*             <div> *@
+        @*                 <select class="form-select form-select-sm d-inline-block w-auto"> *@
+        @*                     <option selected>This Year</option> *@
+        @*                     <option>Last Year</option> *@
+        @*                     <option>This Month</option> *@
+        @*                 </select> *@
+        @*                 <button class="btn btn-outline-secondary btn-sm ms-2"><i class="bi bi-plus"></i></button> *@
+        @*                 <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-search"></i></button> *@
+        @*                 <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-bar-chart"></i></button> *@
+        @*                 <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-house"></i></button> *@
+        @*             </div> *@
+        @*         </div> *@
+        @*         <div> *@
+        @*             <!-- Placeholder for chart --> *@
+        @*             <img src="https://copilot.microsoft.com/th/id/BCO.e267fc98-6618-49b3-811b-ddccde0433f4.png" alt="Financial Trends Chart" class="img-fluid rounded"> *@
+        @*         </div> *@
+        @*     </div> *@
+        @* </div> *@
+       <br />
+      <dic class="col">
+        <div class="card">
+            <div class="card-body">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                    <h5 style="font-weight:500; margin:0;">Financial Trends</h5>
+                    <select style="padding:4px 8px; font-size:0.9rem; border:1px solid #ccc; border-radius:4px;">
+                        <option selected>This Year</option>
+                        <option>This Quarter</option>
+                        <option>This Month</option>
+                    </select>
+                </div>
+
+                <div style="display:flex; justify-content:center; gap:30px; margin-bottom:20px;">
+                    <div style="color:green; font-weight:500; display:flex; align-items:center; gap:6px;">
+                        <span style="font-size:20px;">●</span> Income
+                    </div>
+                    <div style="color:#d10000; font-weight:500; display:flex; align-items:center; gap:6px;">
+                        <span style="font-size:20px;">●</span> Expenses
+                    </div>
+                    <div style="color:#b2d6f8; font-weight:500; display:flex; align-items:center; gap:6px;">
+                        <span style="font-size:20px;">●</span> Net Profit
+                    </div>
+                </div>
+
+                <canvas id="financialTrendsChart" style="width:100%; height:280px;"></canvas>
+            </div>
+        </div>
+        </dic>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+                    const labels = @Html.Raw(JsonConvert.SerializeObject(Model.MonthlyFinancialData.Select(m => m.Month)));
+            const incomeData = @Html.Raw(JsonConvert.SerializeObject(Model.MonthlyFinancialData.Select(m => m.Income)));
+            const expensesData = @Html.Raw(JsonConvert.SerializeObject(Model.MonthlyFinancialData.Select(m => m.Expenses)));
+            const profitData = @Html.Raw(JsonConvert.SerializeObject(Model.MonthlyFinancialData.Select(m => m.Profit)));
+
+            const ctx = document.getElementById('financialTrendsChart').getContext('2d');
+            const chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Income',
+                            data: incomeData,
+                            borderColor: 'green',
+                            backgroundColor: 'rgba(0,128,0,0.04)',
+                            pointBorderColor: 'green',
+                            pointBackgroundColor: 'green',
+                            fill: false,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Expenses',
+                            data: expensesData,
+                            borderColor: '#d10000',
+                            backgroundColor: 'rgba(209,0,0,0.04)',
+                            pointBorderColor: '#d10000',
+                            pointBackgroundColor: '#d10000',
+                            fill: false,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Net Profit',
+                            data: profitData,
+                            borderColor: '#b2d6f8',
+                            backgroundColor: 'rgba(178,214,248,0.04)',
+                            pointBorderColor: '#b2d6f8',
+                            pointBackgroundColor: '#b2d6f8',
+                            fill: false,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#202020', font: { size: 12 } }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#b5b8bc',
+                                font: { size: 12 }
+                            },
+                            grid: {
+                                color: '#e8e9ea',
+                                drawTicks: false,
+                                tickLength: 0
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+
+         
+        <div class="col">
+            <div class="row" style="margin-top:30px; gap:20px;">
+                <!-- Financial Distribution Chart -->
+                <div style="flex:1; min-width:300px; border:1px solid #ddd; border-radius:6px; padding:20px; background-color:white; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <h5 style="font-weight:500; margin:0;">Financial Distribution</h5>
+                        <select style="padding:4px 8px; font-size:0.9rem; border:1px solid #ccc; border-radius:4px;">
+                            <option selected>Income Sources</option>
+                            <option>Expense Categories</option>
+                        </select>
+                    </div>
+                    <div style="text-align:center; margin-top:40px; margin-bottom:20px;">
+                        <div style="font-weight:600; margin-bottom:8px;">Top Income Sources</div>
+                        <canvas id="incomeDistributionChart" style="height:120px;"></canvas>
+                        <div style="margin-top:20px; font-size:14px; color:#666;">Total</div>
+                        <div style="font-size:24px; font-weight:700;">SAR @Model.IncomeDistribution.Sum(i => i.TotalIncome)</div>
+                    </div>
+                </div>
+
+                <!-- Yearly Financial Summary Chart -->
+                <div style="flex:1; min-width:300px; border:1px solid #ddd; border-radius:6px; padding:20px; background-color:white; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                    <h5 style="font-weight:500; margin-bottom:8px;">Yearly Financial Summary</h5>
+                    @* <h4>Debug: Yearly Financial Summary</h4> *@
+                    @* @foreach (var kvp in Model.YearlyFinancialSummary) *@
+                    @* { *@
+                    @*     <div> *@
+                    @*         <strong>@kvp.Key:</strong> @string.Join(", ", kvp.Value) *@
+                    @*     </div> *@
+                    @* } *@
+                    <canvas id="yearlyFinancialSummaryChart" style="width:100%; height:280px;"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Yearly Financial Summary Chart
+                const labels = ['First Quarter', 'Second Quarter', 'Third Quarter', 'Fourth Quarter'];
+
+                const data2025Income = @Html.Raw(JsonConvert.SerializeObject(Model.YearlyFinancialSummary.ContainsKey("2025_Income") ? Model.YearlyFinancialSummary["2025_Income"] : new List<decimal> { 0, 0, 0, 0 }));
+                const data2025Expenses = @Html.Raw(JsonConvert.SerializeObject(Model.YearlyFinancialSummary.ContainsKey("2025_Expenses") ? Model.YearlyFinancialSummary["2025_Expenses"] : new List<decimal> { 0, 0, 0, 0 }));
+                const data2024Income = @Html.Raw(JsonConvert.SerializeObject(Model.YearlyFinancialSummary.ContainsKey("2024_Income") ? Model.YearlyFinancialSummary["2024_Income"] : new List<decimal> { 0, 0, 0, 0 }));
+                const data2024Expenses = @Html.Raw(JsonConvert.SerializeObject(Model.YearlyFinancialSummary.ContainsKey("2024_Expenses") ? Model.YearlyFinancialSummary["2024_Expenses"] : new List<decimal> { 0, 0, 0, 0 }));
+
+                const yearlyCtx = document.getElementById('yearlyFinancialSummaryChart').getContext('2d');
+                new Chart(yearlyCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            { label: '2025 - Income', data: data2025Income, backgroundColor: 'green' },
+                            { label: '2025 - Expenses', data: data2025Expenses, backgroundColor: 'red' },
+                            { label: '2024 - Income', data: data2024Income, backgroundColor: 'blue' },
+                            { label: '2024 - Expenses', data: data2024Expenses, backgroundColor: 'gray' }
+                        ]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 20,
+                                    font: { size: 13 }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: '#000', font: { size: 12 } }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                ticks: { color: '#b5b8bc', font: { size: 12 } },
+                                grid: {
+                                    color: '#e8e9ea',
+                                    drawTicks: false,
+                                    tickLength: 0
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Financial Distribution Chart
+                const incomeLabels = @Html.Raw(JsonConvert.SerializeObject(Model.IncomeDistribution.Select(i => i.Category)));
+                const incomeValues = @Html.Raw(JsonConvert.SerializeObject(Model.IncomeDistribution.Select(i => i.TotalIncome)));
+
+                const incomeCtx = document.getElementById('incomeDistributionChart').getContext('2d');
+                new Chart(incomeCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: incomeLabels,
+                        datasets: [{
+                            data: incomeValues,
+                            backgroundColor: ['#4caf50', '#2196f3', '#ff9800', '#9c27b0', '#f44336']
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: { size: 13 },
+                                    usePointStyle: true
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+        </script>
+
+
+       
+        
+
+</body>
+</html>

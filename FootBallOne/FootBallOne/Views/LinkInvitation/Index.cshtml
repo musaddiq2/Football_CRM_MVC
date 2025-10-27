@@ -1,0 +1,375 @@
+﻿@model FootBallOne.Models.GenerateLinkModel
+
+@{
+    ViewData["Title"] = "Generate Link";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Link</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #9ca3af;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .close-btn:hover {
+                color: #6b7280;
+            }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #111827;
+            transition: border-color 0.15s;
+        }
+
+            .form-control:focus {
+                outline: none;
+                border-color: #3b82f6;
+                box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            }
+
+        textarea.form-control {
+            min-height: 80px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 8px;
+        }
+
+        .expiration-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .radio-btn {
+            padding: 8px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #374151;
+            cursor: pointer;
+            background: white;
+            transition: all 0.15s;
+        }
+
+            .radio-btn:hover {
+                border-color: #9ca3af;
+            }
+
+            .radio-btn.active {
+                background: #0ea5e9;
+                color: white;
+                border-color: #0ea5e9;
+            }
+
+        .sharing-section {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .chevron {
+            color: #9ca3af;
+            font-size: 12px;
+        }
+
+        .image-upload-area {
+            border: 2px dashed #d1d5db;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+            .image-upload-area:hover {
+                border-color: #0ea5e9;
+                background: #f0f9ff;
+            }
+
+            .image-upload-area.has-file {
+                border-color: #0ea5e9;
+                background: #f0f9ff;
+            }
+
+        .upload-icon {
+            font-size: 32px;
+            color: #9ca3af;
+            margin-bottom: 8px;
+        }
+
+        .upload-text {
+            color: #374151;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .file-name {
+            color: #0ea5e9;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .modal-footer {
+            padding: 16px 24px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.15s;
+            border: none;
+        }
+
+        .btn-cancel {
+            background: white;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+            .btn-cancel:hover {
+                background: #f9fafb;
+            }
+
+        .btn-save {
+            background: #0ea5e9;
+            color: white;
+        }
+
+            .btn-save:hover {
+                background: #0284c7;
+            }
+
+        .text-danger {
+            color: #ef4444;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .sharing-content {
+            display: block;
+        }
+
+            .sharing-content.collapsed {
+                display: none;
+            }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal-header">
+            <h2 class="modal-title">Generate Link</h2>
+            <button type="button" class="close-btn" onclick="window.history.back()">×</button>
+        </div>
+
+        <form asp-action="Index" method="post" enctype="multipart/form-data" class="modal-body">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label class="form-label">Name <span style="color: #ef4444;">*</span></label>
+                <input asp-for="Name" type="text" class="form-control" placeholder="Enter link name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Description</label>
+                <textarea asp-for="Description" class="form-control" placeholder="Enter description"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Expiration Period <span style="color: #ef4444;">*</span></label>
+                <input asp-for="ExpirationPeriod" type="hidden" value="1 Week" />
+                <div class="expiration-group">
+                    <button type="button" class="radio-btn" data-value="1 Day">1 Day</button>
+                    <button type="button" class="radio-btn" data-value="3 Days">3 Days</button>
+                    <button type="button" class="radio-btn active" data-value="1 Week">1 Week</button>
+                    <button type="button" class="radio-btn" data-value="1 Month">1 Month</button>
+                    <button type="button" class="radio-btn" data-value="Custom">Custom</button>
+                </div>
+                <span asp-validation-for="ExpirationPeriod" class="text-danger"></span>
+            </div>
+
+            <div class="sharing-section">
+                <div class="section-header" onclick="toggleSharing()">
+                    <span class="section-title">Sharing Options</span>
+                    <span class="chevron" id="chevron">^</span>
+                </div>
+
+                <div class="sharing-content" id="sharingContent">
+                    <div class="form-group">
+                        <label class="form-label">Share Title</label>
+                        <input asp-for="ShareTitle" type="text" class="form-control" placeholder="Enter share title" />
+                        <span asp-validation-for="ShareTitle" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Share Description</label>
+                        <textarea asp-for="ShareDescription" class="form-control" placeholder="Enter share description"></textarea>
+                        <span asp-validation-for="ShareDescription" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Share Image</label>
+                        <div class="image-upload-area" id="uploadArea" onclick="document.getElementById('imageInput').click()">
+                            <div class="upload-icon">📷</div>
+                            <div class="upload-text">Click to select an image</div>
+                            <div class="file-name" id="fileName" style="display: none;"></div>
+                        </div>
+                        <input type="file" asp-for="Image" id="imageInput" accept="image/*" style="display: none;" />
+                        <p class="help-text">This image will be displayed when sharing the link on social media.</p>
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer" style="border: none; padding-left: 0; padding-right: 0;">
+                <button type="button" class="btn btn-cancel" onclick="window.history.back()">Cancel</button>
+                <button type="submit" class="btn btn-save">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Radio button functionality
+        document.querySelectorAll('.radio-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.radio-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                document.querySelector('input[name="ExpirationPeriod"]').value = this.getAttribute('data-value');
+            });
+        });
+
+        // Toggle sharing section
+        function toggleSharing() {
+            const content = document.getElementById('sharingContent');
+            const chevron = document.getElementById('chevron');
+
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                chevron.textContent = '^';
+            } else {
+                content.classList.add('collapsed');
+                chevron.textContent = '˅';
+            }
+        }
+
+        // Image upload handling
+        document.getElementById('imageInput').addEventListener('change', function(e) {
+            const uploadArea = document.getElementById('uploadArea');
+            const fileName = document.getElementById('fileName');
+
+            if (this.files && this.files[0]) {
+                uploadArea.classList.add('has-file');
+                fileName.textContent = this.files[0].name;
+                fileName.style.display = 'block';
+            } else {
+                uploadArea.classList.remove('has-file');
+                fileName.style.display = 'none';
+            }
+        });
+    </script>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+</body>
+</html>

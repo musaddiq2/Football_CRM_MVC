@@ -1,0 +1,88 @@
+﻿@model FootBallOne.Models.RegistrationManagement
+
+@{
+    ViewData["Title"] = "Confirm Delete Player";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-danger text-white text-center">
+                    <h4>
+                        <i class="fas fa-exclamation-triangle me-2"></i> Confirm Deletion
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <p class="mb-3 text-center">
+                        Are you sure you want to delete the player:
+                        <strong>@Model.Name</strong>?
+                    </p>
+                    <p class="text-muted text-center mb-4">
+                        This action is permanent and cannot be undone.
+                    </p>
+
+                    <!-- Player Details -->
+                    <div class="mb-3">
+                        <h5>Details</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Phone No:</strong> @Model.PhoneNo</li>
+                            <li class="list-group-item"><strong>Category:</strong> @Model.Category</li>
+                            <li class="list-group-item"><strong>Subscription Start:</strong> @Model.SubscriptionStart?.ToString("dd-MMM-yyyy") ?? "N/A"</li>
+                            <li class="list-group-item"><strong>Subscription End:</strong> @Model.SubscriptionEnd?.ToString("dd-MMM-yyyy") ?? "N/A"</li>
+                            <li class="list-group-item"><strong>Subscription Fees:</strong> @Model.SubscriptionFees</li>
+                            <li class="list-group-item"><strong>Kit Fees:</strong> @Model.KitFees</li>
+                            <li class="list-group-item"><strong>Sugar Fees:</strong> @Model.SugarFees</li>
+                            <li class="list-group-item"><strong>Bag Fees:</strong> @Model.BagFees</li>
+                            <li class="list-group-item"><strong>Email:</strong> @Model.Email</li>
+                            <li class="list-group-item"><strong>Address:</strong> @Model.Address</li>
+                            <li class="list-group-item"><strong>City:</strong> @Model.City</li>
+                            @if (!string.IsNullOrEmpty(Model.ImageFile))
+                            {
+                                <li class="list-group-item"><strong>Image URL:</strong> @Model.ImageFile</li>
+                            }
+                        </ul>
+                    </div>
+
+                    <!-- Delete Form -->
+                    <form asp-action="Delete" method="post" class="text-center">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" asp-for="Id" />
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="submit" class="btn btn-danger btn-lg">
+                                <i class="fas fa-trash-alt me-2"></i> Delete
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary btn-lg">
+                                <i class="fas fa-times-circle me-2"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FontAwesome (optional if already in _Layout) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+@if (TempData["Deleted"] != null)
+{
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1080;">
+        <div class="toast align-items-center text-white bg-success border-0 show">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="fas fa-check-circle me-2"></i> @TempData["Deleted"]
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl).show();
+        });
+    </script>
+}

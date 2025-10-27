@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\Publish</_PublishTargetUrl>
+    <History>True|2025-09-29T04:49:27.2493271Z||;True|2025-09-28T01:53:07.5571129+05:30||;True|2025-09-28T01:42:55.9374749+05:30||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="wwwroot/uploads/1e3bce42-f7a2-42d7-8af5-2028e516fe16.png">
+      <publishTime>10/18/2025 10:09:12</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
