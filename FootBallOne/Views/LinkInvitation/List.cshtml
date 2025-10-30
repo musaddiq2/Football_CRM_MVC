@@ -1,0 +1,824 @@
+﻿@model List<FootBallOne.Models.InvitationLink>
+
+@{
+    ViewData["Title"] = "Invitation Links";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <header class="page-header">
+        <h2>Invitation Links</h2>
+        <p class="subtitle">Create and manage invitation links to let users join your academy. Share links with prospective members and track their usage and conversions.</p>
+        <a asp-controller="LinkInvitation" asp-action="Index" class="btn btn-primary">Generate New Link</a>
+    </header>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="no-records">
+            <p>No invitation links found. Create a new link to get started.</p>
+        </div>
+    }
+    else
+    {
+        <section class="table-container">
+            <div class="table-header">
+                <div class="status-filters">
+                    <span class="filter-item active" data-filter="all">All (@Model.Count)</span>
+                    <span class="filter-item" data-filter="active">Active (@Model.Count(l => l.IsActive && !l.IsExpired))</span>
+                    <span class="filter-item" data-filter="expired">Expired (@Model.Count(l => l.IsExpired || !l.IsActive))</span>
+                </div>
+                <div class="table-actions">
+                    <input type="text" id="searchInput" placeholder="Search links..." aria-label="Search invitation links" />
+                    <select id="filterSelect" aria-label="Filter options">
+                        <option value="all">All</option>
+                        <option value="active">Active</option>
+                        <option value="expired">Expired</option>
+                    </select>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"><input type="checkbox" id="selectAll" aria-label="Select all links" /></th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Expires At</th>
+                            <th scope="col">Full URL</th>
+                            <th scope="col" aria-label="Actions"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="linksTableBody">
+                        @foreach (var link in Model)
+                        {
+                            <tr data-status="@(link.IsActive && !link.IsExpired ? "active" : "expired")" data-name="@link.Name" data-description="@link.Description">
+                                <td><input type="checkbox" class="row-checkbox" aria-label="Select link" /></td>
+                                <td class="link-name">
+                                    @link.Name
+                                </td>
+                                <td class="link-description">@link.Description</td>
+                                <td>
+                                    <span class="status @(link.IsActive && !link.IsExpired ? "status-active" : "status-expired")">
+                                        @(link.IsActive && !link.IsExpired ? "✔" : "✘")
+                                    </span>
+                                </td>
+                                <td>
+                                    @if (link.ExpiresAt.HasValue)
+                                    {
+                                        @link.ExpiresAt.Value.ToString("dddd, yyyy/MM/dd hh:mm tt")
+                                        if (link.RemainingDays > 0)
+                                        {
+                                            <span class="days-left">(@link.RemainingDays days left)</span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span class="no-expiry">No expiration</span>
+                                    }
+                                </td>
+                                <td><a href="@link.FullUrl" target="_blank" rel="noopener" class="link-url">@link.FullUrl</a></td>
+                                <td class="action-cell">
+                                    <span class="more" role="button" aria-label="More actions" onclick="toggleDropdown(event, '@link.Id')">⋯</span>
+                                    <div class="dropdown-menu" id="dropdown-@link.Id">
+                                        <a href="/LinkInvitation/ShowQR/@link.Id" class="dropdown-item">
+                                            <span class="icon">📱</span> عرض QR الروابط الاجتماعية
+                                        </a>
+                                        <a href="/LinkInvitation/DownloadQRImage/@link.Id" class="dropdown-item">
+                                            <span class="icon">🖼</span> Download QR Image
+                                        </a>
+                                        <a href="/LinkInvitation/DownloadQRBadge/@link.Id" class="dropdown-item">
+                                            <span class="icon">⬇</span> Download QR Badge
+                                        </a>
+                                        <a href="#" class="dropdown-item" onclick="copyLink('@Url.Action("RequestRegistration", "RegistrationManagements", new { token = link.Token }, Context.Request.Scheme)', event)">
+                                            <span class="icon">📋</span> Copy Link
+                                        </a>
+                                        @if (link.IsActive)
+                                        {
+                                            <a href="#" class="dropdown-item deactivate" onclick="deactivateLink(@link.Id, event)">
+                                                <span class="icon">🔒</span> Deactivate Link
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a href="#" class="dropdown-item activate" onclick="activateLink(@link.Id, event)">
+                                                <span class="icon">🔓</span> Activate Link
+                                            </a>
+                                        }
+                                        <a href="/LinkInvitation/Edit/@link.Id" class="dropdown-item">
+                                            <span class="icon">✏</span> Edit
+                                        </a>
+                                        <a href="#" class="dropdown-item delete" onclick="deleteLink(@link.Id, event)">
+                                            <span class="icon">🗑</span> Delete
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-footer">
+                <span id="resultsCount">Showing @Model.Count result@(Model.Count != 1 ? "s" : "")</span>
+                <select id="itemsPerPage" aria-label="Items per page">
+                    <option value="5">5 per page</option>
+                    <option value="10" selected>10 per page</option>
+                    <option value="20">20 per page</option>
+                    <option value="50">50 per page</option>
+                    <option value="all">Show all</option>
+                </select>
+                <a asp-controller="LinkInvitation" asp-action="Index" class="add-btn" aria-label="Add new link" title="Add new link">+</a>
+            </div>
+        </section>
+    }
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast">
+    <span id="toastMessage"></span>
+</div>
+
+<style>
+    :root {
+        --primary-color: #007bff;
+        --success-color: #28a745;
+        --danger-color: #dc3545;
+        --warning-color: #ff6b00;
+        --text-muted: #6c757d;
+        --border-color: #dee2e6;
+        --background-light: #f8f9fa;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .page-header {
+        margin-bottom: 30px;
+    }
+
+        .page-header h2 {
+            font-size: 1.75rem;
+            margin-bottom: 10px;
+            color: #212529;
+        }
+
+    .subtitle {
+        color: var(--text-muted);
+        margin-bottom: 15px;
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: all 0.3s;
+        color: white;
+        display: inline-block;
+        font-weight: 500;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+        }
+
+    .no-records {
+        text-align: center;
+        padding: 60px 40px;
+        background-color: var(--background-light);
+        border-radius: 8px;
+        color: var(--text-muted);
+        border: 2px dashed var(--border-color);
+    }
+
+        .no-records p {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+    .table-container {
+        margin-top: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    .table-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .status-filters {
+        display: flex;
+        gap: 10px;
+    }
+
+    .filter-item {
+        cursor: pointer;
+        color: var(--text-muted);
+        transition: all 0.3s;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: 500;
+        user-select: none;
+    }
+
+        .filter-item:hover {
+            color: var(--primary-color);
+            background-color: rgba(0, 123, 255, 0.05);
+        }
+
+        .filter-item.active {
+            color: var(--primary-color);
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+
+    .table-actions {
+        display: flex;
+        gap: 10px;
+    }
+
+        .table-actions input,
+        .table-actions select {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+
+            .table-actions input:focus,
+            .table-actions select:focus {
+                outline: none;
+                border-color: var(--primary-color);
+                box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+            }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+    }
+
+        .table th,
+        .table td {
+            padding: 15px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .table th {
+            background-color: var(--background-light);
+            font-weight: 600;
+            color: #495057;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .table tbody tr {
+            transition: background-color 0.2s;
+        }
+
+            .table tbody tr:hover {
+                background-color: #f5f5f5;
+            }
+
+    .link-name {
+        font-weight: 600;
+        color: #212529;
+    }
+
+    .link-description {
+        color: var(--text-muted);
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .link-url {
+        color: var(--primary-color);
+        text-decoration: none;
+        max-width: 250px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+    }
+
+        .link-url:hover {
+            text-decoration: underline;
+        }
+
+    .status {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+
+    .status-active {
+        background-color: #d4edda;
+        color: var(--success-color);
+    }
+
+    .status-expired {
+        background-color: #f8d7da;
+        color: var(--danger-color);
+    }
+
+    .days-left {
+        color: var(--success-color);
+        margin-left: 8px;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    .no-expiry {
+        color: var(--text-muted);
+        font-style: italic;
+    }
+
+    .action-cell {
+        position: relative;
+    }
+
+    .more {
+        cursor: pointer;
+        color: var(--text-muted);
+        font-size: 1.5rem;
+        padding: 5px 10px;
+        user-select: none;
+        display: inline-block;
+        transition: color 0.3s;
+    }
+
+        .more:hover {
+            color: var(--primary-color);
+        }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background-color: white;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        min-width: 280px;
+        z-index: 1000;
+        padding: 8px 0;
+        margin-top: 5px;
+    }
+
+        .dropdown-menu.show {
+            display: block;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.2s;
+        cursor: pointer;
+    }
+
+        .dropdown-item:hover {
+            background-color: var(--background-light);
+        }
+
+        .dropdown-item .icon {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .dropdown-item.deactivate {
+            color: var(--warning-color);
+        }
+
+        .dropdown-item.activate {
+            color: var(--success-color);
+        }
+
+        .dropdown-item.delete {
+            color: var(--danger-color);
+        }
+
+            .dropdown-item.deactivate:hover,
+            .dropdown-item.activate:hover,
+            .dropdown-item.delete:hover {
+                background-color: #fff5f5;
+            }
+
+    .table-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-muted);
+    }
+
+        .table-footer select {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+    .add-btn {
+        background-color: #17a2b8;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+        .add-btn:hover {
+            background-color: #138496;
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 4px 12px rgba(23, 162, 184, 0.4);
+        }
+
+    /* Toast Notification */
+    .toast {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #333;
+        color: white;
+        padding: 16px 24px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        z-index: 10000;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease-in-out;
+        pointer-events: none;
+    }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .toast.success {
+            background-color: var(--success-color);
+        }
+
+        .toast.error {
+            background-color: var(--danger-color);
+        }
+
+    @@media (max-width: 768px) {
+        .table-header {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .status-filters {
+            justify-content: center;
+        }
+
+        .table-actions {
+            width: 100%;
+        }
+
+            .table-actions input,
+            .table-actions select {
+                flex: 1;
+            }
+
+        .dropdown-menu {
+            right: -20px;
+            min-width: 260px;
+        }
+
+        .table-footer {
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+    }
+</style>
+
+<script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeEventListeners();
+    });
+
+    function initializeEventListeners() {
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const filterSelect = document.getElementById('filterSelect');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const statusFilter = filterSelect ? filterSelect.value : 'all';
+                filterTable(searchTerm, statusFilter);
+            });
+        }
+
+        // Filter select functionality
+        if (filterSelect) {
+            filterSelect.addEventListener('change', function(e) {
+                const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+                filterTable(searchTerm, e.target.value);
+            });
+        }
+
+        // Filter tabs functionality
+        document.querySelectorAll('.filter-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+
+                // Update active state
+                document.querySelectorAll('.filter-item').forEach(f => f.classList.remove('active'));
+                this.classList.add('active');
+
+                // Update select dropdown
+                if (filterSelect) {
+                    filterSelect.value = filter;
+                }
+
+                // Apply filter
+                const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+                filterTable(searchTerm, filter);
+            });
+        });
+
+        // Select all checkboxes
+        const selectAll = document.getElementById('selectAll');
+        if (selectAll) {
+            selectAll.addEventListener('change', function() {
+                const checkboxes = document.querySelectorAll('.row-checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+        }
+
+        // Individual checkbox handling
+        document.querySelectorAll('.row-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const allCheckboxes = document.querySelectorAll('.row-checkbox');
+                const checkedCheckboxes = document.querySelectorAll('.row-checkbox:checked');
+                const selectAllCheckbox = document.getElementById('selectAll');
+
+                if (selectAllCheckbox) {
+                    selectAllCheckbox.checked = allCheckboxes.length === checkedCheckboxes.length;
+                }
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.action-cell')) {
+                const allDropdowns = document.querySelectorAll('.dropdown-menu');
+                allDropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('show');
+                });
+            }
+        });
+    }
+
+    // Toggle dropdown menu
+    function toggleDropdown(event, linkId) {
+        event.stopPropagation();
+        event.preventDefault();
+
+        const dropdown = document.getElementById('dropdown-' + linkId);
+        if (!dropdown) return;
+
+        const allDropdowns = document.querySelectorAll('.dropdown-menu');
+
+        // Close all other dropdowns
+        allDropdowns.forEach(d => {
+            if (d !== dropdown) {
+                d.classList.remove('show');
+            }
+        });
+
+        // Toggle current dropdown
+        dropdown.classList.toggle('show');
+    }
+
+    // Filter table function
+    function filterTable(searchTerm, statusFilter) {
+        const rows = document.querySelectorAll('#linksTableBody tr');
+        let visibleCount = 0;
+
+        rows.forEach(row => {
+            const name = (row.getAttribute('data-name') || '').toLowerCase();
+            const description = (row.getAttribute('data-description') || '').toLowerCase();
+            const status = row.getAttribute('data-status') || '';
+
+            const matchesSearch = name.includes(searchTerm) || description.includes(searchTerm);
+            const matchesFilter = statusFilter === 'all' || status === statusFilter;
+
+            if (matchesSearch && matchesFilter) {
+                row.style.display = '';
+                visibleCount++;
+            } else {
+                row.style.display = 'none';
+            }
+        });
+
+        // Update results count
+        const resultsCount = document.getElementById('resultsCount');
+        if (resultsCount) {
+            resultsCount.textContent = `Showing ${visibleCount} result${visibleCount !== 1 ? 's' : ''}`;
+        }
+    }
+
+    // Copy link to clipboard
+    function copyLink(url, event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        navigator.clipboard.writeText(url).then(() => {
+            showToast('Link copied to clipboard!', 'success');
+        }).catch(err => {
+            console.error('Failed to copy link:', err);
+            // Fallback method
+            const textArea = document.createElement('textarea');
+            textArea.value = url;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast('Link copied to clipboard!', 'success');
+            } catch (err) {
+                showToast('Failed to copy link', 'error');
+            }
+            document.body.removeChild(textArea);
+        });
+        return false;
+    }
+
+    // Deactivate link
+    function deactivateLink(linkId, event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (confirm('Are you sure you want to deactivate this link?')) {
+            fetch('/LinkInvitation/Deactivate/' + linkId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast(data.message || 'Link deactivated successfully', 'success');
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1500);
+                } else {
+                    showToast('Error: ' + (data.message || 'Failed to deactivate link'), 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast('An error occurred while deactivating the link', 'error');
+            });
+        }
+        return false;
+    }
+
+    // Activate link
+    function activateLink(linkId, event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (confirm('Are you sure you want to activate this link?')) {
+            fetch('/LinkInvitation/Activate/' + linkId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast(data.message || 'Link activated successfully', 'success');
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1500);
+                } else {
+                    showToast('Error: ' + (data.message || 'Failed to activate link'), 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast('An error occurred while activating the link', 'error');
+            });
+        }
+        return false;
+    }
+
+    // Delete link
+    function deleteLink(linkId, event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (confirm('Are you sure you want to delete this link? This action cannot be undone.')) {
+            fetch('/LinkInvitation/Delete/' + linkId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast(data.message || 'Link deleted successfully', 'success');
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1500);
+                } else {
+                    showToast('Error: ' + (data.message || 'Failed to delete link'), 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast('An error occurred while deleting the link', 'error');
+            });
+        }
+        return false;
+    }
+
+    // Show toast notification
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+
+        if (toast && toastMessage) {
+            toastMessage.textContent = message;
+            toast.className = 'toast show ' + type;
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    }
+</script>

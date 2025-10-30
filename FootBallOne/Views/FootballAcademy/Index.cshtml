@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FootBallOne.Models.Academy>
+
+@{
+    ViewData["Title"] = "Academy List";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Academy List</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New Academy</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Academy Name</th>
+            <th>Company Code</th>
+            <th>Location</th>
+            <th>Head Coach</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AcademyName</td>
+                <td>@item.CompanyCode</td>
+                <td>@item.Location</td>
+                <td>@item.HeadCoach</td>
+                <td>@item.ContactNo</td>
+                <td>@item.Email</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AcademyID" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.AcademyID" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

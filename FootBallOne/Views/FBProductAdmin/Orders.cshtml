@@ -1,0 +1,143 @@
+﻿@model IEnumerable<FootBallOne.DTO.FBOrderDTO>
+@{
+    ViewData["Title"] = "Manage Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h2>📦 Orders Management</h2>
+        </div>
+        <div class="col-md-6 text-right">
+            <a asp-action="Dashboard" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show">
+            @TempData["SuccessMessage"]
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+    }
+
+    <!-- Filter Tabs -->
+    <ul class="nav nav-tabs mb-3" id="orderTabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab">
+                All Orders (@Model.Count())
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="pending-tab" data-toggle="tab" href="#pending" role="tab">
+                Pending (@Model.Count(o => o.OrderStatus == "Pending"))
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="confirmed-tab" data-toggle="tab" href="#confirmed" role="tab">
+                Confirmed (@Model.Count(o => o.OrderStatus == "Confirmed"))
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="shipped-tab" data-toggle="tab" href="#shipped" role="tab">
+                Shipped (@Model.Count(o => o.OrderStatus == "Shipped"))
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="delivered-tab" data-toggle="tab" href="#delivered" role="tab">
+                Delivered (@Model.Count(o => o.OrderStatus == "Delivered"))
+            </a>
+        </li>
+    </ul>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Order #</th>
+                            <th>Student ID</th>
+                            <th>Contact</th>
+                            <th>Items</th>
+                            <th>Total Amount</th>
+                            <th>Payment</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var order in Model)
+                        {
+                            var statusClass = (order.OrderStatus ?? "Pending") switch
+                            {
+                                "Pending" => "badge-warning",
+                                "Confirmed" => "badge-info",
+                                "Shipped" => "badge-primary",
+                                "Delivered" => "badge-success",
+                                "Cancelled" => "badge-danger",
+                                _ => "badge-secondary"
+                            };
+
+                            var paymentClass = (order.PaymentStatus ?? "Pending") switch
+                            {
+                                "Paid" => "badge-success",
+                                "Pending" => "badge-warning",
+                                "Failed" => "badge-danger",
+                                _ => "badge-secondary"
+                            };
+
+                            var itemCount = ViewData[$"OrderItemsCount_{order.OrderId}"] ?? 0;
+
+                            <tr>
+                                <td><strong>@(order.OrderNumber ?? "N/A")</strong></td>
+                                <td>@order.Id</td>
+                                <td>
+                                    <div>@(order.ContactName ?? "N/A")</div>
+                                    <small class="text-muted">@(order.ContactPhone ?? "N/A")</small>
+                                </td>
+                                <td>@itemCount items</td>
+                                <td><strong>₹@order.TotalAmount.ToString("N2")</strong></td>
+                                <td>
+                                    <span class="badge @paymentClass">@(order.PaymentStatus ?? "Pending")</span>
+                                </td>
+                                <td>
+                                    <span class="badge @statusClass">@(order.OrderStatus ?? "Pending")</span>
+                                </td>
+                                <td>@order.CreatedAt.ToString("dd MMM yyyy")</td>
+                                <td>
+                                    <a asp-action="OrderDetails" asp-route-id="@order.OrderId" class="btn btn-sm btn-info">
+                                        <i class="fas fa-eye"></i> View
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Filter orders by status
+        $('#orderTabs a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            var target = $(e.target).attr("href");
+            var status = target.replace('#', '');
+
+            if (status === 'all') {
+                $('tbody tr').show();
+            } else {
+                $('tbody tr').hide();
+                $('tbody tr').filter(function() {
+                    return $(this).find('.badge').text().toLowerCase() === status;
+                }).show();
+            }
+        });
+    </script>
+}

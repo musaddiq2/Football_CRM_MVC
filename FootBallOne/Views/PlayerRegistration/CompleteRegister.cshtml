@@ -1,0 +1,52 @@
+﻿@model FootBallOne.Models.RegistrationManagement
+
+@{
+    ViewData["Title"] = "Complete Registration";
+}
+
+<h2>Complete Player Registration</h2>
+
+<form asp-action="CompleteRegister" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" readonly />
+    </div>
+    <div class="mb-3">
+        <label asp-for="PhoneNo"></label>
+        <input asp-for="PhoneNo" class="form-control" readonly />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Category"></label>
+        <select asp-for="Category" class="form-select">
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="CoachName"></label>
+        <input asp-for="CoachName" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="SubscriptionStart"></label>
+        <input asp-for="SubscriptionStart" type="date" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="SubscriptionEnd"></label>
+        <input asp-for="SubscriptionEnd" type="date" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="SubscriptionFees"></label>
+        <input asp-for="SubscriptionFees" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="PaymentStatus"></label>
+        <select asp-for="PaymentStatus" class="form-select">
+            <option>Paid</option>
+            <option>Unpaid</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Finalize Registration</button>
+</form>

@@ -1,0 +1,212 @@
+﻿@model FootBallOne.Models.FBProduct
+@{
+    ViewData["Title"] = "Edit Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h2>✏️ Edit Product</h2>
+        </div>
+        <div class="col-md-6 text-right">
+            <a asp-action="Products" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Back to Products
+            </a>
+        </div>
+    </div>
+
+    @if (TempData["ModelErrors"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ModelErrors"]
+        </div>
+    }
+
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+    <form asp-action="EditProduct" method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="ProductId" />
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Product Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Product Name *</label>
+                            <input asp-for="ProductName" class="form-control" required />
+                            <span asp-validation-for="ProductName" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Category *</label>
+                                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Categories" required>
+                                        <option value="">-- Select Category --</option>
+                                    </select>
+                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">SKU *</label>
+                                    <input asp-for="SKU" class="form-control" required />
+                                    <span asp-validation-for="SKU" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold">Description</label>
+                            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold">Brand</label>
+                            <input asp-for="Brand" class="form-control" />
+                            <span asp-validation-for="Brand" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Base Price (₹) *</label>
+                                    <input asp-for="BasePrice" type="number" step="0.01" class="form-control" required />
+                                    <span asp-validation-for="BasePrice" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Discount %</label>
+                                    <input asp-for="DiscountPercentage" type="number" step="0.01" class="form-control" />
+                                    <span asp-validation-for="DiscountPercentage" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Stock Quantity *</label>
+                                    <input asp-for="StockQuantity" type="number" class="form-control" required />
+                                    <span asp-validation-for="StockQuantity" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Min Stock Level</label>
+                                    <input asp-for="MinStockLevel" type="number" class="form-control" />
+                                    <span asp-validation-for="MinStockLevel" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Weight (kg)</label>
+                                    <input asp-for="Weight" type="number" step="0.01" class="form-control" />
+                                    <span asp-validation-for="Weight" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Dimensions</label>
+                                    <input asp-for="Dimensions" class="form-control" />
+                                    <span asp-validation-for="Dimensions" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold">Tags</label>
+                            <input asp-for="Tags" class="form-control" />
+                            <span asp-validation-for="Tags" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                @if (Model.ProductImages != null && Model.ProductImages.Any())
+                {
+                    <div class="card mb-4">
+                        <div class="card-header bg-warning">
+                            <h5 class="mb-0">Existing Images</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                @foreach (var image in Model.ProductImages.OrderBy(i => i.DisplayOrder))
+                                {
+                                    <div class="col-md-3 mb-3 text-center">
+                                        <img src="@image.ImageUrl" class="img-thumbnail" style="height: 150px; object-fit: cover;" alt="Product Image" />
+                                        @if (image.IsPrimary)
+                                        {
+                                            <span class="badge badge-primary d-block mt-2">Primary</span>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">Update Images</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="font-weight-bold">New Primary Image</label>
+                            <input type="file" name="primaryImage" class="form-control-file" accept="image/*" />
+                            <small class="text-muted">Will replace current primary</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="font-weight-bold">Add More Images</label>
+                            <input type="file" name="additionalImages" class="form-control-file" accept="image/*" multiple />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">Status</h5>
+                    </div>
+                    <div class="card-body">
+
+                        <input type="hidden" name="IsActive" value="false" />
+                        <div class="form-check mb-2">
+                            <input name="IsActive" id="IsActive" type="checkbox" class="form-check-input" @(Model.IsActive ? "checked" : "") value="true" />
+                            <label class="form-check-label" for="IsActive">Active</label>
+                        </div>
+
+                        <input type="hidden" name="IsFeatured" value="false" />
+                        <div class="form-check">
+                            <input name="IsFeatured" id="IsFeatured" type="checkbox" class="form-check-input" @(Model.IsFeatured ? "checked" : "") value="true" />
+                            <label class="form-check-label" for="IsFeatured">Featured</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-warning btn-block btn-lg">
+                    <i class="fas fa-save"></i> Update Product
+                </button>
+
+                <a asp-action="ProductVariants" asp-route-productId="@Model.ProductId" class="btn btn-info btn-block mt-2">
+                    <i class="fas fa-layer-group"></i> Manage Variants
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

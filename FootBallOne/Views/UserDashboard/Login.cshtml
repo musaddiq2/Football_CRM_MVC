@@ -1,0 +1,217 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model FootBallOne.Models.RegistrationManagement
+@{
+    ViewData["Title"] = "Academy Login";
+}
+@* <h2 class="text-primary mb-3">Academy Login</h2>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-danger">@ViewBag.Message</div>
+}
+
+<form method="post" asp-action="Login">
+    <div class="mb-3">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-dark w-100">Login</button>
+</form>
+ *@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FootBallOne Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OerWCPHphzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%); /* Subtle gradient background */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            overflow: hidden; /* Prevent scroll issues with background */
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white background */
+            border-radius: 20px; /* More rounded corners */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Enhanced shadow effect */
+            overflow: hidden;
+            display: flex;
+            width: 90%;
+            max-width: 1000px; /* Max width for the container */
+            min-height: 600px; /* Minimum height for a better visual */
+        }
+
+        .login-form-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .academy-branding-section {
+            flex: 1;
+            background: url('https://via.placeholder.com/800x600/5a5a5a/ffffff?text=Academy+Background+Image') center center / cover no-repeat; /* Placeholder background image */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+            .academy-branding-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text readability */
+                border-radius: 0 20px 20px 0; /* Match container border radius */
+            }
+
+        .academy-branding-content {
+            position: relative;
+            z-index: 1;
+        }
+
+            .academy-branding-content img {
+                max-width: 150px;
+                margin-bottom: 20px;
+                border-radius: 15px; /* Rounded logo */
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+        .form-control {
+            border-radius: 10px; /* Rounded input fields */
+            padding: 12px 15px;
+            border: 1px solid #ced4da;
+            transition: all 0.3s ease; /* Smooth transition for focus */
+        }
+
+            .form-control:focus {
+                box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* Bootstrap's focus ring */
+                border-color: #86b7fe;
+                transform: translateY(-2px); /* Subtle lift on focus */
+            }
+
+        .btn-dark {
+            border-radius: 10px; /* Rounded button */
+            padding: 12px 25px;
+            font-weight: bold;
+            transition: all 0.3s ease; /* Smooth transition for hover */
+            background-color: #343a40;
+            border-color: #343a40;
+        }
+
+            .btn-dark:hover {
+                background-color: #23272b;
+                border-color: #1d2124;
+                transform: translateY(-2px); /* Subtle lift on hover */
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            }
+
+        /* Responsive adjustments */
+
+
+        /* Toast styling */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1080; /* Higher than modal */
+        }
+
+        .toast {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form-section">
+            <h2 class="text-primary mb-4">Academy Login</h2>
+
+            <form method="post" asp-action="Login" class="w-100 px-lg-5">
+                <div class="mb-3 text-start">
+                    <label for="email" class="form-label d-flex align-items-center">
+                        <i class="bi bi-envelope-fill me-2"></i> Email address
+                    </label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required aria-describedby="emailHelp" />
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-4 text-start">
+                    <label for="password" class="form-label d-flex align-items-center">
+                        <i class="bi bi-lock-fill me-2"></i> Name
+                    </label>
+                    <input type="text" id="password" name="password" class="form-control" placeholder="Enter your Name" required />
+                </div>
+                <button type="submit" class="btn btn-dark w-100 py-2">
+                    <i class="bi bi-box-arrow-in-right me-2"></i> Login
+                </button>
+            </form>
+        </div>
+
+        <div class="academy-branding-section">
+            <div class="academy-branding-content">
+                <img src="https://via.placeholder.com/150/007bff/ffffff?text=Academy+Logo" alt="Academy Logo" class="img-fluid mb-3" />
+                <h3 class="display-6 fw-bold mb-3">Welcome to FootBallOne Academy!</h3>
+                <p class="lead px-4">
+                    Unlock your potential and join the best football academy. Train with experts, achieve your dreams, and be part of a winning team.
+                </p>
+                <a href="#" class="btn btn-outline-light mt-3 py-2 px-4 rounded-pill">Learn More <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    @* Toast Container for failed login messages *@
+    <div class="toast-container">
+        @if (ViewBag.Message != null)
+        {
+            <div class="toast align-items-center text-bg-danger border-0 show" role="alert" aria-live="assertive" aria-atomic="true" id="liveToast">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i> @ViewBag.Message
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        }
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var toastEl = document.getElementById('liveToast');
+            if (toastEl) {
+                var toast = new bootstrap.Toast(toastEl);
+                toast.show();
+            }
+        });
+    </script>
+</body>
+</html>

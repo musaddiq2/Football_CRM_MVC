@@ -1,0 +1,769 @@
+﻿@model FootBallOne.ViewModel.MatchViewModel
+
+<div class="match-container">
+    <!-- Hero Header -->
+    <div class="match-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="match-icon">
+                <i class="bi bi-trophy-fill"></i>
+            </div>
+            <h1 class="match-title">@Model.HomeTeam vs @Model.AwayTeam</h1>
+            <div class="match-status-badge">
+                @if (Model.MatchStatus == "Live")
+                {
+                    <span class="status-active"><i class="bi bi-check-circle-fill"></i> Live</span>
+                }
+                else if (Model.MatchStatus == "Completed")
+                {
+                    <span class="status-completed"><i class="bi bi-check-circle-fill"></i> Completed</span>
+                }
+                else if (Model.MatchStatus == "Scheduled")
+                {
+                    <span class="status-scheduled"><i class="bi bi-clock-fill"></i> Scheduled</span>
+                }
+                else if (Model.MatchStatus == "Postponed")
+                {
+                    <span class="status-postponed"><i class="bi bi-pause-circle-fill"></i> Postponed</span>
+                }
+                else if (Model.MatchStatus == "Cancelled")
+                {
+                    <span class="status-cancelled"><i class="bi bi-x-circle-fill"></i> Cancelled</span>
+                }
+                else
+                {
+                    <span class="status-other"><i class="bi bi-info-circle-fill"></i> @Model.MatchStatus</span>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="container main-content">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @TempData["SuccessMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+
+        <!-- Score Card (if available) -->
+        @if (Model.MatchStatus == "Completed" || Model.MatchStatus == "Live")
+        {
+            <div class="score-card">
+                <div class="section-header">
+                    <i class="bi bi-award"></i>
+                    <h3>Match Score</h3>
+                </div>
+                <div class="score-content">
+                    <div class="team-score">
+                        <span class="team-name">@Model.HomeTeam</span>
+                        <span class="score-value">@Model.HomeScore</span>
+                    </div>
+                    <div class="score-divider">
+                        <i class="bi bi-dash-lg"></i>
+                    </div>
+                    <div class="team-score">
+                        <span class="score-value">@Model.AwayScore</span>
+                        <span class="team-name">@Model.AwayTeam</span>
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(Model.Winner))
+                {
+                    <div class="winner-info">
+                        <span class="winner-badge">Winner: @Model.Winner</span>
+                    </div>
+                }
+            </div>
+        }
+
+        <!-- Info Cards Grid -->
+        <div class="info-grid">
+            <!-- Schedule Card -->
+            <div class="info-card schedule-card">
+                <div class="card-icon">
+                    <i class="bi bi-calendar-event"></i>
+                </div>
+                <h4>Match Schedule</h4>
+                <div class="date-info">
+                    <div class="date-item">
+                        <span class="date-label">Date</span>
+                        <span class="date-value">@Model.MatchDate.ToString("MMM dd, yyyy")</span>
+                    </div>
+                    <div class="date-divider">
+                        <i class="bi bi-clock"></i>
+                    </div>
+                    <div class="date-item">
+                        <span class="date-label">Time</span>
+                        <span class="date-value">@Model.MatchTime.ToString(@"hh\:mm")</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Details Card -->
+            <div class="info-card details-card">
+                <div class="card-icon">
+                    <i class="bi bi-info-circle"></i>
+                </div>
+                <h4>Match Details</h4>
+                <div class="detail-list">
+                    <div class="detail-item">
+                        <span class="detail-label">Tournament</span>
+                        <span class="detail-value">@Model.Tournament</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Venue</span>
+                        <span class="detail-value">@Model.Venue</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Referee</span>
+                        <span class="detail-value">@Model.Referee</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Status</span>
+                        <span class="detail-badge status-badge">@Model.MatchStatus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Teams Section -->
+        <div class="teams-section">
+            <div class="section-header">
+                <i class="bi bi-people"></i>
+                <h3>Competing Teams</h3>
+            </div>
+            <div class="teams-grid">
+                <div class="team-card home-team">
+                    <div class="team-icon">
+                        <i class="bi bi-house-door-fill"></i>
+                    </div>
+                    <div class="team-content">
+                        <h5 class="team-name">@Model.HomeTeam</h5>
+                        <span class="team-type">Home Team</span>
+                    </div>
+                </div>
+                <div class="team-card away-team">
+                    <div class="team-icon">
+                        <i class="bi bi-airplane-fill"></i>
+                    </div>
+                    <div class="team-content">
+                        <h5 class="team-name">@Model.AwayTeam</h5>
+                        <span class="team-type">Away Team</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Information Section -->
+        @if (!string.IsNullOrEmpty(Model.VIPGuests) || !string.IsNullOrEmpty(Model.Sponsors) || !string.IsNullOrEmpty(Model.InvitationNotes))
+        {
+            <div class="additional-section">
+                <div class="section-header">
+                    <i class="bi bi-star-fill"></i>
+                    <h3>Additional Information</h3>
+                </div>
+                <div class="additional-grid">
+                    @if (!string.IsNullOrEmpty(Model.VIPGuests))
+                    {
+                        <div class="additional-card">
+                            <div class="additional-icon">
+                                <i class="bi bi-person-badge"></i>
+                            </div>
+                            <div class="additional-content">
+                                <h5>VIP Guests</h5>
+                                <p>@Model.VIPGuests</p>
+                            </div>
+                        </div>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.Sponsors))
+                    {
+                        <div class="additional-card">
+                            <div class="additional-icon">
+                                <i class="bi bi-cash-stack"></i>
+                            </div>
+                            <div class="additional-content">
+                                <h5>Sponsors</h5>
+                                <p>@Model.Sponsors</p>
+                            </div>
+                        </div>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.InvitationNotes))
+                    {
+                        <div class="additional-card">
+                            <div class="additional-icon">
+                                <i class="bi bi-envelope-paper"></i>
+                            </div>
+                            <div class="additional-content">
+                                <h5>Invitation Notes</h5>
+                                <p>@Model.InvitationNotes</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="empty-state">
+                <i class="bi bi-inbox"></i>
+                <p>No additional information available</p>
+            </div>
+        }
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <a asp-action="Edit" asp-route-id="@Model.MatchId" class="btn btn-primary action-btn">
+                <i class="bi bi-pencil-fill"></i> Edit
+            </a>
+            <form asp-action="Delete" asp-route-id="@Model.MatchId" method="post" class="d-inline">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-danger action-btn">
+                    <i class="bi bi-trash-fill"></i> Delete
+                </button>
+            </form>
+            <a asp-action="Index" asp-route-tab="@ViewBag.ReturnTab" class="btn btn-secondary action-btn">
+                <i class="bi bi-arrow-left"></i> Back to List
+            </a>
+        </div>
+
+        <!-- Footer Info -->
+        <div class="footer-info">
+            <i class="bi bi-clock-history"></i>
+            <span>Match ID: @Model.MatchId</span>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Auto-hide success message after 5 seconds
+        setTimeout(function() {
+            var alert = document.querySelector('.alert-success');
+            if (alert) {
+                var bsAlert = new bootstrap.Alert(alert);
+                bsAlert.close();
+            }
+        }, 5000);
+    </script>
+}
+
+<style>
+    .match-container {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+        padding-bottom: 60px;
+    }
+
+    .match-hero {
+        position: relative;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 80px 20px;
+        text-align: center;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+        opacity: 0.3;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .match-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        background: rgba(255,255,255,0.2);
+        backdrop-filter: blur(10px);
+        border-radius: 50%;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+        .match-icon i {
+            font-size: 50px;
+            color: #fff;
+        }
+
+    .match-title {
+        color: #fff;
+        font-size: 48px;
+        font-weight: 700;
+        margin: 0 0 20px 0;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .match-status-badge span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 30px;
+        background: rgba(255,255,255,0.95);
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 16px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .status-active {
+        color: #ef4444;
+    }
+
+    .status-completed {
+        color: #10b981;
+    }
+
+    .status-scheduled {
+        color: #3b82f6;
+    }
+
+    .status-postponed {
+        color: #f59e0b;
+    }
+
+    .status-cancelled {
+        color: #6b7280;
+    }
+
+    .status-other {
+        color: #06b6d4;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .main-content {
+        margin-top: -40px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .score-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        border: 1px solid rgba(0,0,0,0.05);
+        text-align: center;
+    }
+
+    .score-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .team-score {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+        .team-score .team-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .team-score .score-value {
+            font-size: 48px;
+            font-weight: 900;
+            color: #667eea;
+        }
+
+    .score-divider {
+        font-size: 36px;
+        color: #9ca3af;
+    }
+
+    .winner-info {
+        margin-top: 20px;
+    }
+
+    .winner-badge {
+        padding: 10px 24px;
+        background: #d1fae5;
+        color: #065f46;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+        .section-header i {
+            font-size: 28px;
+            color: #667eea;
+        }
+
+        .section-header h3 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    .info-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 35px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        border: 1px solid rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+
+    .card-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 15px;
+        margin-bottom: 20px;
+    }
+
+        .card-icon i {
+            font-size: 28px;
+            color: #fff;
+        }
+
+    .info-card h4 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #1f2937;
+        margin: 0 0 25px 0;
+    }
+
+    .date-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .date-item {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+    }
+
+    .date-label {
+        font-size: 13px;
+        color: #9ca3af;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .date-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: #1f2937;
+    }
+
+    .date-divider {
+        color: #667eea;
+        font-size: 24px;
+    }
+
+    .detail-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .detail-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+        .detail-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+    .detail-label {
+        font-size: 14px;
+        color: #6b7280;
+        font-weight: 600;
+    }
+
+    .detail-value {
+        font-size: 16px;
+        color: #1f2937;
+        font-weight: 600;
+    }
+
+    .detail-badge {
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .status-badge {
+        background: #dbeafe;
+        color: #1e40af;
+    }
+
+    .teams-section {
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        border: 1px solid rgba(0,0,0,0.05);
+        margin-bottom: 30px;
+    }
+
+    .teams-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .team-card {
+        background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        border-radius: 15px;
+        padding: 25px;
+        display: flex;
+        gap: 20px;
+        border: 2px solid #e5e7eb;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            border-color: #667eea;
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+        }
+
+            .team-card:hover::before {
+                transform: scaleY(1);
+            }
+
+    .team-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 12px;
+        flex-shrink: 0;
+    }
+
+        .team-icon i {
+            font-size: 24px;
+            color: #fff;
+        }
+
+    .team-content {
+        flex: 1;
+    }
+
+    .team-name {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1f2937;
+        margin: 0 0 5px 0;
+    }
+
+    .team-type {
+        font-size: 14px;
+        color: #6b7280;
+    }
+
+    .additional-section {
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        border: 1px solid rgba(0,0,0,0.05);
+        margin-bottom: 30px;
+    }
+
+    .additional-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+    }
+
+    .additional-card {
+        background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        border-radius: 15px;
+        padding: 25px;
+        display: flex;
+        gap: 20px;
+        border: 2px solid #e5e7eb;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .additional-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .additional-card:hover {
+            border-color: #667eea;
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+        }
+
+            .additional-card:hover::before {
+                transform: scaleY(1);
+            }
+
+    .additional-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 12px;
+        flex-shrink: 0;
+    }
+
+        .additional-icon i {
+            font-size: 24px;
+            color: #fff;
+        }
+
+    .additional-content {
+        flex: 1;
+    }
+
+        .additional-content h5 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1f2937;
+            margin: 0 0 10px 0;
+        }
+
+        .additional-content p {
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+        .empty-state i {
+            font-size: 64px;
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+
+        .empty-state p {
+            font-size: 18px;
+            color: #9ca3af;
+            margin: 0;
+        }
+
+    .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .action-btn {
+        padding: 12px 32px;
+        border-radius: 12px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+    }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+    .footer-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 20px;
+        color: #6b7280;
+        font-size: 14px;
+    }
+
+        .footer-info i {
+            font-size: 18px;
+            color: #9ca3af;
+        }
+</style>

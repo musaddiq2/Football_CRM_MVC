@@ -1,0 +1,89 @@
+﻿@model List<FootBallOne.Models.Academy>
+
+@{
+    ViewData["Title"] = "Football Academies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="card p-4" style="max-width: 100%; overflow-x: hidden;">
+        <h2 class="mb-4">Football Academies</h2>
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @TempData["Success"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                @TempData["Error"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+
+        @if (Context.Session.GetString("UserRole") != "SuperAdmin")
+        {
+            <div class="alert alert-danger">
+                Access Denied: Only Super Admins can view the academy list.
+            </div>
+            <a asp-action="Index" asp-controller="Dashboard" class="btn btn-secondary mt-3">Back to Dashboard</a>
+        }
+        else
+        {
+            <div class="mb-3">
+                <a asp-action="CreateAcademy" asp-controller="Admin" class="btn btn-primary">Create New Academy</a>
+            </div>
+            @if (Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Location</th>
+                                <th>Company Code</th>
+                                <th>Head Coach</th>
+                                <th>Capacity</th>
+                                <th>Contact</th>
+                                <th>Address</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var academy in Model)
+                            {
+                                <tr>
+                                    <td>@academy.AcademyName</td>
+                                    <td>@academy.Location</td>
+                                    <td>@academy.CompanyCode</td>
+                                    <td>@academy.HeadCoach</td>
+                                    <td>@academy.Capacity</td>
+                                    <td>@academy.ContactNo</td>
+                                    <td>@academy.AcademyAddress</td>
+                                    <td>
+                                        <a asp-action="EditAcademy" asp-controller="Admin" asp-route-id="@academy.AcademyID" class="btn btn-sm btn-warning">Edit</a>
+                                        <form asp-action="DeleteAcademy" asp-controller="Admin" method="post" class="d-inline" onsubmit="return confirm('Are you sure you want to delete @academy.AcademyName?');">
+                                            <input type="hidden" name="id" value="@academy.AcademyID" />
+                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <p class="text-muted">No active academies found.</p>
+            }
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
