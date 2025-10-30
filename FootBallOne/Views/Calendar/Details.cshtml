@@ -1,0 +1,232 @@
+﻿@model FootBallOne.ViewModel.MatchViewModel
+
+@{
+    ViewData["Title"] = "Match Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Details</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: ">";
+            color: #6c757d;
+        }
+
+        .breadcrumb-item a {
+            color: #17a2b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+            .breadcrumb-item a:hover {
+                color: #138496;
+            }
+
+        .breadcrumb-item.active {
+            color: #495057;
+            font-weight: 500;
+        }
+
+        .main-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #212529;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #17a2b8;
+            padding-bottom: 0.5rem;
+        }
+
+        .details-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #212529;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #32cd32;
+            padding-left: 1rem;
+        }
+
+        .detail-row {
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #212529;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value {
+            font-size: 1rem;
+            color: #495057;
+            background-color: #f8f9fa;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+        }
+
+        .btn-primary {
+            background: #17a2b8;
+            border: 1px solid #17a2b8;
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            color: white;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+            .btn-primary:hover {
+                background: #138496;
+                border-color: #138496;
+            }
+
+        .icon {
+            margin-right: 0.5rem;
+            color: #32cd32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Competitions and Teams Management</a></li>
+                <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Calendar">Matches Calendar</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Match Details</li>
+            </ol>
+        </nav>
+
+        <!-- Page Title -->
+        <h1 class="main-title">Match Details</h1>
+
+        <!-- Details Container -->
+        <div class="details-container">
+            @if (Model == null)
+            {
+                <p class="text-danger">The specified match could not be found.</p>
+            }
+            else
+            {
+                <!-- Match Overview -->
+                <h2 class="section-title">Match Overview</h2>
+                <div class="row detail-row">
+                    <div class="col-md-6">
+                        <div class="detail-label"><i class="fas fa-trophy icon"></i>Tournament</div>
+                        <div class="detail-value">@(Model.Tournament ?? "Not specified")</div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="detail-label"><i class="fas fa-users icon"></i>Home Team</div>
+                        <div class="detail-value">@Model.HomeTeam</div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="detail-label"><i class="fas fa-users icon"></i>Away Team</div>
+                        <div class="detail-value">@Model.AwayTeam</div>
+                    </div>
+                </div>
+
+                <!-- Match Schedule -->
+                <h2 class="section-title">Schedule and Venue</h2>
+                <div class="row detail-row">
+                    <div class="col-md-4">
+                        <div class="detail-label"><i class="fas fa-calendar-alt icon"></i>Date of Match</div>
+                        <div class="detail-value">@Model.MatchDate.ToString("dddd, MMMM d, yyyy")</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="detail-label"><i class="fas fa-clock icon"></i>Time of Match</div>
+                        <div class="detail-value">@Model.MatchTime.ToString(@"hh\:mm")</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="detail-label"><i class="fas fa-info-circle icon"></i>Status</div>
+                        <div class="detail-value">@Model.MatchStatus</div>
+                    </div>
+                </div>
+                <div class="row detail-row">
+                    <div class="col-md-6">
+                        <div class="detail-label"><i class="fas fa-map-marker-alt icon"></i>Venue</div>
+                        <div class="detail-value">@(Model.Venue ?? "Not specified")</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail-label"><i class="fas fa-user-tie icon"></i>Referee</div>
+                        <div class="detail-value">@(Model.Referee ?? "Not assigned")</div>
+                    </div>
+                </div>
+
+                <!-- Match Outcome -->
+                <h2 class="section-title">Match Outcome</h2>
+                <div class="row detail-row">
+                    <div class="col-md-4">
+                        <div class="detail-label"><i class="fas fa-futbol icon"></i>Home Team Score</div>
+                        <div class="detail-value">@Model.HomeScore</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="detail-label"><i class="fas fa-futbol icon"></i>Away Team Score</div>
+                        <div class="detail-value">@Model.AwayScore</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="detail-label"><i class="fas fa-trophy icon"></i>Winner</div>
+                        <div class="detail-value">@(Model.Winner ?? "Not determined")</div>
+                    </div>
+                </div>
+
+                <!-- Special Invitations -->
+                <h2 class="section-title">Special Invitations</h2>
+                <div class="row detail-row">
+                    <div class="col-md-6">
+                        <div class="detail-label"><i class="fas fa-user-friends icon"></i>VIP Guests</div>
+                        <div class="detail-value">@(Model.VIPGuests ?? "None")</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail-label"><i class="fas fa-handshake icon"></i>Sponsors</div>
+                        <div class="detail-value">@(Model.Sponsors ?? "None")</div>
+                    </div>
+                </div>
+                <div class="row detail-row">
+                    <div class="col-md-12">
+                        <div class="detail-label"><i class="fas fa-sticky-note icon"></i>Invitation Notes</div>
+                        <div class="detail-value">@(Model.InvitationNotes ?? "No additional notes")</div>
+                    </div>
+                </div>
+            }
+
+            <!-- Actions -->
+            <div class="mt-4">
+                <a asp-action="Index" asp-controller="Calendar" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> Return to Calendar
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

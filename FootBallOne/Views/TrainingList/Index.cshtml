@@ -1,0 +1,1101 @@
+﻿@model List<FootBallOne.Models.TrainingListview>
+
+@{
+    ViewData["Title"] = "Training Activities";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-color: #f8fafc;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .container-fluid {
+        max-width: 100%;
+        padding: 0 1rem;
+        overflow-x: hidden;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .content-header {
+        margin-bottom: 1rem;
+    }
+
+    .content-body {
+        flex: 1;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .breadcrumb {
+        background: none;
+        padding: 0.5rem 0;
+        margin-bottom: 1rem;
+        font-size: 12px;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .breadcrumb-item {
+        color: #6b7280;
+    }
+
+        .breadcrumb-item a {
+            color: #6b7280;
+            text-decoration: none;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: ">";
+            color: #9ca3af;
+            margin: 0 0.5rem;
+        }
+
+    .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .page-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: #111827;
+        margin: 0;
+    }
+
+    .btn-new-activity {
+        background-color: #0891b2;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: 500;
+        font-size: 14px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn-new-activity:hover {
+            background-color: #0e7490;
+            color: white;
+            text-decoration: none;
+        }
+
+    .status-tabs {
+        display: flex;
+        gap: 1rem;
+        border-bottom: 1px solid #e5e7eb;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .status-tab {
+        padding: 8px 12px;
+        color: #6b7280;
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        font-weight: 500;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+        .status-tab.active {
+            color: #10b981;
+            border-bottom-color: #10b981;
+        }
+
+        .status-tab:hover {
+            color: #374151;
+            text-decoration: none;
+        }
+
+    .action-bar {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 1rem;
+        overflow: visible;
+    }
+
+    .btn-more-actions {
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+    }
+
+        .btn-more-actions:hover {
+            background-color: #2563eb;
+        }
+
+    .search-input {
+        position: relative;
+    }
+
+        .search-input input {
+            padding: 6px 6px 6px 32px;
+            width: 180px;
+            height: 32px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            background: white;
+        }
+
+        .search-input i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+    .btn-filters {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        background: white;
+        color: #374151;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+        .btn-filters:hover {
+            background: #f9fafb;
+            text-decoration: none;
+            color: #374151;
+        }
+
+    .filters-badge {
+        background-color: #0891b2;
+        color: white;
+        font-size: 11px;
+        padding: 2px 6px;
+        border-radius: 10px;
+        font-weight: 500;
+    }
+
+    .view-options {
+        display: flex;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    .view-btn {
+        padding: 6px 8px;
+        border: none;
+        background: white;
+        color: #6b7280;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+        .view-btn.active {
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+    .table-container {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+        position: relative;
+        overflow: visible;
+        width: 100%;
+        margin: 0;
+    }
+
+    .table-wrapper {
+        max-height: 500px;
+        overflow-y: auto;
+        overflow-x: auto;
+        width: 100%;
+        border-radius: 8px;
+        position: static;
+    }
+
+    .data-table {
+        width: max-content;
+        min-width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+        .data-table thead {
+            background-color: #f8fafc;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: middle;
+            font-size: 14px;
+            white-space: nowrap;
+            min-width: fit-content;
+        }
+
+        .data-table th {
+            text-align: left;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6b7280;
+            border: none;
+            background-color: #f8fafc;
+        }
+
+            .data-table th:first-child,
+            .data-table td:first-child {
+                width: 40px;
+                min-width: 40px;
+                max-width: 40px;
+                padding: 8px 4px;
+            }
+
+            .data-table th:nth-child(2),
+            .data-table td:nth-child(2) {
+                width: 80px;
+                min-width: 80px;
+                max-width: 80px;
+            }
+
+            .data-table th:nth-child(3),
+            .data-table td:nth-child(3) {
+                width: 120px;
+                min-width: 120px;
+                max-width: 150px;
+            }
+
+            .data-table th:nth-child(4),
+            .data-table td:nth-child(4) {
+                width: 140px;
+                min-width: 140px;
+                max-width: 160px;
+            }
+
+            .data-table th:nth-child(5),
+            .data-table td:nth-child(5) {
+                width: 100px;
+                min-width: 100px;
+                max-width: 120px;
+            }
+
+            .data-table th:nth-child(6),
+            .data-table td:nth-child(6) {
+                width: 100px;
+                min-width: 100px;
+                max-width: 120px;
+            }
+
+            .data-table th:nth-child(7),
+            .data-table td:nth-child(7) {
+                width: 100px;
+                min-width: 100px;
+                max-width: 120px;
+            }
+
+            .data-table th:nth-child(8),
+            .data-table td:nth-child(8) {
+                width: 120px;
+                min-width: 120px;
+                max-width: 140px;
+            }
+
+            .data-table th:nth-child(9),
+            .data-table td:nth-child(9) {
+                width: 80px;
+                min-width: 80px;
+                max-width: 100px;
+            }
+
+        .data-table td {
+            padding: 8px 12px;
+            font-size: 13px;
+            word-wrap: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+            .data-table th:last-child,
+            .data-table td:last-child {
+                width: 80px;
+                min-width: 80px;
+                max-width: 80px;
+                padding: 8px 4px;
+            }
+
+        .data-table tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+    .activity-image {
+        width: 40px;
+        height: 32px;
+        background-color: #f1f5f9;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        font-weight: 500;
+        color: #6b7280;
+        object-fit: cover;
+    }
+
+    .activity-name {
+        font-weight: 500;
+        color: #111827;
+        margin-bottom: 2px;
+        font-size: 13px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .activity-subtitle {
+        font-size: 12px;
+        color: #6b7280;
+    }
+
+    .duration-dot {
+        width: 6px;
+        height: 6px;
+        background-color: #0891b2;
+        border-radius: 50%;
+        margin-top: 4px;
+        flex-shrink: 0;
+    }
+
+    .duration-date {
+        font-weight: 500;
+        color: #111827;
+        margin-bottom: 2px;
+        font-size: 13px;
+    }
+
+    .duration-type {
+        font-size: 11px;
+        color: #6b7280;
+    }
+
+    .badge {
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+        color: white;
+        white-space: nowrap;
+    }
+
+    .badge-schedule {
+        background-color: #0891b2;
+    }
+
+    .badge-active {
+        background-color: #10b981;
+    }
+
+    .badge-inactive {
+        background-color: #6b7280;
+    }
+
+    .schedule-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .schedule-list li {
+            font-size: 11px;
+            color: #6b7280;
+            margin-bottom: 1px;
+        }
+
+    .text-muted {
+        color: #6b7280;
+    }
+
+    .fa-chevron-down {
+        font-size: 10px;
+        color: #9ca3af;
+    }
+
+    .footer-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+        color: #6b7280;
+        font-size: 14px;
+        padding: 1rem 0;
+    }
+
+    .per-page {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+        .per-page select {
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            padding: 4px 8px;
+            background: white;
+            font-size: 14px;
+        }
+
+    /* CLEAN DROPDOWN STYLES */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 6px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        min-width: 160px;
+        z-index: 1000;
+        display: none;
+        padding: 4px 0;
+        margin: 2px 0 0 0;
+        list-style: none;
+    }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+    .dropdown-item {
+        display: block;
+        padding: 8px 12px;
+        color: #374151;
+        text-decoration: none;
+        font-size: 14px;
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+        .dropdown-item:hover {
+            background-color: #f3f4f6;
+            color: #111827;
+            text-decoration: none;
+        }
+
+        .dropdown-item i {
+            width: 16px;
+            margin-right: 8px;
+            font-size: 12px;
+        }
+
+    /* CUSTOM ACTION DROPDOWN STYLES */
+    .custom-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .custom-dropdown-toggle {
+        background: none;
+        border: none;
+        color: #6b7280;
+        cursor: pointer;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: all 0.15s ease-in-out;
+    }
+
+        .custom-dropdown-toggle:hover {
+            background-color: #f3f4f6;
+            color: #111827;
+        }
+
+    .custom-dropdown-menu {
+        position: absolute;
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 6px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        min-width: 150px;
+        z-index: 9999;
+        display: none;
+        padding: 4px 0;
+        right: 0;
+        top: 100%;
+        margin-top: 2px;
+    }
+
+        .custom-dropdown-menu.show {
+            display: block;
+        }
+
+    .custom-dropdown-item {
+        display: block;
+        padding: 8px 12px;
+        color: #374151;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out;
+    }
+
+        .custom-dropdown-item:hover {
+            background-color: #f3f4f6;
+            color: #111827;
+            text-decoration: none;
+        }
+
+        .custom-dropdown-item i {
+            width: 16px;
+            margin-right: 8px;
+            font-size: 12px;
+        }
+</style>
+
+<div class="container-fluid">
+    <div class="main-content">
+        <div class="content-header">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Training Activities</a></li>
+                    <li class="breadcrumb-item">List</li>
+                </ol>
+            </nav>
+
+            <!-- Header -->
+            <div class="page-header">
+                <h1 class="page-title">Training Activities</h1>
+                <a href="/Calendar/CreateTraining" class="btn-new-activity">
+                    New Training Activity
+                </a>
+            </div>
+
+            <!-- Status Tabs -->
+            <div class="status-tabs">
+                <a href="#" class="status-tab">
+                    <i class="fas fa-list"></i>
+                    Default
+                </a>
+                <a href="#" class="status-tab active">
+                    <i class="fas fa-play-circle"></i>
+                    Active Courses
+                </a>
+                <a href="#" class="status-tab" style="color: #3b82f6;">
+                    <i class="fas fa-clock"></i>
+                    Pending Approval
+                </a>
+                <a href="#" class="status-tab" style="color: #f59e0b;">
+                    <i class="fas fa-calendar-alt"></i>
+                    Upcoming Courses
+                </a>
+                <a href="#" class="status-tab" style="color: #f97316;">
+                    <i class="fas fa-pause-circle"></i>
+                    Suspended Courses
+                </a>
+                <a href="#" class="status-tab" style="color: #ef4444;">
+                    <i class="fas fa-history"></i>
+                    Past Courses
+                </a>
+                <a href="#" class="status-tab" style="color: #ef4444;">
+                    <i class="fas fa-times-circle"></i>
+                    Rejected Courses
+                </a>
+            </div>
+
+            <!-- Action Bar -->
+            <div class="action-bar">
+                <div class="dropdown">
+                    <button class="btn-more-actions" type="button" id="moreActionsBtn">
+                        <i class="fas fa-ellipsis-vertical"></i> More Actions
+                    </button>
+                    <ul class="dropdown-menu" id="moreActionsMenu">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Export</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-archive"></i> Archive</a></li>
+                    </ul>
+                </div>
+
+                <div class="search-input">
+                    <input type="text" placeholder="Search" class="form-control" id="searchInput">
+                    <i class="fas fa-search"></i>
+                </div>
+
+                <a href="#" class="btn-filters">
+                    <i class="fas fa-sliders-h"></i>
+                    Filters
+                    <span class="filters-badge">0</span>
+                </a>
+
+                <div class="view-options">
+                    <button class="view-btn">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                    <button class="view-btn active">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <!-- Table -->
+            <div class="table-container">
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" class="form-check-input" id="selectAll">
+                                </th>
+                                <th>Activity Image</th>
+                                <th>Activity Name <i class="fas fa-chevron-down"></i></th>
+                                <th>Duration <i class="fas fa-chevron-down"></i></th>
+                                <th>Activity Type <i class="fas fa-chevron-down"></i></th>
+                                <th>Trainers</th>
+                                <th>Facilities <i class="fas fa-chevron-down"></i></th>
+                                <th>Schedules</th>
+                                <th>Status <i class="fas fa-chevron-down"></i></th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Any())
+                            {
+                                @foreach (var training in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" class="form-check-input row-checkbox">
+                                        </td>
+                                        <td>
+                                            @if (!string.IsNullOrEmpty(training.ActivityImage))
+                                            {
+                                                <img src="@training.ActivityImage" alt="Activity Image" class="activity-image" />
+                                            }
+                                            else
+                                            {
+                                                <div class="activity-image">N/A</div>
+                                            }
+                                        </td>
+                                        <td>
+                                            <div class="activity-name">@(training.ActivityName ?? "N/A")</div>
+                                        </td>
+                                        <td>
+                                            <div class="duration-info">
+                                                <div class="duration-dot"></div>
+                                                <div>
+                                                    <div class="duration-date">
+                                                        @(training.StartDate != default ? training.StartDate.ToString("MMM dd, yyyy") : "N/A")
+                                                    </div>
+                                                    <div class="duration-type">
+                                                        @(training.EndDate == default ? "Open-ended" : $"- {training.EndDate.ToString("MMM dd, yyyy")}")
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-muted">@(training.ActivityType ?? "N/A")</td>
+                                        <td class="text-muted">@(training.Trainers ?? "N/A")</td>
+                                        <td class="text-muted">@(training.Facilities ?? "N/A")</td>
+                                        <td>
+                                            @if (training.CourseSchedules != null && training.CourseSchedules.Any())
+                                            {
+                                                <ul class="schedule-list">
+                                                    @foreach (var schedule in training.CourseSchedules.Take(2))
+                                                    {
+                                                        <li>@schedule.Day - @schedule.StartTime</li>
+                                                    }
+                                                    @if (training.CourseSchedules.Count() > 2)
+                                                    {
+                                                        <li class="text-muted">+@(training.CourseSchedules.Count() - 2) more</li>
+                                                    }
+                                                </ul>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-muted">N/A</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (training.Status == "Active")
+                                            {
+                                                <span class="badge badge-active">Active</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-inactive">@(training.Status ?? "Inactive")</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            <div class="custom-dropdown">
+                                                <button class="custom-dropdown-toggle" type="button" data-id="@training.TrainingId">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <div class="custom-dropdown-menu">
+                                                    <a asp-action="TrainingDetails" asp-controller="TrainingList" asp-route-id="@training.TrainingId" class="custom-dropdown-item">
+                                                        <i class="fas fa-eye"></i> View
+                                                    </a>
+                                                    <a asp-action="EditTraining" asp-controller="TrainingList" asp-route-id="@training.TrainingId" asp-route-includeInactive="@(training.Status == "Inactive" ? true : null)" class="custom-dropdown-item">
+                                                        <i class="fas fa-edit"></i> Edit
+                                                    </a>
+                                                    <a asp-action="Delete" asp-controller="TrainingList" asp-route-id="@training.TrainingId" class="custom-dropdown-item">
+                                                        <i class="fas fa-trash"></i> Delete
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="10" style="text-align: center; padding: 2rem; color: #6b7280;">
+                                        <i class="fas fa-inbox fa-2x mb-3 d-block"></i>
+                                        <div style="font-size: 16px; font-weight: 500; margin-bottom: 0.5rem;">No training activities found</div>
+                                        <div style="font-size: 14px;">Get started by creating your first training activity.</div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer-info">
+                <div id="resultCount">Showing @(Model?.Count ?? 0) result@(Model?.Count != 1 ? "s" : "")</div>
+                <div class="per-page">
+                    <span>Per page</span>
+                    <select>
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('Training Activities - Page loaded');
+
+        // Function to close all dropdowns
+        function closeAllDropdowns() {
+            // Remove the global dropdown if opened (portal)
+            const oldGlobal = document.getElementById('global-dropdown');
+            if (oldGlobal) oldGlobal.remove();
+
+            // Also remove .show class for any existing dropdown menus
+            document.querySelectorAll('.dropdown-menu, .custom-dropdown-menu').forEach(menu => {
+                menu.classList.remove('show');
+            });
+        }
+
+        // 1. Handle "More Actions" dropdown (top bar) - FIXED
+        const moreActionsButton = document.getElementById('moreActionsBtn');
+        const moreActionsMenu = document.getElementById('moreActionsMenu');
+        if (moreActionsButton && moreActionsMenu) {
+            moreActionsButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('More Actions clicked');
+                const isOpen = moreActionsMenu.classList.contains('show');
+                closeAllDropdowns();
+                if (!isOpen) {
+                    moreActionsMenu.classList.add('show');
+                    console.log('More Actions dropdown opened');
+                }
+            });
+        }
+
+        // 2. Handle "More Actions" item clicks - FIXED
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('More Actions item clicked:', this.textContent.trim());
+                closeAllDropdowns();
+                const actionText = this.textContent.trim();
+                if (actionText.includes('Export')) {
+                    alert('Export functionality will be implemented');
+                } else if (actionText.includes('Print')) {
+                    window.print();
+                } else if (actionText.includes('Archive')) {
+                    alert('Archive functionality will be implemented');
+                }
+            });
+        });
+
+        // 3. Handle custom dropdown toggles (row actions) USING PORTAL DROPDOWN
+        document.querySelectorAll('.custom-dropdown-toggle').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Row action dropdown clicked');
+                closeAllDropdowns();
+
+                // Build your dropdown HTML here dynamically
+                // Use data attributes on button to pass necessary info (you need to add these in your Razor markup)
+                const trainingId = this.getAttribute('data-id');
+                const trainingName = this.getAttribute('data-name');
+
+                const menuHtml = `
+                    <a href="/TrainingList/TrainingDetails/${trainingId}" class="custom-dropdown-item">
+                        <i class="fas fa-eye"></i> View
+                    </a>
+                    <a href="/TrainingList/EditTraining/${trainingId}" class="custom-dropdown-item">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    <a href="#" class="custom-dropdown-item" onclick="deleteTraining('${trainingId}', '${trainingName}')">
+                        <i class="fas fa-trash"></i> Delete
+                    </a>
+                `;
+
+                openDropdown(this, menuHtml);
+            });
+        });
+
+        // 4. Handle custom dropdown item clicks
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('global-dropdown');
+            if (dropdown && !dropdown.contains(e.target) && !e.target.classList.contains('custom-dropdown-toggle')) {
+                closeAllDropdowns();
+            }
+        });
+
+        // 5. Close dropdowns when clicking outside for other dropdowns
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.dropdown') && !e.target.closest('.custom-dropdown')) {
+                closeAllDropdowns();
+            }
+        });
+
+        // 6. Search functionality - FIXED
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', function (e) {
+                const searchTerm = e.target.value.toLowerCase().trim();
+                console.log('Searching for:', searchTerm);
+                const tbody = document.querySelector('tbody');
+                const rows = tbody.querySelectorAll('tr');
+                let visibleCount = 0;
+                rows.forEach(row => {
+                    // Skip the "no data" row
+                    if (row.cells.length <= 1) {
+                        return;
+                    }
+                    let shouldShow = false;
+                    if (searchTerm === '') {
+                        shouldShow = true;
+                    } else {
+                        const activityName = row.cells[2]?.textContent?.toLowerCase().trim() || '';
+                        const activityType = row.cells[4]?.textContent?.toLowerCase().trim() || '';
+                        const trainers = row.cells[5]?.textContent?.toLowerCase().trim() || '';
+                        const facilities = row.cells[6]?.textContent?.toLowerCase().trim() || '';
+                        const status = row.cells[8]?.textContent?.toLowerCase().trim() || '';
+                        const schedules = row.cells[7]?.textContent?.toLowerCase().trim() || '';
+                        shouldShow = activityName.includes(searchTerm) ||
+                            activityType.includes(searchTerm) ||
+                            trainers.includes(searchTerm) ||
+                            facilities.includes(searchTerm) ||
+                            status.includes(searchTerm) ||
+                            schedules.includes(searchTerm);
+                    }
+                    row.style.display = shouldShow ? '' : 'none';
+                    if (shouldShow) visibleCount++;
+                });
+                const resultCount = document.getElementById('resultCount');
+                if (resultCount) {
+                    resultCount.textContent = `Showing ${visibleCount} result${visibleCount !== 1 ? 's' : ''}`;
+                }
+                console.log('Search completed. Visible rows:', visibleCount);
+            });
+        }
+
+        // 7. Select all checkbox - FIXED
+        const selectAllCheckbox = document.getElementById('selectAll');
+        if (selectAllCheckbox) {
+            selectAllCheckbox.addEventListener('change', function () {
+                const checkboxes = document.querySelectorAll('.row-checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+                console.log('Select all toggled:', this.checked);
+            });
+        }
+        document.querySelectorAll('.row-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const allCheckboxes = document.querySelectorAll('.row-checkbox');
+                const checkedCheckboxes = document.querySelectorAll('.row-checkbox:checked');
+                const selectAll = document.getElementById('selectAll');
+                if (selectAll) {
+                    selectAll.checked = allCheckboxes.length === checkedCheckboxes.length;
+                    selectAll.indeterminate = checkedCheckboxes.length > 0 && checkedCheckboxes.length < allCheckboxes.length;
+                }
+            });
+        });
+
+        // 8. Status tab switching
+        document.querySelectorAll('.status-tab').forEach(tab => {
+            tab.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelectorAll('.status-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                console.log('Status tab changed to:', this.textContent.trim());
+            });
+        });
+
+        // 9. View options
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                console.log('View changed');
+            });
+        });
+
+        // 10. Per page selection
+        const perPageSelect = document.querySelector('.per-page select');
+        if (perPageSelect) {
+            perPageSelect.addEventListener('change', function() {
+                console.log('Per page changed to:', this.value);
+                // Pagination logic can be added here if needed
+            });
+        }
+
+        console.log('All event listeners initialized successfully');
+    });
+
+    // Delete function - FIXED
+        function deleteTraining(id) {
+        window.location.href = `/TrainingList/Delete/${id}`;
+    }
+
+    // Additional utility functions
+    function exportData() {
+        console.log('Export function called');
+        alert('Export functionality will be implemented');
+    }
+    function printData() {
+        console.log('Print function called');
+        window.print();
+    }
+    function archiveData() {
+        console.log('Archive function called');
+        alert('Archive functionality will be implemented');
+    }
+
+        function openDropdown(button, menuHtml) {
+        // Remove any existing dropdown
+        const old = document.getElementById('global-dropdown');
+        if (old) old.remove();
+
+        // Get the trainingId from the button's data-id attribute
+        const trainingId = button.getAttribute('data-id') || '';
+        const trainingName = button.getAttribute('data-name') || 'Unknown';
+
+        // Ensure trainingId is not null or undefined
+        if (!trainingId) {
+            console.error('TrainingId is missing for this dropdown');
+            alert('Error: Training ID is missing. Please ensure the activity has a valid ID.');
+            return;
+        }
+
+        // Build the dropdown HTML
+        const menuHtmlContent = `
+            <a href="/TrainingList/TrainingDetails/${trainingId}" class="custom-dropdown-item">
+                <i class="fas fa-eye"></i> View
+            </a>
+            <a href="/TrainingList/EditTraining/${trainingId}" class="custom-dropdown-item">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            <a href="#" class="custom-dropdown-item" onclick="deleteTraining('${trainingId}', '${trainingName.replace(/'/g, "\\'")}')">
+                <i class="fas fa-trash"></i> Delete
+            </a>
+        `;
+
+        // Locate button position for absolute placement
+        const rect = button.getBoundingClientRect();
+
+        const dropdown = document.createElement('div');
+        dropdown.id = 'global-dropdown';
+        dropdown.style.position = 'absolute';
+        dropdown.style.top = rect.bottom + window.scrollY + 'px';
+        dropdown.style.left = rect.left + window.scrollX + 'px';
+        dropdown.style.zIndex = 20000;
+        dropdown.style.background = '#fff';
+        dropdown.style.border = '1px solid #e5e7eb';
+        dropdown.style.borderRadius = '6px';
+        dropdown.style.boxShadow = '0 10px 25px -5px rgba(0, 0, 0, 0.2)';
+        dropdown.style.minWidth = '150px';
+        dropdown.style.padding = '4px 0';
+        dropdown.innerHTML = menuHtmlContent;
+        document.body.appendChild(dropdown);
+
+        // Close dropdown when clicking outside
+        setTimeout(() => {
+            document.addEventListener('click', function onDocClick(e) {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.remove();
+                    document.removeEventListener('click', onDocClick);
+                }
+            });
+        }, 50);
+    }
+</script>

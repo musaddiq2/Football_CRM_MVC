@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Notification Templates";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 style="color:red">IN PROGRESS</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Templates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen py-6">
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- Breadcrumb -->
+            <div class="flex items-center text-sm text-gray-500 mb-4">
+                <span>Notification Templates</span>
+                <svg class="w-4 h-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+                <span>List</span>
+            </div>
+
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-6">
+                <h1 class="text-2xl font-bold text-black">Notification Templates</h1>
+                <button class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                    New Notification Template
+                </button>
+            </div>
+
+            <!-- Main Container -->
+            <div class="bg-white rounded-lg border border-gray-200">
+                <!-- Search Bar -->
+                <div class="flex items-center justify-between p-4 border-b border-gray-100">
+                    <div class="flex-1"></div>
+
+                    <div class="flex items-center gap-3">
+                        <!-- Search Input -->
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                            </div>
+                            <input type="text"
+                                   placeholder="Search"
+                                   class="w-64 pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-300">
+                        </div>
+
+                        <!-- Three dots menu -->
+                        <button class="p-2 text-gray-400 hover:text-gray-600">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div class="flex flex-col items-center justify-center py-24">
+                    <!-- Info Icon -->
+                    <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+
+                    <!-- Text -->
+                    <h3 class="text-base font-medium text-gray-900">No Data</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

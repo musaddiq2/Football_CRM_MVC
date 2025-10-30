@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<FootBallOne.Models.RegistrationManagement>
+
+@if (!Model.Any())
+{
+    <p>No alerts in this category.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Coach</th>
+                <th>Player</th>
+                <th>Working Hours</th>
+                <th>Payment Status</th>
+                <th>Subscription Ends</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="@(item.PaymentStatus == "Not Paid" ? "table-danger" : "table-warning")">
+                    <td>@item.CoachName</td>
+                    <td>@item.Name</td>
+                    <td>@item.WorkingHours</td>
+                    <td>@item.PaymentStatus</td>
+                    <td>@(item.SubscriptionEnd?.ToString("dd/MM/yyyy") ?? "N/A")</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}

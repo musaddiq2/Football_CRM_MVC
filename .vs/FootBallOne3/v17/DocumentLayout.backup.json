@@ -1,0 +1,1045 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\FootBallOne\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\controllers\\academycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\controllers\\academycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\controllers\\cccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\controllers\\cccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\registrationmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\registrationmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\controllers\\basecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\controllers\\registrationmanagementscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\controllers\\registrationmanagementscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\academy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\academy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\parents\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\parents\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\controllers\\parentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\controllers\\parentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\linkinvitation\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\linkinvitation\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\controllers\\linkinvitation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\controllers\\linkinvitation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\editlinkmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\editlinkmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\linkinvitation\\showqr.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\linkinvitation\\showqr.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\registrationmanagements\\requestregistration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\registrationmanagements\\requestregistration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\linkinvitation\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\linkinvitation\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\linkinvitation\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\linkinvitation\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\playerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\playerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\generatelinkmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\generatelinkmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\parents\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\parents\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\parents\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\parents\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\parents\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\parents\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\parentcreateviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\parentcreateviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\registrationmanagements\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\registrationmanagements\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\registrationmanagements\\searchsubscriber.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\registrationmanagements\\searchsubscriber.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\parentphone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\parentphone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\parent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\parent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\registrationmanagements\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\registrationmanagements\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\matchinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\matchinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\eventlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\eventlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\eventlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\eventlist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\eventlist\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\eventlist\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\controllers\\calendarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\controllers\\calendarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\campviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\campviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\camplist\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\camplist\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\camplist\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\camplist\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\camplist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\camplist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\tournamentslist\\_teamslistpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\tournamentslist\\_teamslistpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\tournamentslist\\teamdelete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\tournamentslist\\teamdelete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\teamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\teamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\tournamentslist\\teamdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\tournamentslist\\teamdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\tournamentslist\\teamedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\tournamentslist\\teamedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\tournamentslist\\teamcreate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\tournamentslist\\teamcreate.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\tournamentslist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\tournamentslist\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\controllers\\tournamentslistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\controllers\\tournamentslistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\traininglist\\edittraining.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\traininglist\\edittraining.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\tournamentslist\\_matcheslistpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\tournamentslist\\_matcheslistpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\matchlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\matchlistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\matchviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\matchviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\calendar\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\calendar\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\tournamentslist\\_tournamentslistpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\tournamentslist\\_tournamentslistpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\tournamentslist\\tournamentedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\tournamentslist\\tournamentedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\tournamentslist\\tournamentdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\tournamentslist\\tournamentdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\views\\tournamentslist\\tournamentdelete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\views\\tournamentslist\\tournamentdelete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\tournamentslistview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\tournamentslistview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\tournament.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\tournament.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|e:\\footballone\\footballone\\models\\tournamentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D2BBC4C-1F5C-4F54-87B7-7788CA191281}|FootBallOne\\FootBallOne.csproj|solutionrelative:footballone\\models\\tournamentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Controllers\\AdminController.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "FootBallOne\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAADwv24AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T04:08:46.133Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAADgBAAAANDMzMzMfwEMBAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-20T03:38:16.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CCController.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Controllers\\CCController.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Controllers\\CCController.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Controllers\\CCController.cs",
+              "RelativeToolTip": "FootBallOne\\Controllers\\CCController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAswCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T04:09:50.981Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AcademyController.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Controllers\\AcademyController.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Controllers\\AcademyController.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Controllers\\AcademyController.cs",
+              "RelativeToolTip": "FootBallOne\\Controllers\\AcademyController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAswCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T04:09:03.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Controllers\\HomeController.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "FootBallOne\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAgAAABgZmZmZmYswA8AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T03:43:17.962Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAACACAACAZmZmZmYWwDACAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-20T03:43:26.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BaseController.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Controllers\\BaseController.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Controllers\\BaseController.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Controllers\\BaseController.cs",
+              "RelativeToolTip": "FootBallOne\\Controllers\\BaseController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T04:13:46.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RegistrationManagement.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\RegistrationManagement.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\RegistrationManagement.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\RegistrationManagement.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\RegistrationManagement.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T04:17:45.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RegistrationManagementsController.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Controllers\\RegistrationManagementsController.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Controllers\\RegistrationManagementsController.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Controllers\\RegistrationManagementsController.cs",
+              "RelativeToolTip": "FootBallOne\\Controllers\\RegistrationManagementsController.cs",
+              "ViewState": "AgIAAPwCAAAAAAAAAADwv/4CAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T05:39:36.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Academy.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\Academy.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\Academy.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\Academy.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\Academy.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAuwCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T04:10:46.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-22T04:01:21.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Controllers\\DashboardController.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "FootBallOne\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAABEAAAAAZmZmZmYSwBIAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T03:58:28.141Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "RequestRegistration.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\RegistrationManagements\\RequestRegistration.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\RegistrationManagements\\RequestRegistration.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\RegistrationManagements\\RequestRegistration.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\RegistrationManagements\\RequestRegistration.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-20T03:56:06.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ParentsController.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Controllers\\ParentsController.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Controllers\\ParentsController.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Controllers\\ParentsController.cs",
+              "RelativeToolTip": "FootBallOne\\Controllers\\ParentsController.cs",
+              "ViewState": "AgIAAA8AAAAAzMzMzMwmwBUAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T04:02:46.791Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\Parents\\Index.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\Parents\\Index.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\Parents\\Index.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\Parents\\Index.cshtml",
+              "ViewState": "AgIAAPwAAAAAAAAAAAAwwAUBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T04:06:21.75Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ShowQR.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\LinkInvitation\\ShowQR.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\LinkInvitation\\ShowQR.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\LinkInvitation\\ShowQR.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\LinkInvitation\\ShowQR.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-20T03:37:39.032Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\LinkInvitation\\Edit.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\LinkInvitation\\Edit.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\LinkInvitation\\Edit.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\LinkInvitation\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-20T04:34:10.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EditLinkModel.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\EditLinkModel.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\EditLinkModel.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\EditLinkModel.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\EditLinkModel.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvxEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T04:32:22.016Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "LinkInvitation.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Controllers\\LinkInvitation.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Controllers\\LinkInvitation.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Controllers\\LinkInvitation.cs",
+              "RelativeToolTip": "FootBallOne\\Controllers\\LinkInvitation.cs",
+              "ViewState": "AgIAAJ4AAACA//////8rwKQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T03:27:19.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "List.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\LinkInvitation\\List.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\LinkInvitation\\List.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\LinkInvitation\\List.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\LinkInvitation\\List.cshtml",
+              "ViewState": "AgIAACUDAAAAAAAAAADwvysDAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-20T03:36:18.591Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\LinkInvitation\\Index.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\LinkInvitation\\Index.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\LinkInvitation\\Index.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\LinkInvitation\\Index.cshtml",
+              "ViewState": "AgIAAGMBAAAAAAAAAAAwwGkBAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-20T03:34:51.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PlayerRequest.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\PlayerRequest.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\PlayerRequest.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\PlayerRequest.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\PlayerRequest.cs",
+              "ViewState": "AgIAAAMAAACgmZmZmZkVwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T03:31:55.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "GenerateLinkModel.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\GenerateLinkModel.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\GenerateLinkModel.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\GenerateLinkModel.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\GenerateLinkModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T03:26:15.019Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\Parents\\Delete.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\Parents\\Delete.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\Parents\\Delete.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\Parents\\Delete.cshtml",
+              "ViewState": "AgIAABwAAAAA//////8vwCIAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T06:32:04.43Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\Parents\\Edit.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\Parents\\Edit.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\Parents\\Edit.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\Parents\\Edit.cshtml",
+              "ViewState": "AgIAAGEDAAAAAAAAAADwv2QDAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T06:13:50.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "FootBallOne\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAALgAAAAAAAAAAADwv8YAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T03:46:20.198Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\Parents\\Create.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\Parents\\Create.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\Parents\\Create.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\Parents\\Create.cshtml",
+              "ViewState": "AgIAABoCAAAALjMzMzMrwCMCAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T04:17:49.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ParentCreateViewModel.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\ParentCreateViewModel.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\ParentCreateViewModel.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\ParentCreateViewModel.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\ParentCreateViewModel.cs",
+              "ViewState": "AgIAAE0AAADAzMzMzMwqwFMAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T03:57:49.58Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "SearchSubscriber.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\RegistrationManagements\\SearchSubscriber.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\RegistrationManagements\\SearchSubscriber.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\RegistrationManagements\\SearchSubscriber.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\RegistrationManagements\\SearchSubscriber.cshtml",
+              "ViewState": "AgIAAAsBAAAAZmZmZmYkwA0BAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-17T06:33:41.754Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\RegistrationManagements\\Index.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\RegistrationManagements\\Index.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\RegistrationManagements\\Index.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\RegistrationManagements\\Index.cshtml",
+              "ViewState": "AgIAAFUDAAAAAAAAAADwv10DAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-15T04:43:59.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ParentPhone.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\ParentPhone.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\ParentPhone.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\ParentPhone.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\ParentPhone.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T03:57:00.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Parent.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\Parent.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\Parent.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\Parent.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\Parent.cs",
+              "ViewState": "AgIAAA8AAACAMzMzMzMbwDcAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T03:56:25.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\RegistrationManagements\\Delete.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\RegistrationManagements\\Delete.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\RegistrationManagements\\Delete.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\RegistrationManagements\\Delete.cshtml",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAwwEsAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-17T06:17:54.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "MatchInfo.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\MatchInfo.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\MatchInfo.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\MatchInfo.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\MatchInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T15:37:04.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "EventListViewModel.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\EventListViewModel.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\EventListViewModel.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\EventListViewModel.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\EventListViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T15:03:13.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Event.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\Event.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\Event.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\Event.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\Event.cs",
+              "ViewState": "AgIAAHUAAAAAoJmZmZkBwHsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T15:04:46.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\EventList\\Index.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\EventList\\Index.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\EventList\\Index.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\EventList\\Index.cshtml",
+              "ViewState": "AgIAAM0AAAAAADMzMzMLwNUAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-10T15:05:38.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\EventList\\Details.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\EventList\\Details.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\EventList\\Details.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\EventList\\Details.cshtml",
+              "ViewState": "AgIAAHsAAAAANDMzMzMpwIEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-10T15:10:03.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "CalendarController.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Controllers\\CalendarController.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Controllers\\CalendarController.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Controllers\\CalendarController.cs",
+              "RelativeToolTip": "FootBallOne\\Controllers\\CalendarController.cs",
+              "ViewState": "AgIAAMMCAABAAwAAAAAcwMsCAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T15:31:06.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\CampList\\Details.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\CampList\\Details.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\CampList\\Details.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\CampList\\Details.cshtml",
+              "ViewState": "AgIAAIsCAAAAAAAAAAAwwJYCAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-09T15:28:24.605Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\CampList\\Index.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\CampList\\Index.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\CampList\\Index.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\CampList\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-09T15:27:36.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "CampViewModel.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\CampViewModel.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\CampViewModel.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\CampViewModel.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\CampViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T15:24:57.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\CampList\\Delete.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\CampList\\Delete.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\CampList\\Delete.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\CampList\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-09T15:29:41.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "TeamViewModel.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\TeamViewModel.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\TeamViewModel.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\TeamViewModel.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\TeamViewModel.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAuwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T03:44:42.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "TeamEdit.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\TeamEdit.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\TournamentsList\\TeamEdit.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\TeamEdit.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\TournamentsList\\TeamEdit.cshtml",
+              "ViewState": "AgIAAPABAAAAAAAAAAAwwPgBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-04T05:45:00.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "TeamCreate.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\TeamCreate.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\TournamentsList\\TeamCreate.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\TeamCreate.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\TournamentsList\\TeamCreate.cshtml",
+              "ViewState": "AgIAAGkBAAAAAAAAAAAwwHIBAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-04T03:54:11.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "TeamDetails.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\TeamDetails.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\TournamentsList\\TeamDetails.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\TeamDetails.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\TournamentsList\\TeamDetails.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-06T15:53:07.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "TeamDelete.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\TeamDelete.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\TournamentsList\\TeamDelete.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\TeamDelete.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\TournamentsList\\TeamDelete.cshtml",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAwwEsAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-06T16:16:18.395Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "_TeamsListPartial.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\_TeamsListPartial.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\TournamentsList\\_TeamsListPartial.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\_TeamsListPartial.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\TournamentsList\\_TeamsListPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-04T05:46:56.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\Index.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\TournamentsList\\Index.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\Index.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\TournamentsList\\Index.cshtml",
+              "ViewState": "AgIAAHABAAAAOjMzMzMfwIIBAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-01T15:15:33.768Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "TournamentsListController.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Controllers\\TournamentsListController.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Controllers\\TournamentsListController.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Controllers\\TournamentsListController.cs",
+              "RelativeToolTip": "FootBallOne\\Controllers\\TournamentsListController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T03:28:18.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "EditTraining.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\TrainingList\\EditTraining.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\TrainingList\\EditTraining.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\TrainingList\\EditTraining.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\TrainingList\\EditTraining.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-08T15:31:34.185Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "_MatchesListPartial.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\_MatchesListPartial.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\TournamentsList\\_MatchesListPartial.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\_MatchesListPartial.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\TournamentsList\\_MatchesListPartial.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAwwDQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-02T15:02:12.206Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "Team.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\Team.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\Team.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\Team.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\Team.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T03:43:58.716Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "MatchViewModel.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\MatchViewModel.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\MatchViewModel.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\MatchViewModel.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\MatchViewModel.cs",
+              "ViewState": "AgIAACEAAAAAMzMzMzMfwAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-01T15:38:26.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "MatchListViewModel.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\MatchListViewModel.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\MatchListViewModel.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\MatchListViewModel.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\MatchListViewModel.cs",
+              "ViewState": "AgIAAAgAAABgZmZmZmYswAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-01T15:00:22.159Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "_TournamentsListPartial.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\_TournamentsListPartial.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\TournamentsList\\_TournamentsListPartial.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\_TournamentsListPartial.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\TournamentsList\\_TournamentsListPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-02T15:30:29.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\Calendar\\Index.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\Calendar\\Index.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\Calendar\\Index.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\Calendar\\Index.cshtml",
+              "ViewState": "AgIAAHgAAABAMzMzMzMtwJEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-03T15:13:58.281Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "TournamentEdit.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\TournamentEdit.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\TournamentsList\\TournamentEdit.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\TournamentEdit.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\TournamentsList\\TournamentEdit.cshtml",
+              "ViewState": "AgIAAEsAAAAApTIzMzMPwN0BAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-02T16:03:26.729Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "TournamentDetails.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\TournamentDetails.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\TournamentsList\\TournamentDetails.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\TournamentDetails.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\TournamentsList\\TournamentDetails.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-02T16:06:34.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "TournamentDelete.cshtml",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\TournamentDelete.cshtml",
+              "RelativeDocumentMoniker": "FootBallOne\\Views\\TournamentsList\\TournamentDelete.cshtml",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Views\\TournamentsList\\TournamentDelete.cshtml",
+              "RelativeToolTip": "FootBallOne\\Views\\TournamentsList\\TournamentDelete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-02T16:05:08.494Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "TournamentsListView.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\TournamentsListView.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\TournamentsListView.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\TournamentsListView.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\TournamentsListView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T14:50:25.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "Tournament.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\Tournament.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\Tournament.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\Tournament.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\Tournament.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAswCwAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T14:51:28.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "TournamentViewModel.cs",
+              "DocumentMoniker": "E:\\FootBallOne\\FootBallOne\\Models\\TournamentViewModel.cs",
+              "RelativeDocumentMoniker": "FootBallOne\\Models\\TournamentViewModel.cs",
+              "ToolTip": "E:\\FootBallOne\\FootBallOne\\Models\\TournamentViewModel.cs",
+              "RelativeToolTip": "FootBallOne\\Models\\TournamentViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T14:52:27.628Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
